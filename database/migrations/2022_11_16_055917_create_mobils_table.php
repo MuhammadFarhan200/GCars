@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('warna');
             $table->text('deskripsi');
             $table->bigInteger('harga');
-            $table->string('status');
+            $table->enum('status', ['tersedia', 'sold out']);
             $table->timestamps();
 
             $table->foreign('id_merek')->references('id')->on('mereks')->onDelete('cascade');
