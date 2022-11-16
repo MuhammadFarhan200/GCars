@@ -18,7 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id_role',
         'name',
+        'username',
         'email',
         'password',
     ];
@@ -41,4 +43,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'id_role');
+    }
+
+    public function image()
+    {
+        if ($this->foto_profil && file_exists(public_path('images/user/' . $this->foto_profil))) {
+            return asset('images/user/' . $this->foto_profil);
+        }
+
+        return asset('images/user/default.png');
+    }
 }
