@@ -63,6 +63,13 @@
 
                     <li class="sidebar-title">Table</li>
 
+                    <li class="sidebar-item {{ request()->is('admin/merek*') ? 'active' : '' }}">
+                        <a href="{{ route('merek.index') }}" class='sidebar-link'>
+                            <i class="bi bi-pie-chart-fill"></i>
+                            <span>Merek</span>
+                        </a>
+                    </li>
+
                     {{-- <li class="sidebar-item {{ request()->is('admin/tahun-rilis') ? 'active' : '' }}">
                         <a href="{{ route('tahun-rilis.index') }}" class='sidebar-link'>
                             <i class="bi bi-calendar-check-fill"></i>

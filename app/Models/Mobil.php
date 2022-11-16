@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Mobil extends Model
 {
     use HasFactory;
+
+    protected $guarded = [ 'id' ];
+
+    public function merek()
+    {
+        return $this->belongsTo(Merek::class, 'id_merek');
+    }
 }

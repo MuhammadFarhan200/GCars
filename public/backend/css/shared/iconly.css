@@ -3,8 +3,8 @@
     font-family: Iconly---Bold;
     font-style: normal;
     font-weight: 400;
-    src: url(../../../assets/fonts/Iconly---Bold.eot?28e188c5605bf0f07f2ef925ac6770b7);
-    src: url(../../../assets/fonts/Iconly---Bold.eot?28e188c5605bf0f07f2ef925ac6770b7) format("embedded-opentype"), url(../../../assets/fonts/Iconly---Bold.ttf?47ce72491b157373a2741e656d689fd8) format("truetype"), url(../../../assets/fonts/Iconly---Bold.woff?5990bc92ceb70a74c8b4d3b9b805c80e) format("woff"), url(../../../assets/fonts/Iconly---Bold.svg?dce2fd97ea6ae5eeb225634bba6f38f0) format("svg")
+    src: url(../../../backend/fonts/Iconly---Bold.eot?28e188c5605bf0f07f2ef925ac6770b7);
+    src: url(../../../backend/fonts/Iconly---Bold.eot?28e188c5605bf0f07f2ef925ac6770b7) format("embedded-opentype"), url(../../../backend/fonts/Iconly---Bold.ttf?47ce72491b157373a2741e656d689fd8) format("truetype"), url(../../../backend/fonts/Iconly---Bold.woff?5990bc92ceb70a74c8b4d3b9b805c80e) format("woff"), url(../../../backend/fonts/Iconly---Bold.svg?dce2fd97ea6ae5eeb225634bba6f38f0) format("svg")
 }
 
 [class*=" iconly-bold"],

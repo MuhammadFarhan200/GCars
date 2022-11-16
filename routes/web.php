@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MerekController;
 use App\Http\Controllers\PenggunaController;
 
 /*
@@ -27,4 +28,5 @@ Route::get('/errors', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+    Route::resource('merek', MerekController::class);
 });
