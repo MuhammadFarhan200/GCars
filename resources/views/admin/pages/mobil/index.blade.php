@@ -2,8 +2,8 @@
 @section('title-page', 'Data Genre Film')
 
 @section('page-heading')
-  <h2>Merek</h2>
-  <p>Lihat data <b>Merek</b> pada table dibawah</p>
+  <h2>Mobil</h2>
+  <p>Lihat data <b>Mobil</b> pada table dibawah</p>
 @endsection
 
 @section('page-content')
@@ -16,8 +16,8 @@
     <div class="col-md-12">
       <div class="card shadow">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3 class="font-bold text-center m-0">Data Merek</h3>
-          <a href="{{ route('merek.create') }}" class="btn btn-primary">
+          <h3 class="font-bold text-center m-0">Data Mobil</h3>
+          <a href="{{ route('mobil.create') }}" class="btn btn-primary">
             <i class="bi bi-plus-circle me-1"></i>
             Tambah
           </a>
@@ -28,8 +28,8 @@
               <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th class="text-center">Nama Merek</th>
-                  <th class="text-center">Slug</th>
+                  <th class="text-center">Merek</th>
+                  <th class="text-center">Tipe</th>
                   <th class="text-center">Action</th>
                 </tr>
               </thead>
@@ -37,19 +37,19 @@
                 @php
                   $no = 1;
                 @endphp
-                @foreach ($mereks as $merek)
+                @foreach ($mobils as $mobil)
                   <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $merek->nama }}</td>
-                    <td>{{ $merek->slug }}</td>
+                    <td>{{ $mobil->merek->nama }}</td>
+                    <td>{{ $mobil->tipe }}</td>
                     <td class="text-nowrap">
-                        <a href="{{ route('merek.edit', $merek->id) }}" class="btn btn-sm btn-success mx-1">
+                        <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-sm btn-success mx-1">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="{{ route('merek.show', $merek->id) }}" class="btn btn-sm btn-warning mx-1">
+                        <a href="{{ route('mobil.show', $mobil->id) }}" class="btn btn-sm btn-warning mx-1">
                             <i class="bi bi-eye-fill"></i>
                         </a>
-                      <form id="data-{{ $merek->id }}" action="{{ route('merek.destroy', $merek->id) }}" method="post" class="d-inline">
+                      <form id="data-{{ $mobil->id }}" action="{{ route('mobil.destroy', $mobil->id) }}" method="post" class="d-inline">
                         @csrf
                         @method('delete')
                         <button class="btn btn-danger btn-sm mx-1" type="submit" onclick="event.preventDefault(); confirmDelete({{ $merek->id }})">

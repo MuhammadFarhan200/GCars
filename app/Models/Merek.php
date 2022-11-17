@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Merek extends Model
 {
@@ -20,7 +21,7 @@ class Merek extends Model
     {
         parent::boot();
 
-        self::deleting(function ($genre) {
+        self::deleting(function ($merek) {
             // Mengecek Apakah Merke Memiliki Mobil
             if ($merek->mobil->count() > 0) {
                 Alert::html('Gagal Mengapus!', 'Tidak dapat menghapus merek <b>' . $merek->nama . '</b>, masih ada mobil dengan merek ini.', 'error')->autoClose(false);

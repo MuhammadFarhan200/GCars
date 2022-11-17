@@ -70,6 +70,13 @@
                         </a>
                     </li>
 
+                    <li class="sidebar-item {{ request()->is('admin/mobil*') ? 'active' : '' }}">
+                        <a href="{{ route('mobil.index') }}" class='sidebar-link'>
+                            <i class="bi bi-car-front-fill"></i>
+                            <span>Mobil</span>
+                        </a>
+                    </li>
+
                     {{-- <li class="sidebar-item {{ request()->is('admin/tahun-rilis') ? 'active' : '' }}">
                         <a href="{{ route('tahun-rilis.index') }}" class='sidebar-link'>
                             <i class="bi bi-calendar-check-fill"></i>

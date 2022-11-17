@@ -27,7 +27,7 @@ class MerekController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.merek.create');
     }
 
     /**
@@ -56,7 +56,8 @@ class MerekController extends Controller
      */
     public function show($id)
     {
-        //
+        $merek = Merek::findOrFail($id);
+        return view('admin.pages.merek.show', compact('merek'));
     }
 
     /**
@@ -67,7 +68,8 @@ class MerekController extends Controller
      */
     public function edit($id)
     {
-        //
+        $merek = Merek::findOrFail($id);
+        return view('admin.pages.merek.edit', compact('merek'));
     }
 
     /**
@@ -86,12 +88,12 @@ class MerekController extends Controller
                 'nama' => 'required|max:255|unique:mereks',
             ]);
             $merek->nama = $validated['nama'];
-            $merek->slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $validated['slug']));
+            $merek->slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $validated['nama']));
             $merek->save();
         }
 
         Alert::success('Done', 'Data Merek Berhasil Di Edit')->autoClose();
-        return redirect->route('merek.index');
+        return redirect()->route('merek.index');
     }
 
     /**
@@ -102,10 +104,9 @@ class MerekController extends Controller
      */
     public function destroy($id)
     {
-        // if (!Merek::destroy($id)) {
-        //     return redirect()->back();
-        // }
-        Merek::destroy($id);
+        if (!Merek::destroy($id)) {
+            return redirect()->back();
+        }
         return redirect()->route('merek.index');
     }
 }

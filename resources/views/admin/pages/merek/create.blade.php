@@ -1,51 +1,61 @@
-<div class="modal fade" id="addMerek" tabindex="-1" aria-label="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <form action="{{ route('merek.store') }}" method="POST">
-        @csrf
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            Tambah Merek
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+@extends('admin.layouts.main')
+
+@section('title-page', 'Tambah Merek')
+@section('page-heading')
+  <h2>Merek</h2>
+  <p>Tambah data <b>merek</b> dengan mengisi forum dibawah</p>
+@endsection
+
+@section('page-content')
+  <div class="row mb-5">
+    <div class="col-lg-8 mx-auto">
+      <div class="card shadow">
+        <div class="card-header">
+          <h3>Tmabah Data Merek</h3>
         </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="">Nama Merek</label>
-            <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror"
-              value="{{ old('nama') }}" required autofocus>
-            @error('nama')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-            @enderror
-          </div>
-          <div class="form-group">
-            <label for="">Slug</label>
-            <input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror"
-              value="{{ old('slug') }}" required readonly>
-            @error('slug')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-            @enderror
-          </div>
+        <div class="card-body">
+          <form action="{{ route('merek.store') }}" method="post">
+            @csrf
+            <div class="form-group">
+              <label for="">Nama Merek</label>
+              <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama Merek" required>
+              @error('nama')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="">Slug</label>
+              <input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror" required readonly>
+              @error('slug')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+            <div class="d-flex justify-content-end align-items-center mt-4">
+              <a href="{{ route('merek.index') }}" class="btn btn-secondary px-3 me-3">Batal</a>
+              <button type="submit" class="btn btn-primary px-3">
+                Tambah
+              </button>
+            </div>
+          </form>
         </div>
-        <div class="modal-footer">
-          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+@endsection
 
-<script>
-  document.querySelector('#nama').addEventListener('input', function() {
-    document.querySelector('#slug').value = this.value.toLowerCase()
-      .trim()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/[\s_-]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-  });
-</script>
+@section('myScript')
+  <script>
+    document.querySelector('#nama').addEventListener('input', function() {
+      document.querySelector('#slug').value = this.value.toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    });
+  </script>
+@endsection
+
