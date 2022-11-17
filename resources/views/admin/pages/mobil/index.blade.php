@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title-page', 'Data Genre Film')
+@section('title-page', 'Data Mobil')
 
 @section('page-heading')
   <h2>Mobil</h2>

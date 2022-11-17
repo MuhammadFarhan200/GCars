@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title-page', 'Data Genre Film')
+@section('title-page', 'Data Merek')
 
 @section('page-heading')
   <h2>Merek</h2>
