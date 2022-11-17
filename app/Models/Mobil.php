@@ -15,4 +15,8 @@ class Mobil extends Model
     {
         return $this->belongsTo(Merek::class, 'id_merek');
     }
+    public function gambar()
+    {
+        return $this->hasMany(GambarMobil::class, 'id_mobil');
+    }
 }
