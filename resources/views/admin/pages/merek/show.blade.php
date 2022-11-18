@@ -32,7 +32,8 @@
             <input type="number" class="form-control" value="{{ $merek->mobil->count() }}" id="" readonly>
           </div>
           <div class="d-flex justify-content-end align-items-center mt-4">
-            <a href="{{ route('merek.index') }}" class="btn btn-primary px-3 me-3">Kembali</a>
+            <a href="{{ route('merek.edit', $merek->id) }}" class="btn btn-primary px-3 me-3">Edit</a>
+            <a href="{{ route('merek.index') }}" class="btn btn-secondary px-3">Kembali</a>
           </div>
         </div>
       </div>

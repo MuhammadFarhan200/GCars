@@ -33,15 +33,21 @@
     },
   });
 </script>
-{{-- Text Editor --}}
-<script src="{{ asset('backend/js/pages/quill.js') }}"></script>
 
-<script src="{{ asset('backend/extensions/tinymce/tinymce.min.js') }}"></script>
-<script src="{{ asset('backend/js/pages/tinymce.js') }}"></script>
-
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <script>
-  // Dropzone has been added as a global variable.
-  const dropzone = new Dropzone("#my-dropzone", {
-    url: "/images/mobil/gambar-mobil"
+  Dropzone.options.myDropzone = {
+    paramName: "gambar"
+    acceptedFiles: ".jpeg,.jpg,.png,.webp"
+  };
+</script>
+
+<script src="https://cdn.tiny.cloud/1/id3pcel5lcze1le8mq71lrpww5amh6mk8cim5up2ktyy4j94/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+    plugins: 'powerpaste advcode table lists checklist',
+    toolbar: 'undo redo | blocks| bold italic | bullist numlist checklist | table',
+    height: 300
   });
 </script>

@@ -28,10 +28,10 @@ Route::get('/errors', function () {
     return view('errors.403');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
     Route::resource('merek', MerekController::class);
     Route::resource('mobil', MobilController::class);
-    Route::get('tambah-gambar/mobil/{id}', [GambarMobilController::class, 'index'])->name('tambahGambar.index');
-    Route::post('tambah-gambar/mobil/', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
+    Route::get('mobil/{id}/tambah-gambar', [GambarMobilController::class, 'index'])->name('tambahGambar.index');
+    Route::post('mobil/tambah-gambar', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
 });

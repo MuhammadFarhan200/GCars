@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GambarMobil;
+use App\Models\Mobil;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GambarMobilController extends Controller
 {
@@ -13,7 +16,18 @@ class GambarMobilController extends Controller
      */
     public function index($id)
     {
-        return view('admin.pages.gambarMobil.create');
+        $files = scandir(public_path('images'));
+        $data = [];
+        foreach ($files as $row) {
+            if ($row != '.' && $row != '..') {
+                $data[] = [
+                    'name' => explode('.', $row)[0],
+                    'url' => asset('images/' . $row),
+                ];
+            }
+        }
+        $mobil = Mobil::findOrFail($id);
+        return view('admin.pages.gambarMobil.create', compact('data', 'mobil'));
     }
 
     /**
@@ -24,7 +38,15 @@ class GambarMobilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gambarMobil = new GambarMobil;
+        $gambarMobil->id_mobil = $request->id_mobil;
+        $image = $request->file('gambar');
+        $imageName = rand(1000, 9999) . $image->getClientOriginalName();
+        $image->move('images/mobil/', $imageName);
+        $gambarMobil->gambar = $imageName;
+        $gambarMobil->save();
+        Alert::success('Done', 'Gambar berhasil ditambahkan')->autoClose();
+        return redirect()->route('tambahGambar.index');
     }
 
     /**

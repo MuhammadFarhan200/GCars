@@ -2,7 +2,7 @@
 
 @section('title-page', 'Lihat Mobil')
 @section('page-heading')
-  <h2>Lihat Mobil</h2>
+  <h2>Mobil</h2>
   <p>Lihat salah satu data <b>mobil</b> dibawah ini</p>
 @endsection
 

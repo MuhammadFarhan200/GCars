@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
               <label for="">Slug</label>
-              <input type="text" name="slug" id="slug" value="{{ $merek->slug }}" class="form-control @error('slug') is-invalid @enderror" required readonly>
+              <input type="text" name="slug" id="slug" value="{{ $merek->slug }}" class="form-control @error('slug') is-invalid @enderror" required disabled>
               @error('slug')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

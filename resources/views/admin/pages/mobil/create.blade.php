@@ -2,7 +2,7 @@
 
 @section('title-page', 'Tambah Mobil')
 @section('page-heading')
-  <h2>Tambah Mobil</h2>
+  <h2>Mobil</h2>
   <p>Tambah data <b>merek</b> dengan mengisi forum dibawah</p>
 @endsection
 
@@ -85,7 +85,7 @@
                   {{ $message }}
                 </p>
               @enderror
-              <textarea name="deskripsi" id="default" cols="30" rows="10">{{ old('deskripsi') }}</textarea>
+              <textarea name="deskripsi" id="myeditorinstance">{{ old('deskripsi') }}</textarea>
             </div>
             <div class="d-flex justify-content-end align-items-center mt-4">
               <a href="{{ route('mobil.index') }}" class="btn btn-secondary px-3 me-3">Batal</a>
