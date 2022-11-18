@@ -43,6 +43,9 @@
                     <td>{{ $mobil->merek->nama }}</td>
                     <td>{{ $mobil->tipe }}</td>
                     <td class="text-nowrap">
+                        <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-sm btn-primary mx-1">
+                            <i class="bi bi-plus-lg"></i> <i class="bi bi-images"></i>
+                        </a>
                         <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-sm btn-success mx-1">
                             <i class="bi bi-pencil-square"></i>
                         </a>
@@ -52,7 +55,7 @@
                       <form id="data-{{ $mobil->id }}" action="{{ route('mobil.destroy', $mobil->id) }}" method="post" class="d-inline">
                         @csrf
                         @method('delete')
-                        <button class="btn btn-danger btn-sm mx-1" type="submit" onclick="event.preventDefault(); confirmDelete({{ $merek->id }})">
+                        <button class="btn btn-danger btn-sm mx-1" type="submit" onclick="event.preventDefault(); confirmDelete({{ $mobil->id }})">
                           <i class="bi bi-trash-fill"></i>
                         </button>
                       </form>

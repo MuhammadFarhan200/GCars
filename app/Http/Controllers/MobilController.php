@@ -30,7 +30,7 @@ class MobilController extends Controller
     public function create()
     {
         return view('admin.pages.mobil.create', [
-            'mereks' => Merek::all(),
+            'mereks' => Merek::all()->sortBy('nama'),
         ]);
     }
 
@@ -52,7 +52,7 @@ class MobilController extends Controller
             'status' => 'required',
         ];
 
-        $message = [
+        $messages = [
             'id_merek.required' => 'Merek harus dipilih!',
             'tipe.required' => 'Tipe harus diisi!',
             'tahun_keluar.required' => 'Tahun keluar harus diisi!',
@@ -89,7 +89,9 @@ class MobilController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.pages.mobil.show', [
+            'mobil' => Mobil::findOrFail($id),
+        ]);
     }
 
     /**
