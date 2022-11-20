@@ -36,9 +36,9 @@
               @enderror
             </div>
             <div class="d-flex justify-content-end align-items-center mt-4">
-              <a href="{{ route('merek.index') }}" class="btn btn-secondary px-3 me-3">Batal</a>
+              <a href="{{ route('merek.index') }}" class="btn btn-danger px-3 me-3">Batal</a>
               <button type="submit" class="btn btn-primary px-3">
-                Edit
+                Simpan
               </button>
             </div>
           </form>

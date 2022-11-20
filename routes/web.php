@@ -33,5 +33,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::resource('merek', MerekController::class);
     Route::resource('mobil', MobilController::class);
     Route::get('mobil/{id}/tambah-gambar', [GambarMobilController::class, 'index'])->name('tambahGambar.index');
-    Route::post('mobil/tambah-gambar', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
+    Route::post('mobil/{id}tambah-gambar', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
 });

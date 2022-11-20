@@ -2,8 +2,8 @@
 <script src="{{ asset('backend/js/app.js') }}"></script>
 <script src="{{ asset('backend/extensions/jquery/jquery.min.js') }}"></script>
 <!-- Need: Apexcharts -->
-<script src="{{ asset('backend/extensions/apexcharts/apexcharts.min.js') }}"></script>
-<script src="{{ asset('backend/js/pages/dashboard.js') }}"></script>
+{{-- <script src="{{ asset('backend/extensions/apexcharts/apexcharts.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('backend/js/pages/dashboard.js') }}"></script> --}}
 {{-- SweetAlert2 --}}
 <script src="{{ asset('backend/extensions/sweetalert2/sweetalert2.all.min.js') }}"></script>
 {{-- DataTable --}}
@@ -37,8 +37,9 @@
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <script>
   Dropzone.options.myDropzone = {
-    paramName: "gambar"
-    acceptedFiles: ".jpeg,.jpg,.png,.webp"
+    paramName: "gambar",
+    acceptedFiles: ".jpeg,.jpg,.png,.webp",
+    // addRemoveLinks: true,
   };
 </script>
 

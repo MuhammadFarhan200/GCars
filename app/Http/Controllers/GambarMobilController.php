@@ -16,18 +16,8 @@ class GambarMobilController extends Controller
      */
     public function index($id)
     {
-        $files = scandir(public_path('images'));
-        $data = [];
-        foreach ($files as $row) {
-            if ($row != '.' && $row != '..') {
-                $data[] = [
-                    'name' => explode('.', $row)[0],
-                    'url' => asset('images/' . $row),
-                ];
-            }
-        }
         $mobil = Mobil::findOrFail($id);
-        return view('admin.pages.gambarMobil.create', compact('data', 'mobil'));
+        return view('admin.pages.gambarMobil.create', compact('mobil'));
     }
 
     /**
@@ -36,17 +26,26 @@ class GambarMobilController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $gambarMobil = new GambarMobil;
-        $gambarMobil->id_mobil = $request->id_mobil;
-        $image = $request->file('gambar');
-        $imageName = rand(1000, 9999) . $image->getClientOriginalName();
-        $image->move('images/mobil/', $imageName);
-        $gambarMobil->gambar = $imageName;
-        $gambarMobil->save();
-        Alert::success('Done', 'Gambar berhasil ditambahkan')->autoClose();
-        return redirect()->route('tambahGambar.index');
+        $this->validate($request, [
+            'id_mobil' => 'required',
+            'gambar' => 'required|image',
+        ]);
+
+        $gambar = new GambarMobil();
+        $gambar->id_mobil = $request->id_mobil;
+
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $imageName = rand(1000, 9999) . $image->getClientOriginalName();
+            $image->move('images/mobil/', $imageName);
+            $gambar->gambar = $imageName;
+        }
+        $gambar->save();
+
+        return response()->json(['status' => true, 'mesaage' => 'image(s) uploaded!']);
+        // return $request->all();
     }
 
     /**

@@ -57,4 +57,11 @@ class User extends Authenticatable
 
         return asset('images/user/default.png');
     }
+
+    public function deleteImage()
+    {
+        if ($this->foto_profil && file_exists(public_path('images/user/' . $this->foto_profil))) {
+            return unlink(public_path('images/user/' . $this->foto_profil));
+        }
+    }
 }

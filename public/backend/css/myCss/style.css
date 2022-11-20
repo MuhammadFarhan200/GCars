@@ -23,3 +23,17 @@
 .image-modal img:hover {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 }
+
+.scroll-horizontal {
+    border-radius: .5rem;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.scroll-horizontal img {border-radius: .5rem;}
+
+.dropzone {
+    border: none !important;
+    border-radius: .5rem !important;
+    background: rgb(240, 240, 240) !important;
+}

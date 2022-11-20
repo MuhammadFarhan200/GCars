@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Merek;
+use App\Models\Mobil;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -57,7 +58,8 @@ class MerekController extends Controller
     public function show($id)
     {
         $merek = Merek::findOrFail($id);
-        return view('admin.pages.merek.show', compact('merek'));
+        $listMobil = Mobil::with('merek')->where('id', $id)->get();
+        return view('admin.pages.merek.show', compact('merek', 'listMobil'));
     }
 
     /**

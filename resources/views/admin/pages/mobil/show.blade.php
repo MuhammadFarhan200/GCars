@@ -15,18 +15,75 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table>
+            <table cellpadding="10px">
               <tbody>
                 <tr>
+                  <th>Merek</th>
+                  <td>{{ $mobil->merek->nama }}</td>
+                </tr>
+                <tr>
                   <th>Tipe</th>
-                  <td>:</td>
                   <td>{{ $mobil->tipe }}</td>
+                </tr>
+                <tr>
+                  <th>Tahun Keluar</th>
+                  <td>{{ $mobil->tahun_keluar }}</td>
+                </tr>
+                <tr>
+                  <th>Warna</th>
+                  <td>{{ $mobil->warna }}</td>
+                </tr>
+                <tr>
+                  <th>Harga</th>
+                  <td>Rp{{ number_format($mobil->harga, 2, ',', '.') }}</td>
+                </tr>
+                <tr>
+                  <th>Status</th>
+                  <td>
+                    <span class="{{ $mobil->status == 'tersedia' ? 'text-info' : 'text-danger' }}">{{ $mobil->status }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Deskripsi</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="ps-4">{!! $mobil->deskripsi !!}</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="scroll-horizontal">
+                      @foreach ($gambar as $listGambar)
+                        <img src="{{ url('images/mobil/' . $listGambar->gambar) }}" alt="" srcset="" class="d-inline-block w-75">
+                      @endforeach
+                    </div>
+
+                    {{-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false">
+                      <div class="carousel-inner">
+                        @foreach ($gambar as $listGambar)
+                          <div class="carousel-item active">
+                            <img src="{{ url('images/mobil/' . $listGambar->gambar) }}" alt="" srcset="" class="d-block w-100">
+                          </div>
+                        @endforeach
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div> --}}
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="d-flex justify-content-end align-items-center mt-4">
-            <a href="{{ route('mobil.index') }}" class="btn btn-primary">Kembali</a>
+            <a href="{{ route('mobil.index') }}" class="btn btn-danger me-3">Kembali</a>
+            <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-success me-3">Edit</a>
+            <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-primary">Tambah Gambar</a>
           </div>
         </div>
       </div>

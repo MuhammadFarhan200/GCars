@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mobil;
 use App\Models\Merek;
+use App\Models\GambarMobil;
 use RealRashid\SweetAlert\Facades\Alert;
 use Validator;
 
@@ -89,8 +90,10 @@ class MobilController extends Controller
      */
     public function show($id)
     {
+        $gambar = GambarMobil::with('mobil')->where('id_mobil', $id)->get();
         return view('admin.pages.mobil.show', [
             'mobil' => Mobil::findOrFail($id),
+            'gambar' => $gambar,
         ]);
     }
 

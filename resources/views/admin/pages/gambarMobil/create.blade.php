@@ -14,12 +14,17 @@
           <h3>Tambah Gambar Mobil</h3>
         </div>
         <div class="card-body">
-            <p>Mobil : {{ $mobil->merek->nama. ', ' .$mobil->tipe }}</p>
-          <form action="{{ route('tambahGambar.store') }}" method="post"
+            <p>Mobil yang akan ditambahkan gambar: <b>{{ $mobil->merek->nama. ', ' .$mobil->tipe }}</b></p>
+          <form action="{{ route('tambahGambar.store', $mobil->id) }}" method="post"
             enctype="multipart/form-data" class="dropzone" id="my-dropzone">
             @csrf
+            <div class="previews"></div>
             <input type="hidden" name="id_mobil" value="{{ $mobil->id }}">
           </form>
+          <div class="d-flex justify-content-end mt-4">
+            <a href="{{ route('mobil.index') }}" class="btn btn-danger me-3">Kembali</a>
+            <a href="{{ route('mobil.show', $mobil->id) }}" class="btn btn-primary">Detail Mobil</a>
+          </div>
         </div>
       </div>
     </div>
