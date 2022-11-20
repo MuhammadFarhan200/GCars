@@ -83,7 +83,7 @@
           <div class="d-flex justify-content-end align-items-center mt-4">
             <a href="{{ route('mobil.index') }}" class="btn btn-danger me-3">Kembali</a>
             <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-success me-3">Edit</a>
-            <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-primary">Tambah Gambar</a>
+            <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-primary">Edit Gambar</a>
           </div>
         </div>
       </div>

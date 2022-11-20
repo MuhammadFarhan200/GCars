@@ -17,7 +17,8 @@ class GambarMobilController extends Controller
     public function index($id)
     {
         $mobil = Mobil::findOrFail($id);
-        return view('admin.pages.gambarMobil.create', compact('mobil'));
+        $gambar = GambarMobil::with('mobil')->where('id_mobil', $id)->get();
+        return view('admin.pages.gambarMobil.index', compact('mobil', 'gambar'));
     }
 
     /**
@@ -90,6 +91,10 @@ class GambarMobilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gambar = GambarMobil::find($id);
+        $gambar->deleteImage();
+        $gambar->delete();
+        Alert::success('Done', 'Gambar berhasil dihapus')->autoClose();
+        return redirect()->route('tambahGambar.index');
     }
 }

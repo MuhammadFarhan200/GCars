@@ -45,7 +45,7 @@ class MerekController extends Controller
         $validated['slug'] = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $validated['nama']));
 
         Merek::create($validated);
-        Alert::success('Done', 'Data Merek Berhasil Di Buat')->autoClose();
+        Alert::success('Done', 'Data Merek Berhasil Dibuat')->autoClose();
         return redirect()->route('merek.index');
     }
 
@@ -94,7 +94,7 @@ class MerekController extends Controller
             $merek->save();
         }
 
-        Alert::success('Done', 'Data Merek Berhasil Di Edit')->autoClose();
+        Alert::success('Done', 'Data Merek Berhasil Diedit')->autoClose();
         return redirect()->route('merek.index');
     }
 

@@ -105,7 +105,10 @@ class MobilController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.pages.mobil.edit', [
+            'mobil' => Mobil::findOrFail($id),
+            'mereks' => Merek::all()->sortBy('nama'),
+        ]);
     }
 
     /**
@@ -117,7 +120,43 @@ class MobilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'id_merek' => 'required',
+            'tipe' => 'required',
+            'tahun_keluar' => 'required',
+            'warna' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required',
+            'status' => 'required',
+        ];
+
+        $messages = [
+            'id_merek.required' => 'Merek harus dipilih!',
+            'tipe.required' => 'Tipe harus diisi!',
+            'tahun_keluar.required' => 'Tahun keluar harus diisi!',
+            'warna.required' => 'Warna harus diisi!',
+            'deskripsi.required' => 'deskripsi harus diisi!',
+            'harga.required' => 'harga harus diisi!',
+            'status.required' => 'status harus diisi!',
+        ];
+
+        $validation = Validator::make($request->all(), $rules, $messages);
+        if ($validation->fails()) {
+            Alert::error('Oops!', 'Data yang anda input ada kesalahan!');
+            return back()->withErrors($validation)->withInput();
+        }
+
+        $mobil = Mobil::findOrFail($id);
+        $mobil->id_merek = $request->id_merek;
+        $mobil->tipe = $request->tipe;
+        $mobil->tahun_keluar = $request->tahun_keluar;
+        $mobil->warna = $request->warna;
+        $mobil->deskripsi = $request->deskripsi;
+        $mobil->harga = $request->harga;
+        $mobil->status = $request->status;
+        $mobil->save();
+        Alert::success('Done', 'Data Mobil berhasil diedit')->autoClose(2000);
+        return redirect()->route('mobil.index');
     }
 
     /**
@@ -128,6 +167,9 @@ class MobilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!Mobil::destroy($id)) {
+            return redirect()->back();
+        }
+        return redirect()->route('mobil.index');
     }
 }
