@@ -7,7 +7,7 @@
 @endsection
 
 @section('page-content')
-  <div class="row mb-5">
+  <div class="row mb-4">
     <div class="col-lg-12">
       <div class="card shadow">
         <div class="card-header">
@@ -19,6 +19,9 @@
             @csrf
             <input type="hidden" name="id_mobil" value="{{ $mobil->id }}">
           </form>
+          <p class="mt-2">
+            <b>Note: </b>agar gambar muncul setelah diupload, mohon untuk klik icon atau tombol refresh!
+          </p>
           <div class="d-flex justify-content-end mt-4">
             <a href="{{ route('mobil.index') }}" class="btn btn-danger me-3">Kembali</a>
             <a href="{{ route('mobil.show', $mobil->id) }}" class="btn btn-primary">Detail Mobil</a>
@@ -33,7 +36,7 @@
         <div class="card-header d-flex justify-content-between">
             <h3 class="text-center">Gambar dari Mobil {{ $mobil->tipe }}:</h3>
             <button onclick="window.location.reload()" class="btn btn-light rounded-circle py-2 px-2">
-                <img src="{{ asset('backend/images/refresh-button.png') }}" alt="" srcset="" width="30px">
+                <img src="{{ asset('backend/images/refresh-button.png') }}" alt="" srcset="" width="25px">
             </button>
         </div>
         <div class="card-body">

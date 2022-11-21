@@ -9,8 +9,15 @@ class Pesanan extends Model
 {
     use HasFactory;
 
+    protected $guarded = [ 'id' ];
+
     public function mobil()
     {
         return $this->belongsTo(Mobil::class, 'id_mobil');
+    }
+
+    public function pemesan()
+    {
+        return $this->belongsTo(Pemesan::class, 'id_pemesan');
     }
 }

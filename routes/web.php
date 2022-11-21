@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MerekController;
 use App\Http\Controllers\MobilController;
+use App\Http\Controllers\PesananContoller;
 use App\Http\Controllers\GambarMobilController;
 use App\Http\Controllers\PenggunaController;
 
@@ -33,6 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::resource('merek', MerekController::class);
     Route::resource('mobil', MobilController::class);
+    Route::resource('pemesanan', PesananContoller::class);
     Route::get('mobil/{id}/tambah-gambar', [GambarMobilController::class, 'index'])->name('tambahGambar.index');
     Route::post('mobil/{id}/tambah-gambar', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
     Route::post('gambar/{id}/hapus-gambar', [GambarMobilController::class, 'destroy'])->name('tambahGambar.destroy');

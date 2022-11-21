@@ -49,6 +49,11 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'id_role');
     }
 
+    public function pemesan()
+    {
+        return $this->hasMany(Pemesan::class, 'id_user');
+    }
+
     public function image()
     {
         if ($this->foto_profil && file_exists(public_path('images/user/' . $this->foto_profil))) {

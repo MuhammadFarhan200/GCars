@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 
-@section('title-page', 'Detail Mobil')
+@s@section('title-page', 'Detail Mobil')
 @section('page-heading')
   <h2>Mobil</h2>
   <p>Lihat salah satu data <b>mobil</b> dibawah ini</p>
@@ -40,7 +40,9 @@
                 <tr>
                   <th>Status</th>
                   <td>
-                    <span class="{{ $mobil->status == 'tersedia' ? 'text-info' : 'text-danger' }}">{{ $mobil->status }}</span>
+                    <div class="badges">
+                      <span class="{{ $mobil->status == 'tersedia' ? 'badge bg-primary' : 'badge bg-danger' }}">{{ $mobil->status }}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>

@@ -92,7 +92,7 @@ class MobilController extends Controller
     {
         $gambar = GambarMobil::with('mobil')->where('id_mobil', $id)->get();
         return view('admin.pages.mobil.show', [
-            'mobil' => Mobil::findOrFail($id),
+            'mobil' => Mobil::findOrFail($id)->load('gambar'),
             'gambar' => $gambar,
         ]);
     }
