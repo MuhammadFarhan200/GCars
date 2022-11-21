@@ -32,8 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::get('/', [AdminController::class, 'index'])->name('admin');
     Route::resource('merek', MerekController::class);
     Route::resource('mobil', MobilController::class);
-    // Route::resource('gambar', GambarMobilController::class);
     Route::get('mobil/{id}/tambah-gambar', [GambarMobilController::class, 'index'])->name('tambahGambar.index');
     Route::post('mobil/{id}/tambah-gambar', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
-    // Route::post('mobil/{id}/tambah-gambar', [GambarMobilController::class, 'destroy'])->name('tambahGambar.destroy');
+    Route::post('gambar/{id}/hapus-gambar', [GambarMobilController::class, 'destroy'])->name('tambahGambar.destroy');
 });

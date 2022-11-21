@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('gambar');
             $table->timestamps();
 
-            $table->foreign('id_mobil')->references('id')->on('mobils')->onDelete('cascade');
+            $table->foreign('id_mobil')->references('id')->on('mobils');
         });
     }
 

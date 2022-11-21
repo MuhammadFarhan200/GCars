@@ -32,20 +32,22 @@
     <div class="col-lg-12">
       <div class="card shadow">
         <div class="card-header">
-            <h4>Gambar dari mobil {{ $mobil->tipe }}:</h4>
+            <h3 class="text-center">Gambar dari Mobil {{ $mobil->tipe }}:</h3>
         </div>
         <div class="card-body">
           <div class="row g-3">
+            @if ($gambar->count() < 1 )
+              <p class="text-center">Gambar belum ditambahkan.</p>
+            @endif
             @foreach ($gambar as $listGambar)
               <div class="col-lg-3 text-center">
                 <img src="{{ url('images/mobil/' . $listGambar->gambar) }}" alt="" srcset="" class="w-100 rounded-3">
-                {{-- <form id="data-{{ $listGambar->id }}" action="{{ route('tambahGambar.destroy', $listGambar->id) }}" method="post" class="d-inline">
+                <form id="data-{{ $listGambar->id }}" action="{{ route('tambahGambar.destroy', $listGambar->id) }}" method="post" class="d-inline">
                   @csrf
-                  @method('delete')
                   <button class="btn btn-danger btn-sm mt-2" type="submit" onclick="event.preventDefault(); confirmDelete({{ $listGambar->id }})">
                     <i class="bi bi-trash-fill"></i> Hapus Gambar
                   </button>
-                </form> --}}
+                </form>
               </div>
             @endforeach
           </div>

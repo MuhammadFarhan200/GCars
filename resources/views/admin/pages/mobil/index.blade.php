@@ -30,6 +30,7 @@
                   <th class="text-center">No</th>
                   <th class="text-center">Merek</th>
                   <th class="text-center">Tipe</th>
+                  <th class="text-center">Tahun Keluar</th>
                   <th class="text-center">Action</th>
                 </tr>
               </thead>
@@ -42,6 +43,7 @@
                     <td>{{ $no++ }}</td>
                     <td>{{ $mobil->merek->nama }}</td>
                     <td>{{ $mobil->tipe }}</td>
+                    <td>{{ $mobil->tahun_keluar }}</td>
                     <td class="text-nowrap">
                         <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-sm btn-primary mx-1">
                             <i class="bi bi-plus-lg"></i> <i class="bi bi-images"></i>

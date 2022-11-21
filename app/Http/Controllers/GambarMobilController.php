@@ -94,7 +94,8 @@ class GambarMobilController extends Controller
         $gambar = GambarMobil::find($id);
         $gambar->deleteImage();
         $gambar->delete();
-        Alert::success('Done', 'Gambar berhasil dihapus')->autoClose();
-        return redirect()->route('tambahGambar.index');
+        $id_mobil = $gambar->mobil->id;
+        Alert::success('Done!', 'Gambar berhasil dihapus')->autoClose();
+        return redirect()->route('tambahGambar.index', $id_mobil);
     }
 }

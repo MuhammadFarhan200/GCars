@@ -34,7 +34,7 @@
   });
 </script>
 
-<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script src="{{ asset('backend/dropzone/dist/min/dropzone.min.js') }}"></script>
 <script>
   Dropzone.options.myDropzone = {
     paramName: "gambar",

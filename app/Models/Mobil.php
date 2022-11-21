@@ -26,12 +26,12 @@ class Mobil extends Model
         parent::boot();
 
         self::deleting(function ($mobil) {
-            if ($mobil->pesanan->where('id_mobil', $mobil->id)->count() > 0) {
+            if ($mobil->pesanan->count() > 0) {
                 Alert::html('Gagal Mengapus!', 'Tidak dapat menghapus mobil <b>' . $mobil->tipe . '</b> karena masih digunakan pada table pesanan.', 'error')->autoClose(false);
                 return false;
             }
-            if ($mobil->gambar->where('id_mobil', $mobil->id)) {
-                $mobil->gambar->where('id_mobil', $mobil->id)->deleteImage();
+            if ($mobil->gambar) {
+                $mobil->gambar->deleteImage();
             }
             Alert::success('Done', 'Data Mobil Berhasil Dihapus!')->autoClose();
         });
