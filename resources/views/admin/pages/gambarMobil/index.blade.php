@@ -17,7 +17,6 @@
           <p>Mobil yang akan ditambahkan gambar: <b>{{ $mobil->merek->nama . ', ' . $mobil->tipe }}</b></p>
           <form action="{{ route('tambahGambar.store', $mobil->id) }}" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone">
             @csrf
-            <div class="previews"></div>
             <input type="hidden" name="id_mobil" value="{{ $mobil->id }}">
           </form>
           <div class="d-flex justify-content-end mt-4">
@@ -31,8 +30,11 @@
   <div class="row mb-5">
     <div class="col-lg-12">
       <div class="card shadow">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between">
             <h3 class="text-center">Gambar dari Mobil {{ $mobil->tipe }}:</h3>
+            <button onclick="window.location.reload()" class="btn btn-light rounded-circle py-2 px-2">
+                <img src="{{ asset('backend/images/refresh-button.png') }}" alt="" srcset="" width="30px">
+            </button>
         </div>
         <div class="card-body">
           <div class="row g-3">

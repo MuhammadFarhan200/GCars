@@ -11,7 +11,7 @@
     <div class="col-lg-10 mx-auto">
       <div class="card shadow">
         <div class="card-header">
-          <h3>Edit Data Mobil</h3>
+          <h3>Edit Mobil</h3>
         </div>
         <div class="card-body">
           <form action="{{ route('mobil.update', $mobil->id) }}" method="post" enctype="multipart/form-data">

@@ -11,7 +11,7 @@
     <div class="col-lg-10 mx-auto">
       <div class="card shadow">
         <div class="card-header">
-          <h3>Tambah Data Mobil</h3>
+          <h3>Tambah Mobil</h3>
         </div>
         <div class="card-body">
           <form action="{{ route('mobil.store') }}" method="post">

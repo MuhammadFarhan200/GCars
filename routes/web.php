@@ -30,6 +30,7 @@ Route::get('/errors', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+    Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::resource('merek', MerekController::class);
     Route::resource('mobil', MobilController::class);
     Route::get('mobil/{id}/tambah-gambar', [GambarMobilController::class, 'index'])->name('tambahGambar.index');

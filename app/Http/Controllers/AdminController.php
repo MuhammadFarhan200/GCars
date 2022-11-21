@@ -29,4 +29,9 @@ class AdminController extends Controller
             'jumlahPesanan'
         ));
     }
+
+    public function profile()
+    {
+        return view('admin.pages.profile');
+    }
 }
