@@ -47,7 +47,7 @@
                 <form id="data-{{ $listGambar->id }}" action="{{ route('tambahGambar.destroy', $listGambar->id) }}" method="post" class="d-inline">
                   @csrf
                   <button class="btn btn-danger btn-sm mt-2" type="submit" onclick="event.preventDefault(); confirmDelete({{ $listGambar->id }})">
-                    <i class="bi bi-trash-fill"></i> Hapus Gambar
+                    <i class="bi bi-trash-fill"></i> Hapus
                   </button>
                 </form>
               </div>
