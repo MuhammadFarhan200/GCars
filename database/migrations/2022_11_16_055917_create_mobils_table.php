@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('mobils', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_merek');
+            $table->string('slug')->unique();
             $table->string('tipe');
             $table->year('tahun_keluar');
             $table->string('warna');

@@ -18,10 +18,10 @@
             @csrf
             <div class="form-group">
               <label for="">Merek</label>
-              <select name="id_merek" id="" class="form-select @error('id_merek') is-invalid @enderror" required>
+              <select name="id_merek" id="id_merek" class="form-select @error('id_merek') is-invalid @enderror" required>
                 <option value="">Pilih Merek</option>
                 @foreach ($mereks as $merek)
-                    <option value="{{ $merek->id }}" {{ old('id_merek') == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
+                  <option value="{{ $merek->id }}" {{ old('id_merek') == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
                 @endforeach
               </select>
               @error('id_merek')
@@ -40,11 +40,15 @@
               @enderror
             </div>
             <div class="form-group">
+              <label for="">Slug</label>
+              <input type="text" name="tipe" id="slug" class="form-control" value="" placeholder="Masukkkan slug mobil" disabled>
+            </div>
+            <div class="form-group">
               <label for="">Tahun Keluar</label>
               <select name="tahun_keluar" id="tahun_keluar" class="form-control @error('tahun_keluar') is-invalid @enderror" required>
                 <option {{ old('tahun_keluar') ? '' : 'selected' }} hidden>Pilih tahun keluar</option>
                 @php for($i = 1990;$i <= 2022; $i++) : @endphp
-                  <option value="{{ $i }}" {{ old('tahun_keluar') == $i ? 'selected' : '' }}>{{ $i }}</option>
+                <option value="{{ $i }}" {{ old('tahun_keluar') == $i ? 'selected' : '' }}>{{ $i }}</option>
                 @php endfor; @endphp
               </select>
               @error('tahun_keluar')
@@ -57,9 +61,9 @@
               <label for="">Warna</label>
               <input type="text" name="warna" id="warna" class="form-control @error('warna') is-invalid @enderror" value="{{ old('warna') }}" placeholder="Masukkkan warna mobil" required>
               @error('warna')
-                  <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
-                  </span>
+                </span>
               @enderror
             </div>
             <div class="form-group">
@@ -100,3 +104,14 @@
   </div>
 @endsection
 
+@section('myScript')
+  <script>
+    document.querySelector('#tipe').addEventListener('input', function() {
+      document.querySelector('#slug').value = this.value.toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    });
+  </script>
+@endsection

@@ -26,6 +26,11 @@
                   <td>{{ $mobil->tipe }}</td>
                 </tr>
                 <tr>
+                <tr>
+                  <th>Slug</th>
+                  <td>{{ $mobil->slug }}</td>
+                </tr>
+                <tr>
                   <th>Tahun Keluar</th>
                   <td>{{ $mobil->tahun_keluar }}</td>
                 </tr>
