@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                   <th>Harga</th>
-                  <td>Rp{{ number_format($mobil->harga, 2, ',', '.') }}</td>
+                  <td>Rp{{ number_format($mobil->harga, 0, ',', '.') }}</td>
                 </tr>
                 <tr>
                   <th>Status</th>
@@ -78,12 +78,12 @@
           </div>
           <div class="d-flex justify-content-end align-items-center mt-4">
             <a href="{{ route('mobil.index') }}" class="btn btn-danger me-3">Kembali</a>
-            <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-primary">Edit Detail</a>
+            <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-primary me-2"><i class="bi bi-pencil-square me-2"></i>Edit Detail</a>
           </div>
         </div>
       </div>
 
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header">
           <h3>Gambar Mobil</h3>
         </div>
@@ -98,7 +98,10 @@
             @endif
           </div>
           <div class="d-flex justify-content-end align-items-center mt-4">
-            <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-primary">Edit Gambar</a>
+            <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-primary">
+              <i class="bi bi-plus-lg"></i> <i class="bi bi-images me-2"></i>
+              Edit Gambar
+            </a>
           </div>
         </div>
       </div>

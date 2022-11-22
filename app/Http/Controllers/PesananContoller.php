@@ -61,7 +61,7 @@ class PesananContoller extends Controller
     public function edit($id)
     {
         $pesanan = Pesanan::findOrFail($id);
-        return view('admin.pages.pesanan.edit');
+        return view('admin.pages.pesanan.edit', compact('pesanan'));
     }
 
     /**

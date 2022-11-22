@@ -9,7 +9,7 @@
 @section('page-content')
   <div class="row">
     <div class="col-md-12">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h3 class="font-bold text-center m-0">Daftar Transaksi</h3>
           <a href="{{ route('transaksi.create') }}" class="btn btn-primary">
@@ -37,19 +37,19 @@
                   <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $transaksi->pesanan->pemesan->nama_lengkap }}</td>
-                    <td>{{ $transaksi->tanggal_bayar }}</td>
+                    <td>{{ date('d M, Y', strtotime($transaksi->tanggal_bayar)) }}</td>
                     <td class="badges">
                         <span class="
-                        {{ $transaksi->status_trasaksi == 'Lunas' ? 'badge bg-success' : '' }}
-                        {{ $transaksi->status_trasaksi == 'Pembayaran Sebagian' ? 'badge bg-info' : '' }}
-                        {{ $transaksi->status_trasaksi == 'Menunggu Pembayaran' ? 'badge bg-warning' : '' }}
+                        {{ $transaksi->status_transaksi == 'Lunas' ? 'badge bg-success p-2' : '' }}
+                        {{ $transaksi->status_transaksi == 'Pembayaran Sebagian' ? 'badge bg-info p-2' : '' }}
+                        {{ $transaksi->status_transaksi == 'Menunggu Pembayaran' ? 'badge bg-warning p-2' : '' }}
                         ">{{ $transaksi->status_transaksi }}</span>
                     </td>
                     <td class="text-nowrap">
-                        <a href="{{ route('transaksi.edit', $transaksi->id) }}" class="btn btn-sm btn-success mx-1">
+                        <a href="{{ route('transaksi.edit', $transaksi->id) }}" class="btn btn-sm btn-warning mx-1">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="{{ route('transaksi.show', $transaksi->id) }}" class="btn btn-sm btn-warning mx-1">
+                        <a href="{{ route('transaksi.show', $transaksi->id) }}" class="btn btn-sm btn-info mx-1">
                             <i class="bi bi-eye-fill"></i>
                         </a>
                       <form id="data-{{ $transaksi->id }}" action="{{ route('transaksi.destroy', $transaksi->id) }}" method="post" class="d-inline">

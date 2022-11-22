@@ -9,7 +9,7 @@
 @section('page-content')
   <div class="row mb-5">
     <div class="col-lg-10 mx-auto">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header">
           <h3>Tambah Mobil</h3>
         </div>
@@ -98,17 +98,5 @@
       </div>
     </div>
   </div>
-@endsection
-
-@section('myScript')
-  <script>
-    document.querySelector('#nama').addEventListener('input', function() {
-      document.querySelector('#slug').value = this.value.toLowerCase()
-        .trim()
-        .replace(/[^\w\s-]/g, '')
-        .replace(/[\s_-]+/g, '-')
-        .replace(/^-+|-+$/g, '');
-    });
-  </script>
 @endsection
 

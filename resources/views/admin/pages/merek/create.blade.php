@@ -9,7 +9,7 @@
 @section('page-content')
   <div class="row mb-5">
     <div class="col-lg-8 mx-auto">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header">
           <h3>Tambah Data Merek</h3>
         </div>

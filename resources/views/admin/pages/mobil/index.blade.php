@@ -14,7 +14,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h3 class="font-bold text-center m-0">Data Mobil</h3>
           <a href="{{ route('mobil.create') }}" class="btn btn-primary">
@@ -48,10 +48,10 @@
                         <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-sm btn-primary mx-1">
                             <i class="bi bi-plus-lg"></i> <i class="bi bi-images"></i>
                         </a>
-                        <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-sm btn-success mx-1">
+                        <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-sm btn-warning mx-1">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="{{ route('mobil.show', $mobil->id) }}" class="btn btn-sm btn-warning mx-1">
+                        <a href="{{ route('mobil.show', $mobil->id) }}" class="btn btn-sm btn-info mx-1">
                             <i class="bi bi-eye-fill"></i>
                         </a>
                       <form id="data-{{ $mobil->id }}" action="{{ route('mobil.destroy', $mobil->id) }}" method="post" class="d-inline">
