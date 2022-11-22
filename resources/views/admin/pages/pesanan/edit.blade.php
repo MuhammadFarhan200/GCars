@@ -72,7 +72,7 @@
                 @csrf
                 @method('put')
                 <input type="hidden" name="status_pesanan" value="gagal">
-                <button class="btn btn-secondary" type="submit">Tandai Gagal</button>
+                <button class="btn btn-danger" type="submit">Tandai Gagal</button>
               </form>
             @endif
           </div>
