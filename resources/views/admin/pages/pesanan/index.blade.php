@@ -33,20 +33,20 @@
                   <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $pesanan->pemesan->nama_lengkap }}</td>
-                    <td>{{ $tanggal->tanggal_pesan->format('d M, Y') }}</td>
+                    <td>{{ date('d M, Y', strtotime($pesanan->tanggal_pesan)); }}</td>
                     <td class="badges">
                       <span class="
-                        {{ $pesanan->status_pesanan == 'tertunda' ? 'badge bg-dark' : '' }}
+                        {{ $pesanan->status_pesanan == 'tertunda' ? 'badge bg-secondary' : '' }}
                         {{ $pesanan->status_pesanan == 'diproses' ? 'badge bg-info' : '' }}
                         {{ $pesanan->status_pesanan == 'berhasil' ? 'badge bg-success' : '' }}
                         {{ $pesanan->status_pesanan == 'gagal' ? 'badge bg-danger' : '' }}
                       ">{{ $pesanan->status_pesanan }}</span>
                     </td>
                     <td class="text-nowrap">
-                      <a href="{{ route('merek.edit', $pesanan->id) }}" class="btn btn-sm btn-success mx-1">
+                      <a href="{{ route('pemesanan.edit', $pesanan->id) }}" class="btn btn-sm btn-success mx-1">
                         <i class="bi bi-pencil-square"></i>
                       </a>
-                      <a href="{{ route('merek.show', $merek->id) }}" class="btn btn-sm btn-warning mx-1">
+                      <a href="{{ route('pemesanan.show', $pesanan->id) }}" class="btn btn-sm btn-warning mx-1">
                         <i class="bi bi-eye-fill"></i>
                       </a>
                     </td>
