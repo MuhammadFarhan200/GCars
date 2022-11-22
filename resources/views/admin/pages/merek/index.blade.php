@@ -3,15 +3,10 @@
 
 @section('page-heading')
   <h2>Merek</h2>
-  <p>Lihat data <b>Merek</b> pada table dibawah</p>
+  <p>Kelola data <b>Merek</b> pada table dibawah</p>
 @endsection
 
 @section('page-content')
-  <div class="row">
-    <div class="col">
-      {{-- @include('admin.layouts.partials.flash') --}}
-    </div>
-  </div>
   <div class="row">
     <div class="col-md-12">
       <div class="card shadow">

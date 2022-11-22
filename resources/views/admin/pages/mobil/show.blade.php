@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 
-@s@section('title-page', 'Detail Mobil')
+@section('title-page', 'Detail Mobil')
 @section('page-heading')
   <h2>Mobil</h2>
   <p>Lihat salah satu data <b>mobil</b> dibawah ini</p>
@@ -53,8 +53,8 @@
                   <td colspan="2" class="ps-4">{!! $mobil->deskripsi !!}</td>
                 </tr>
                 <tr>
-                  {{-- <td colspan="2">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false">
+                  <td colspan="2">
+                    {{-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false">
                       <div class="carousel-inner">
                         @foreach ($gambar as $listGambar)
                           <div class="carousel-item active">
@@ -70,8 +70,8 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                       </button>
-                    </div>
-                  </td> --}}
+                    </div> --}}
+                  </td>
                 </tr>
               </tbody>
             </table>

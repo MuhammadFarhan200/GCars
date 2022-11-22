@@ -66,10 +66,24 @@
             </a>
           </li>
 
-          <li class="sidebar-item {{ request()->is('admin/mobil*') || request()->is('admin/tambah-gambar/mobil/*') ? 'active' : '' }}">
+          <li class="sidebar-item {{ request()->is('admin/mobil*') ? 'active' : '' }}">
             <a href="{{ route('mobil.index') }}" class='sidebar-link'>
               <i class="bi bi-car-front-fill"></i>
               <span>Mobil</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item {{ request()->is('admin/pemesanan*') ? 'active' : '' }}">
+            <a href="{{ route('pemesanan.index') }}" class='sidebar-link'>
+              <i class="bi bi-list-ul"></i>
+              <span>Pemesanan</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item {{ request()->is('admin/transaksi*') ? 'active' : '' }}">
+            <a href="{{ route('transaksi.index') }}" class='sidebar-link'>
+              <i class="bi bi-credit-card-2-front-fill"></i>
+              <span>Transaksi</span>
             </a>
           </li>
         @else

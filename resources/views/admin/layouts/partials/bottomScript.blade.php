@@ -1,6 +1,7 @@
 <script src="{{ asset('backend/js/bootstrap.js') }}"></script>
 <script src="{{ asset('backend/js/app.js') }}"></script>
 <script src="{{ asset('backend/extensions/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('backend/mySlider/slider.js') }}"></script>
 <!-- Need: Apexcharts -->
 {{-- <script src="{{ asset('backend/extensions/apexcharts/apexcharts.min.js') }}"></script> --}}
 {{-- <script src="{{ asset('backend/js/pages/dashboard.js') }}"></script> --}}

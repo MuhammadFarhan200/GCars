@@ -3,7 +3,7 @@
 @section('title-page', 'Edit Merek')
 @section('page-heading')
   <h2>Merek</h2>
-  <p>Lihat salah satu data <b>merek</b> pada forum dibawah</p>
+  <p>Lihat salah satu data <b>merek</b> dibawah ini</p>
 @endsection
 
 @section('page-content')

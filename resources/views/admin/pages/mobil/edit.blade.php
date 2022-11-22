@@ -3,7 +3,7 @@
 @section('title-page', 'Edit Mobil')
 @section('page-heading')
   <h2>Mobil</h2>
-  <p>Edit data <b>mobil</b> dengan mengubah forum dibawah</p>
+  <p>Edit data <b>mobil</b> dengan mengubah isi forum dibawah</p>
 @endsection
 
 @section('page-content')

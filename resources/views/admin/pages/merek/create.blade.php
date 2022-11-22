@@ -11,7 +11,7 @@
     <div class="col-lg-8 mx-auto">
       <div class="card shadow">
         <div class="card-header">
-          <h3>Tmabah Data Merek</h3>
+          <h3>Tambah Data Merek</h3>
         </div>
         <div class="card-body">
           <form action="{{ route('merek.store') }}" method="post">
