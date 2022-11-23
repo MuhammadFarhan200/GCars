@@ -22,7 +22,7 @@
               <select name="id_pesanan" id="" class="form-select @error('id_pesanan') is-invalid @enderror" required>
                 <option value="">Pilih Pesanan</option>
                 @foreach ($pesanan as $listPesanan)
-                  <option value="{{ $listPesanan->id }}" {{ $listPesanan->id_pesanan == $listPesanan->id_pesanan ? 'selected' : '' }}>
+                  <option value="{{ $listPesanan->id }}" {{ $transaksi->id_pesanan == $listPesanan->id ? 'selected' : '' }}>
                     {{ $listPesanan->mobil->tipe . ' - ' . $listPesanan->pemesan->nama_lengkap }}
                   </option>
                 @endforeach
@@ -43,8 +43,8 @@
               @enderror
             </div>
             <div class="form-group">
-              <label for="" class="d-block">Total Pembayaran Sampai Saat Ini : Rp{{ number_format($transaksi->total_bayar, 0, ',', '.') }}</label>
-              <input type="number" name="total_bayar" id="" class="form-control @error('total_bayar') is-invalid @enderror" value="" placeholder="Masukkan Total Pembayaran Baru">
+              <label for="" class="d-block">Total Bayar</label>
+              <input type="number" name="total_bayar" id="" class="form-control @error('total_bayar') is-invalid @enderror" value="{{ $transaksi->total_bayar }}" placeholder="Masukkan Total Pembayaran Baru">
               @error('total_bayar')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

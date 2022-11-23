@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
               <label for="">Slug</label>
-              <input type="text" name="tipe" id="slug" class="form-control" value="" placeholder="Masukkkan slug mobil" disabled>
+              <input type="text" name="tipe" id="slug" class="form-control" value="" disabled>
             </div>
             <div class="form-group">
               <label for="">Tahun Keluar</label>

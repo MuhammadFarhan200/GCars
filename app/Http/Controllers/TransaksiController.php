@@ -126,7 +126,7 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::findOrFail($id);
         $transaksi->id_pesanan = $request->id_pesanan;
         $transaksi->tanggal_bayar = $request->tanggal_bayar;
-        $transaksi->total_bayar = $transaksi->total_bayar + $request->total_bayar;
+        $transaksi->total_bayar = $request->total_bayar;
         $transaksi->status_transaksi = $request->status_transaksi;
         $transaksi->save();
         Alert::success('Done!', 'Data Transaksi berhasil diedit.');
@@ -143,6 +143,7 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::findOrFail($id);
         $transaksi->delete();
+        Alert::success('Done!', 'Data Transaksi berhasil dihapus.');
         return redirect()->route('transaksi.index');
     }
 }

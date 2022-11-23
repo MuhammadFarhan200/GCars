@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table cellpadding="10px">
+            <table cellpadding="7px">
               <tbody>
                 <tr>
                   <th>Merek</th>
@@ -82,7 +82,7 @@
             </table>
           </div>
           <div class="d-flex justify-content-end align-items-center mt-4">
-            <a href="{{ route('mobil.index') }}" class="btn btn-danger me-3">Kembali</a>
+            <a href="{{ route('mobil.index') }}" class="btn btn-secondary me-3">Kembali</a>
             <a href="{{ route('mobil.edit', $mobil->id) }}" class="btn btn-primary me-2"><i class="bi bi-pencil-square me-2"></i>Edit Detail</a>
           </div>
         </div>

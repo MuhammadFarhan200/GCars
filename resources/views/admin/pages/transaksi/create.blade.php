@@ -19,10 +19,10 @@
             <div class="form-group">
               <label for="">Pesanan</label>
               <select name="id_pesanan" id="" class="form-select @error('id_pesanan') is-invalid @enderror" required>
-                <option value="">Pilih Pesanan</option>
+                <option value="" selected>Pilih Pesanan</option>
                 @foreach ($pesanan as $listPesanan)
-                  <option value="{{ $listPesanan->id }}" {{ old('id_pesanan') == $listPesanan->id_pesanan ? 'selected' : '' }}>
-                    {{ $listPesanan->mobil->tipe . ' - ' . $listPesanan->pemesan->nama_lengkap }}
+                  <option value="{{ $listPesanan->id }}" {{ old('id_pesanan') == $listPesanan->id ? 'selected' : '' }}>
+                    {{ $listPesanan->mobil->merek->nama . ' ' . $listPesanan->mobil->tipe . ' - ' . $listPesanan->pemesan->nama_lengkap }}
                   </option>
                 @endforeach
               </select>

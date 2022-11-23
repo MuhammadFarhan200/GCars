@@ -50,8 +50,8 @@
             </a>
           </li>
 
-          <li class="sidebar-item {{ request()->is('admin/profile') || request()->is('home') ? 'active' : '' }}">
-            <a href="{{ route('admin.profile') }}" class='sidebar-link'>
+          <li class="sidebar-item {{ request()->is('admin/profile*') || request()->is('home') ? 'active' : '' }}">
+            <a href="{{ route('admin.profile.index', auth()->user()->username) }}" class='sidebar-link'>
               <i class="bi bi-person-circle"></i>
               <span>Profile</span>
             </a>

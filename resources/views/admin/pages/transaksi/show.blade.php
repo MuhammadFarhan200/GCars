@@ -25,7 +25,7 @@
                 <td>:</td>
                 <td>{{
                     $transaksi->pesanan->mobil->merek->nama
-                    . ' - ' .
+                    . ' ' .
                     $transaksi->pesanan->mobil->tipe
                     . ' ' .
                     $transaksi->pesanan->mobil->tahun_keluar
@@ -52,7 +52,7 @@
                   <span
                     class="
                     {{ $transaksi->status_transaksi == 'Lunas' ? 'badge bg-success p-2' : '' }}
-                    {{ $transaksi->status_transaksi == 'Pembayaran Sebagian' ? 'badge bg-info p-2' : '' }}
+                    {{ $transaksi->status_transaksi == 'Pembayaran Sebagian' ? 'badge bg-primary p-2' : '' }}
                     {{ $transaksi->status_transaksi == 'Menunggu Pembayaran' ? 'badge bg-warning p-2' : '' }}
                     ">{{ $transaksi->status_transaksi }}</span>
                 </td>
@@ -79,7 +79,7 @@
             </tbody>
           </table>
           <div class="d-flex justify-content-end align-items-center mt-4">
-            <a href="{{ route('transaksi.index') }}" class="btn btn-danger px-3 me-3">Batal</a>
+            <a href="{{ route('transaksi.index') }}" class="btn btn-secondary px-3 me-3">Kembali</a>
             <a href="{{ route('transaksi.edit', $transaksi->id) }}" class="btn btn-primary px-3 me-3">Edit</a>
           </div>
           </form>

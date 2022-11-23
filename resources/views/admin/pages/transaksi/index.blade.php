@@ -24,6 +24,7 @@
                 <tr>
                   <th class="text-center">No</th>
                   <th class="text-center">Pemesan</th>
+                  <th class="text-center">Mobil yang Dipesan</th>
                   <th class="text-center">Tanggal Bayar</th>
                   <th class="text-center">Status Transaksi</th>
                   <th class="text-center">Action</th>
@@ -37,11 +38,12 @@
                   <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $transaksi->pesanan->pemesan->nama_lengkap }}</td>
+                    <td>{{ $transaksi->pesanan->mobil->merek->nama . '  ' . $transaksi->pesanan->mobil->tipe }}</td>
                     <td>{{ date('d M, Y', strtotime($transaksi->tanggal_bayar)) }}</td>
                     <td class="badges">
                         <span class="
                         {{ $transaksi->status_transaksi == 'Lunas' ? 'badge bg-success p-2' : '' }}
-                        {{ $transaksi->status_transaksi == 'Pembayaran Sebagian' ? 'badge bg-info p-2' : '' }}
+                        {{ $transaksi->status_transaksi == 'Pembayaran Sebagian' ? 'badge bg-primary p-2' : '' }}
                         {{ $transaksi->status_transaksi == 'Menunggu Pembayaran' ? 'badge bg-warning p-2' : '' }}
                         ">{{ $transaksi->status_transaksi }}</span>
                     </td>
