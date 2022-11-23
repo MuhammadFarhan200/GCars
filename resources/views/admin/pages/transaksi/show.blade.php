@@ -16,24 +16,23 @@
         <div class="card-body">
           <table cellpadding="7px">
             <tbody>
-              <th>Pemesan</th>
-              <td>:</td>
-              <td>{{ $transaksi->pesanan->pemesan->nama_lengkap }}</td>
+              <tr>
+                <th>Kode Transaksi</th>
+                <td>:</td>
+                <td>{{ $transaksi->kode_transaksi }}</td>
+              </tr>
+              <tr>
+                <th>Pemesan</th>
+                <td>:</td>
+                <td>{{ $transaksi->pesanan->pemesan->nama_lengkap }}</td>
               </tr>
               <tr>
                 <th>Mobil</th>
                 <td>:</td>
-                <td>{{
-                    $transaksi->pesanan->mobil->merek->nama
-                    . ' ' .
-                    $transaksi->pesanan->mobil->tipe
-                    . ' ' .
-                    $transaksi->pesanan->mobil->tahun_keluar
-                    . ', ' .
-                    $transaksi->pesanan->mobil->warna
-                }}</td>
+                <td>
+                  {{ $transaksi->pesanan->mobil->merek->nama . ' ' . $transaksi->pesanan->mobil->tipe . ' ' . $transaksi->pesanan->mobil->tahun_keluar . ', ' . $transaksi->pesanan->mobil->warna }}
+                </td>
               </tr>
-              <tr>
               <tr>
                 <th>Tanggal Bayar</th>
                 <td>:</td>
@@ -44,7 +43,6 @@
                 <td>:</td>
                 <td>Rp{{ number_format($transaksi->total_bayar, 0, ',', '.') }}</td>
               </tr>
-              <tr>
               <tr>
                 <th>Status Transaksi</th>
                 <td>:</td>
@@ -57,12 +55,12 @@
                     ">{{ $transaksi->status_transaksi }}</span>
                 </td>
               </tr>
-              <tr>
             </tbody>
           </table>
           <hr />
           @php
             $sisa = $transaksi->pesanan->mobil->harga - $transaksi->total_bayar;
+            // $kembali = $transaksi->total_bayar - $transaksi->pesanan->mobil->harga;
           @endphp
           <table cellpadding="7px">
             <tbody>
@@ -74,8 +72,25 @@
               <tr>
                 <th>Sisa Pembayaran</th>
                 <td>:</td>
-                <td>Rp{{ number_format($sisa, 0, ',', '.') }}</td>
+                <td>Rp
+                  @if ($sisa <= 0)
+                    0
+                  @else
+                    {{ number_format($sisa, 0, ',', '.') }}
+                  @endif
+                </td>
               </tr>
+              {{-- <tr>
+                <th>Uang Kembali</th>
+                <td>:</td>
+                <td>Rp
+                  @if ($transaksi->total_bayar > $transaksi->pesanan->mobil->harga)
+                    {{ number_format($kembali, 0, ',', '.') }}
+                  @else
+                    0
+                  @endif
+                </td>
+              </tr> --}}
             </tbody>
           </table>
           <div class="d-flex justify-content-end align-items-center mt-4">

@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
 
     Route::get('profile/{user:username}/edit', [AdminController::class, 'editProfile'])->name('admin.profile.edit');
 
-    Route::put('profile/{user:username}/edit', [AdminController::class, 'updateProfile'])->name('admin.profile.edit');
+    Route::put('profile/{user:username}/edit', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
 
     Route::resource('merek', MerekController::class);
 

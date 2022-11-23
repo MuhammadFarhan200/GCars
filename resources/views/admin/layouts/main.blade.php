@@ -27,10 +27,6 @@
       @yield('page-content')
       {{-- End Page Content --}}
 
-      {{-- Personal Script --}}
-      @yield('myScript')
-      {{-- End Personal Script --}}
-
       <footer>
         <div class="footer clearfix mb-0 text-muted">
           <div class="float-start">
@@ -46,6 +42,10 @@
   </div>
 
   @include('admin.layouts.partials.bottomScript')
+
+  {{-- Personal Script --}}
+  @yield('myScript')
+  {{-- End Personal Script --}}
 
 </body>
 

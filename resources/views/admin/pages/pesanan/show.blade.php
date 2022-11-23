@@ -8,7 +8,7 @@
 
 @section('page-content')
   <div class="row justify-content-center">
-    <div class="col-ld-10">
+    <div class="col-lg-10">
       <div class="card">
         <div class="card-header">
           <h3>Detail Pesanan</h3>
@@ -59,13 +59,28 @@
             </table>
           </div>
           <div class="mt-3">
-            <h5>Data Pesanan Lainnya</h5>
+            <h5>Lainnya</h5>
             <table cellpadding="7px">
               <tbody>
                 <tr>
                   <th>Id Pesanan</th>
                   <td>:</td>
                   <td>{{ $pesanan->id }}</td>
+                </tr>
+                <tr>
+                  <th>Mobil yang Dipesan</th>
+                  <td>:</td>
+                  <td>{{ $pesanan->mobil->merek->nama . ' ' . $pesanan->mobil->tipe }}</td>
+                </tr>
+                <tr>
+                  <th>Harga Mobil</th>
+                  <td>:</td>
+                  <td>Rp{{ number_format($pesanan->mobil->harga, 2, ',', '.') }}</td>
+                </tr>
+                <tr>
+                  <th>Tanggal Pesan</th>
+                  <td>:</td>
+                  <td>{{ date('d M, Y', strtotime($pesanan->tanggal_pesan)) }}</td>
                 </tr>
                 <tr>
                   <th>Status Pesanan</th>
@@ -79,16 +94,6 @@
                         {{ $pesanan->status_pesanan == 'gagal' ? 'badge bg-danger' : '' }}
                     ">{{ $pesanan->status_pesanan }}</span>
                   </td>
-                </tr>
-                <tr>
-                  <th>Tanggal Pesan</th>
-                  <td>:</td>
-                  <td>{{ date('d M, Y', strtotime($pesanan->tanggal_pesan)); }}</td>
-                </tr>
-                <tr>
-                  <th>Harga Mobil</th>
-                  <td>:</td>
-                  <td>Rp{{ number_format($pesanan->mobil->harga, 2, ',', '.') }}</td>
                 </tr>
               </tbody>
             </table>

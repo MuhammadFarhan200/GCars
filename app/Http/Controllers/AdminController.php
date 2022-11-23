@@ -47,16 +47,16 @@ class AdminController extends Controller
     public function updateProfile(Request $request)
     {
         $rules = [
-            'name' => 'required|max:255',
-            'username' => 'required|max:12',
+            // 'name' => 'required|max:255',
+            // 'username' => 'required|max:12',
             'foto_profil' => 'nullable|image',
         ];
 
         $messages = [
-            'name.required' => 'Name harus diisi!',
-            'name.max' => 'Username harus memiliki jumlah karakter maksimal 255',
-            'username.required' => 'Username harus diisi!',
-            'username.max' => 'Username harus memiliki jumlah karakter maksimal 12',
+            // 'name.required' => 'Name harus diisi!',
+            // 'name.max' => 'Username harus memiliki jumlah karakter maksimal 255',
+            // 'username.required' => 'Username harus diisi!',
+            // 'username.max' => 'Username harus memiliki jumlah karakter maksimal 12',
             'foto_profil.image' => 'Foto profil harus berbentuk .jpg atau .png',
         ];
 
@@ -77,8 +77,8 @@ class AdminController extends Controller
             $user->foto_profil = $imageName;
         }
 
-        $user->name = $request->name;
-        $user->username = $request->username;
+        // $user->name = $request->name;
+        // $user->username = $request->username;
         $user->save();
         Alert::success('Done!', 'Data Profilmu berhasil diedit.');
         return redirect()->route('admin.profile.index', $user->username);

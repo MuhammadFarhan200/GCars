@@ -18,6 +18,13 @@ class PesananSeeder extends Seeder
         Pesanan::create([
             'id_pemesan' => 1,
             'id_mobil' => 1,
+            'tanggal_pesan' => \Carbon\Carbon::createFromDate(2022,11,21)->toDateTimeString(),
+            'status_pesanan' => 'tertunda',
+        ]);
+
+        Pesanan::create([
+            'id_pemesan' => 2,
+            'id_mobil' => 2,
             'tanggal_pesan' => \Carbon\Carbon::createFromDate(2022,11,23)->toDateTimeString(),
             'status_pesanan' => 'tertunda',
         ]);

@@ -21,5 +21,11 @@ class PemesanSeeder extends Seeder
             'alamat_lengkap' => 'Kp. Cilebak Desa Rancamanyar Kec. Baleendah Kab. Bandung',
             'no_hp' => '08992538143',
         ]);
+        Pemesan::create([
+            'id_user' => 2,
+            'nama_lengkap' => 'Riko',
+            'alamat_lengkap' => 'Riko Mura',
+            'no_hp' => '08983297362',
+        ]);
     }
 }

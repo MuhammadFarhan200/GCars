@@ -1,6 +1,6 @@
+<script type="text/javascript" src="{{ asset('backend/extensions/jquery/jquery.js') }}"></script>
 <script src="{{ asset('backend/js/bootstrap.js') }}"></script>
 <script src="{{ asset('backend/js/app.js') }}"></script>
-<script src="{{ asset('backend/extensions/jquery/jquery.min.js') }}"></script>
 <!-- Need: Apexcharts -->
 {{-- <script src="{{ asset('backend/extensions/apexcharts/apexcharts.min.js') }}"></script> --}}
 {{-- <script src="{{ asset('backend/js/pages/dashboard.js') }}"></script> --}}
@@ -31,6 +31,14 @@
         text: input,
       };
     },
+  });
+  $("#select-search").selectize({
+    create: false,
+    persist: false,
+    hideSelected: true,
+    closeAfterSelect: true,
+    placeholder: 'Cari Pesanan',
+    sortField: "text",
   });
 </script>
 

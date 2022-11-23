@@ -2,7 +2,7 @@
 
 @section('title-page', $title)
 @section('page-heading')
-  <h2>Profie</h2>
+  <h2>Profile</h2>
   <p>Lihat data anda pada halaman ini</p>
 @endsection
 
@@ -23,7 +23,7 @@
                         <p>Bergabung Pada {{ \Carbon\Carbon::parse(auth()->user()->created_at)->format('d M, Y') }}</p>
                         <div class="d-flex justify-content-end align-items-center mt-4">
                             <a href="{{ route('admin') }}" class="btn btn-secondary px-3 me-3">Kembali</a>
-                            <a href="{{ route('admin.profile.edit', auth()->user()->username) }}" class="btn btn-primary px-3 me-3">Edit</a>
+                            <a href="{{ route('admin.profile.edit', auth()->user()->username) }}" class="btn btn-primary px-3 me-3">Edit Foto</a>
                           </div>
                     </div>
                 </div>

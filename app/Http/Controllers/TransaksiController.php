@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Models\Pesanan;
 use Validator;
+use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class TransaksiController extends Controller
@@ -65,6 +66,7 @@ class TransaksiController extends Controller
         $transaksi->tanggal_bayar = $request->tanggal_bayar;
         $transaksi->total_bayar = $request->total_bayar;
         $transaksi->status_transaksi = $request->status_transaksi;
+        $transaksi->kode_transaksi = Str::random(12);
         $transaksi->save();
         Alert::success('Done!', 'Data Transaksi berhasil dibuat.');
         return redirect()->route('transaksi.index');
@@ -128,6 +130,7 @@ class TransaksiController extends Controller
         $transaksi->tanggal_bayar = $request->tanggal_bayar;
         $transaksi->total_bayar = $request->total_bayar;
         $transaksi->status_transaksi = $request->status_transaksi;
+        $transaksi->kode_transaksi = $request->kode_transaksi;
         $transaksi->save();
         Alert::success('Done!', 'Data Transaksi berhasil diedit.');
         return redirect()->route('transaksi.index');

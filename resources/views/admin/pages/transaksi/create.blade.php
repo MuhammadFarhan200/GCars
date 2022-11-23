@@ -18,8 +18,7 @@
             @csrf
             <div class="form-group">
               <label for="">Pesanan</label>
-              <select name="id_pesanan" id="" class="form-select @error('id_pesanan') is-invalid @enderror" required>
-                <option value="" selected>Pilih Pesanan</option>
+              <select name="id_pesanan" id="select-search" class="@error('id_pesanan') is-invalid @enderror" required>
                 @foreach ($pesanan as $listPesanan)
                   <option value="{{ $listPesanan->id }}" {{ old('id_pesanan') == $listPesanan->id ? 'selected' : '' }}>
                     {{ $listPesanan->mobil->merek->nama . ' ' . $listPesanan->mobil->tipe . ' - ' . $listPesanan->pemesan->nama_lengkap }}
@@ -64,6 +63,9 @@
                 </span>
               @enderror
             </div>
+            {{-- <div class="form-group">
+              <input type="text" id="kode_transaksi" name="kode_transaksi" value="{{ str_random(12) }}" class="form-control">
+            </div> --}}
             <div class="d-flex justify-content-end align-items-center mt-4">
               <a href="{{ route('transaksi.index') }}" class="btn btn-danger px-3 me-3">Batal</a>
               <button type="submit" class="btn btn-primary px-3">
@@ -75,4 +77,19 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('myScript')
+  {{-- <script>
+    function makeid(length) {
+      var result = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+    }
+    document.querySelector('#kode_transaksi').value = makeid(12);
+  </script> --}}
 @endsection

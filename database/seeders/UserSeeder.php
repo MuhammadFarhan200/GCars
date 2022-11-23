@@ -33,5 +33,14 @@ class UserSeeder extends Seeder
             'foto_profil' => 'default.png',
             'password' => Hash::make('farhan123'),
         ]);
+
+        User::create([
+            'name' => 'Riko',
+            'id_role' => 2,
+            'email' => 'riko1234@gmail.com',
+            'username' => 'riko',
+            'foto_profil' => 'default.png',
+            'password' => Hash::make('riko1234'),
+        ]);
     }
 }
