@@ -37,7 +37,6 @@
     persist: false,
     hideSelected: true,
     closeAfterSelect: true,
-    placeholder: 'Cari Pesanan',
     sortField: "text",
   });
 </script>

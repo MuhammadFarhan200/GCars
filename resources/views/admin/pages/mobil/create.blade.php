@@ -18,8 +18,8 @@
             @csrf
             <div class="form-group">
               <label for="">Merek</label>
-              <select name="id_merek" id="id_merek" class="form-select @error('id_merek') is-invalid @enderror" required>
-                <option value="">Pilih Merek</option>
+              <select name="id_merek" id="select-search" class="@error('id_merek') is-invalid @enderror" required>
+                {{-- <option value="">Pilih Merek</option> --}}
                 @foreach ($mereks as $merek)
                   <option value="{{ $merek->id }}" {{ old('id_merek') == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
                 @endforeach
