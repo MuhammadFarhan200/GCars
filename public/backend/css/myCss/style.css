@@ -1,27 +1,11 @@
-.cover-background {
-    width: 75%;
+*::selection {
+    background: #435ebe !important;
+    color: aliceblue;
 }
 
-@media (max-width: 576px) {
-    .cover-background {
-        width: 100%;
-    }
-}
-
-.cast-hover {
-    transition: .2s ease-in-out;
-}
-
-.cast-hover:hover {
-    transform: translate(0, -5px);
-}
-
-.image-modal img {
-    transition: all .3s;
-}
-
-.image-modal img:hover {
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+option:hover {
+    background: #435ebe !important;
+    color: aliceblue;
 }
 
 .scroll-horizontal {

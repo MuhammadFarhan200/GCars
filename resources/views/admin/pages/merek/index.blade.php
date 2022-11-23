@@ -9,7 +9,7 @@
 @section('page-content')
   <div class="row">
     <div class="col-md-12">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h3 class="font-bold text-center m-0">Data Merek</h3>
           <a href="{{ route('merek.create') }}" class="btn btn-primary">
@@ -38,12 +38,12 @@
                     <td>{{ $merek->nama }}</td>
                     <td>{{ $merek->slug }}</td>
                     <td class="text-nowrap">
-                        <a href="{{ route('merek.edit', $merek->id) }}" class="btn btn-sm btn-success mx-1">
-                            <i class="bi bi-pencil-square"></i>
-                        </a>
-                        <a href="{{ route('merek.show', $merek->id) }}" class="btn btn-sm btn-warning mx-1">
-                            <i class="bi bi-eye-fill"></i>
-                        </a>
+                      <a href="{{ route('merek.edit', $merek->id) }}" class="btn btn-sm btn-warning mx-1">
+                        <i class="bi bi-pencil-square"></i>
+                      </a>
+                      <a href="{{ route('merek.show', $merek->id) }}" class="btn btn-sm btn-info mx-1">
+                        <i class="bi bi-eye-fill"></i>
+                      </a>
                       <form id="data-{{ $merek->id }}" action="{{ route('merek.destroy', $merek->id) }}" method="post" class="d-inline">
                         @csrf
                         @method('delete')

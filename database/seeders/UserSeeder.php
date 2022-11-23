@@ -24,5 +24,14 @@ class UserSeeder extends Seeder
             'foto_profil' => 'admin2.jpeg',
             'password' => Hash::make('admin123'),
         ]);
+
+        User::create([
+            'name' => 'Farhan',
+            'id_role' => 2,
+            'email' => 'farhan@gmail.com',
+            'username' => 'hanztt',
+            'foto_profil' => 'default.png',
+            'password' => Hash::make('farhan123'),
+        ]);
     }
 }

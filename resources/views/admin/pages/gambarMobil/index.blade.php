@@ -9,7 +9,7 @@
 @section('page-content')
   <div class="row mb-4">
     <div class="col-lg-12">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header">
           <h3>Tambah Gambar Mobil</h3>
         </div>
@@ -32,7 +32,7 @@
   </div>
   <div class="row mb-5">
     <div class="col-lg-12">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header d-flex justify-content-between">
             <h3 class="text-center">Gambar dari Mobil {{ $mobil->tipe }}:</h3>
             <button onclick="window.location.reload()" class="btn btn-light rounded-circle py-2 px-2">

@@ -21,7 +21,7 @@ class AdminController extends Controller
         $jumlahPengguna = User::where('id_role', 2)->get()->count();
         $jumlahPesanan = Pesanan::all()->count();
 
-        return view('admin.index', compact(
+        return view('admin.pages.index', compact(
             'title',
             'jumlahMerek',
             'jumlahMobil',

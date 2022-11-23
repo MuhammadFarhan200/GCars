@@ -9,7 +9,7 @@
 @section('page-content')
   <div class="row mb-5">
     <div class="col-lg-8 mx-auto">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header">
           <h3>Show Data Merek</h3>
         </div>
@@ -48,7 +48,7 @@
           </table>
           <div class="d-flex justify-content-end align-items-center mt-4">
             <a href="{{ route('merek.index') }}" class="btn btn-primary px-3 me-3">Kembali</a>
-            <a href="{{ route('merek.edit', $merek->id) }}" class="btn btn-success px-3">Edit</a>
+            <a href="{{ route('merek.edit', $merek->id) }}" class="btn btn-warning px-3"><i class="bi bi-pencil-square me-2"></i>Edit</a>
           </div>
         </div>
       </div>

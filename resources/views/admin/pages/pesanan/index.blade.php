@@ -9,7 +9,7 @@
 @section('page-content')
   <div class="row">
     <div class="col-md-12">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h3 class="font-bold text-center m-0">Daftar Pesanan</h3>
         </div>
@@ -33,20 +33,20 @@
                   <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $pesanan->pemesan->nama_lengkap }}</td>
-                    <td>{{ date('d M, Y', strtotime($pesanan->tanggal_pesan)); }}</td>
+                    <td>{{ $tanggal->tanggal_pesan->format('d M, Y') }}</td>
                     <td class="badges">
                       <span class="
-                        {{ $pesanan->status_pesanan == 'tertunda' ? 'badge bg-secondary' : '' }}
+                        {{ $pesanan->status_pesanan == 'tertunda' ? 'badge bg-dark' : '' }}
                         {{ $pesanan->status_pesanan == 'diproses' ? 'badge bg-info' : '' }}
                         {{ $pesanan->status_pesanan == 'berhasil' ? 'badge bg-success' : '' }}
                         {{ $pesanan->status_pesanan == 'gagal' ? 'badge bg-danger' : '' }}
                       ">{{ $pesanan->status_pesanan }}</span>
                     </td>
                     <td class="text-nowrap">
-                      <a href="{{ route('pemesanan.edit', $pesanan->id) }}" class="btn btn-sm btn-success mx-1">
+                      <a href="{{ route('merek.edit', $pesanan->id) }}" class="btn btn-sm btn-success mx-1">
                         <i class="bi bi-pencil-square"></i>
                       </a>
-                      <a href="{{ route('pemesanan.show', $pesanan->id) }}" class="btn btn-sm btn-warning mx-1">
+                      <a href="{{ route('merek.show', $merek->id) }}" class="btn btn-sm btn-warning mx-1">
                         <i class="bi bi-eye-fill"></i>
                       </a>
                     </td>
