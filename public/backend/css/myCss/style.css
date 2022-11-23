@@ -27,6 +27,10 @@ option:hover {
     background: rgb(240, 240, 240) !important;
 }
 
+.stats-icon.grey {
+    background-color: rgb(175, 175, 175) !important;
+}
+
 .tox-menubar button:nth-child(6), .tox-menubar button:nth-child(3) {
     display: none !important;
 }

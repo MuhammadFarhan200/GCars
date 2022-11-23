@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Merek;
 use App\Models\Mobil;
 use App\Models\Pesanan;
+use App\Models\Transaksi;
 use Validator;
 use Alert;
 
@@ -22,13 +23,15 @@ class AdminController extends Controller
         $jumlahMobil = Mobil::all()->count();
         $jumlahPengguna = User::where('id_role', 2)->get()->count();
         $jumlahPesanan = Pesanan::all()->count();
+        $jumlahTransaksi = Transaksi::all()->count();
 
         return view('admin.pages.index', compact(
             'title',
             'jumlahMerek',
             'jumlahMobil',
             'jumlahPengguna',
-            'jumlahPesanan'
+            'jumlahPesanan',
+            'jumlahTransaksi',
         ));
     }
 
