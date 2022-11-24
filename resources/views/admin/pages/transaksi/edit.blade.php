@@ -8,7 +8,7 @@
 
 @section('page-content')
   <div class="row justify-content-center">
-    <div class="col-lg-10">
+    <div class="col-lg-8">
       <div class="card">
         <div class="card-header">
           <h3>Edit Transaksi</h3>
