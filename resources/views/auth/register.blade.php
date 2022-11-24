@@ -28,7 +28,7 @@
             <div class="login-wrap register p-4 p-lg-5">
               <div class="d-flex">
                 <div class="w-100">
-                  <h3 class="mb-4">Login</h3>
+                  <h3 class="mb-4">Register</h3>
                 </div>
               </div>
               <form action="{{ route('register') }}" method="POST" class="signin-form">
