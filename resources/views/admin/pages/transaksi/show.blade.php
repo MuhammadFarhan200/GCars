@@ -57,12 +57,12 @@
               </tr>
             </tbody>
           </table>
-          <hr />
+          {{-- <hr /> --}}
           @php
             $sisa = $transaksi->pesanan->mobil->harga - $transaksi->total_bayar;
             // $kembali = $transaksi->total_bayar - $transaksi->pesanan->mobil->harga;
           @endphp
-          <table cellpadding="7px">
+          {{-- <table cellpadding="7px">
             <tbody>
               <tr>
                 <th>Harga Mobil</th>
@@ -80,7 +80,7 @@
                   @endif
                 </td>
               </tr>
-              {{-- <tr>
+              <tr>
                 <th>Uang Kembali</th>
                 <td>:</td>
                 <td>Rp
@@ -90,9 +90,9 @@
                     0
                   @endif
                 </td>
-              </tr> --}}
+              </tr>
             </tbody>
-          </table>
+          </table> --}}
           <div class="d-flex justify-content-end align-items-center mt-4">
             <a href="{{ route('transaksi.index') }}" class="btn btn-secondary px-3 me-3">Kembali</a>
             <a href="{{ route('transaksi.edit', $transaksi->id) }}" class="btn btn-primary px-3 me-3">Edit</a>
