@@ -72,7 +72,7 @@ class MobilController extends Controller
         $mobil = new Mobil();
         $mobil->id_merek = $request->id_merek;
         $mobil->tipe = $request->tipe;
-        $mobil->slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $mobil->tipe));
+        $mobil->slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $mobil->merek->nama . '-' . $mobil->tipe));
         $mobil->tahun_keluar = $request->tahun_keluar;
         $mobil->warna = $request->warna;
         $mobil->deskripsi = $request->deskripsi;
@@ -172,6 +172,7 @@ class MobilController extends Controller
         if (!Mobil::destroy($id)) {
             return redirect()->back();
         }
+        Alert::success('Done', 'Data Mobil Berhasil Dihapus!')->autoClose();
         return redirect()->route('mobil.index');
     }
 }

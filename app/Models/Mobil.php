@@ -21,19 +21,21 @@ class Mobil extends Model
         return $this->hasMany(GambarMobil::class, 'id_mobil');
     }
 
+    public function pesanan()
+    {
+        return $this->hasOne(Pesanan::class, 'id_mobil');
+    }
+
     public static function boot()
     {
         parent::boot();
 
         self::deleting(function ($mobil) {
-            if ($mobil->pesanan->count() > 0) {
+            if (Pesanan::where('id_mobil', $mobil->id)->count() > 0) {
                 Alert::html('Gagal Mengapus!', 'Tidak dapat menghapus mobil <b>' . $mobil->tipe . '</b> karena masih digunakan pada table pesanan.', 'error')->autoClose(false);
                 return false;
             }
-            if ($mobil->gambar) {
-                $mobil->gambar->deleteImage();
-            }
-            Alert::success('Done', 'Data Mobil Berhasil Dihapus!')->autoClose();
+            $mobil->gambar()->delete();
         });
     }
 }

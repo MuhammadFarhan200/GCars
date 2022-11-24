@@ -20,6 +20,7 @@
                 <tr>
                   <th class="text-center">No</th>
                   <th class="text-center">Pemesan</th>
+                  <th class="text-center">Mobil yang Dipesan</th>
                   <th class="text-center">Tanggal</th>
                   <th class="text-center">Status Pesanan</th>
                   <th class="text-center">Action</th>
@@ -33,6 +34,7 @@
                   <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $pesanan->pemesan->nama_lengkap }}</td>
+                    <td>{{ $pesanan->mobil->merek->nama . ' ' . $pesanan->mobil->tipe }}</td>
                     <td>{{ date('d M, Y', strtotime($pesanan->tanggal_pesan)) }}</td>
                     <td class="badges">
                       <span class="

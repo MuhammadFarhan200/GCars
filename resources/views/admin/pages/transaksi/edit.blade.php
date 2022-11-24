@@ -34,18 +34,18 @@
               @enderror
             </div>
             <div class="form-group">
+                <label for="" class="d-block">Total Bayar</label>
+                <input type="number" name="total_bayar" id="" class="form-control @error('total_bayar') is-invalid @enderror" value="{{ $transaksi->total_bayar }}" placeholder="Masukkan Total Pembayaran Baru">
+                @error('total_bayar')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
               <label for="">Tanggal Bayar</label>
               <input type="date" name="tanggal_bayar" id="" class="form-control @error('tanggal_bayar') is-invalid @enderror" value="{{ $transaksi->tanggal_bayar }}" required>
               @error('tanggal_bayar')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-            </div>
-            <div class="form-group">
-              <label for="" class="d-block">Total Bayar</label>
-              <input type="number" name="total_bayar" id="" class="form-control @error('total_bayar') is-invalid @enderror" value="{{ $transaksi->total_bayar }}" placeholder="Masukkan Total Pembayaran Baru">
-              @error('total_bayar')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>

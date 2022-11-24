@@ -40,34 +40,28 @@
                 </span>
               @enderror
             </div>
-            <div class="row justify-content-center">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">Tanggal Bayar</label>
-                  <input type="date" name="tanggal_bayar" id="" class="form-control @error('tanggal_bayar') is-invalid @enderror" value="{{ old('tanggal_bayar') }}" required>
-                  @error('tanggal_bayar')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">Status Transaksi</label>
-                  <select name="status_transaksi" id="" class="form-select @error('status_transaksi') is-invalid @enderror" required>
-                    <option value="">Pilih Status Transaksi</option>
-                    <option value="Menunggu Pembayaran" {{ old('status_transaksi') == 'Menunggu Pembayaran' ? 'selected' : '' }}>Menunggu Pembayaran</option>
-                    <option value="Pembayaran Sebagian" {{ old('status_transaksi') == 'Pembayaran Sebagian' ? 'selected' : '' }}>Pembayaran Sebagian</option>
-                    <option value="Lunas" {{ old('status_transaksi') == 'Lunas' ? 'selected' : '' }}>Lunas</option>
-                  </select>
-                  @error('status_transaksi')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>
-              </div>
+            <div class="form-group">
+              <label for="">Tanggal Bayar</label>
+              <input type="date" name="tanggal_bayar" id="" class="form-control @error('tanggal_bayar') is-invalid @enderror" value="{{ old('tanggal_bayar') }}" required>
+              @error('tanggal_bayar')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="">Status Transaksi</label>
+              <select name="status_transaksi" id="" class="form-select @error('status_transaksi') is-invalid @enderror" required>
+                <option value="">Pilih Status Transaksi</option>
+                <option value="Menunggu Pembayaran" {{ old('status_transaksi') == 'Menunggu Pembayaran' ? 'selected' : '' }}>Menunggu Pembayaran</option>
+                <option value="Pembayaran Sebagian" {{ old('status_transaksi') == 'Pembayaran Sebagian' ? 'selected' : '' }}>Pembayaran Sebagian</option>
+                <option value="Lunas" {{ old('status_transaksi') == 'Lunas' ? 'selected' : '' }}>Lunas</option>
+              </select>
+              @error('status_transaksi')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
             {{-- <div class="form-group">
               <input type="text" id="kode_transaksi" name="kode_transaksi" value="{{ str_random(12) }}" class="form-control">
