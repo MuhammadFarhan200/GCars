@@ -23,6 +23,7 @@
               <thead>
                 <tr>
                   <th class="text-center">No</th>
+                  <th class="text-center">Kode Transaksi</th>
                   <th class="text-center">Pesanan</th>
                   <th class="text-center">Tanggal Bayar</th>
                   <th class="text-center">Status Transaksi</th>
@@ -36,6 +37,7 @@
                 @foreach ($allTransaksi as $transaksi)
                   <tr>
                     <td>{{ $no++ }}</td>
+                    <td>{{ $transaksi->kode_transaksi }}</td>
                     <td>
                       {{ $transaksi->pesanan->mobil->merek->nama . '  ' . $transaksi->pesanan->mobil->tipe . ' - ' . $transaksi->pesanan->pemesan->nama_lengkap }}
                     </td>

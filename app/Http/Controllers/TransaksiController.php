@@ -66,7 +66,7 @@ class TransaksiController extends Controller
         $transaksi->tanggal_bayar = $request->tanggal_bayar;
         $transaksi->total_bayar = $request->total_bayar;
         $transaksi->status_transaksi = $request->status_transaksi;
-        $transaksi->kode_transaksi = rand(1000, 9999) . Str::random(6);
+        $transaksi->kode_transaksi = rand(100000, 999999) . Str::random(6);
         $transaksi->save();
         Alert::success('Done!', 'Data Transaksi berhasil dibuat.');
         return redirect()->route('transaksi.index');
@@ -130,7 +130,7 @@ class TransaksiController extends Controller
         $transaksi->tanggal_bayar = $request->tanggal_bayar;
         $transaksi->total_bayar = $request->total_bayar;
         $transaksi->status_transaksi = $request->status_transaksi;
-        $transaksi->kode_transaksi = rand(1000, 9999) . Str::random(6);
+        $transaksi->kode_transaksi = rand(100000, 999999) . Str::random(6);
         $transaksi->save();
         Alert::success('Done!', 'Data Transaksi berhasil diedit.');
         return redirect()->route('transaksi.index');

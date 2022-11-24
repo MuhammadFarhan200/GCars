@@ -9,7 +9,7 @@
 @section('page-content')
   <div class="row mb-5">
     <div class="col-lg-10 mx-auto">
-      <div class="card shadow">
+      <div class="card">
         <div class="card-header">
           <h3>Detail Mobil</h3>
         </div>
@@ -36,7 +36,9 @@
                 </tr>
                 <tr>
                   <th>Warna</th>
-                  <td>{{ $mobil->warna }}</td>
+                  <td>
+                    <input type="color" name="warna" id="" class="form-control form-control-color" value="{{ $mobil->warna }}" disabled>
+                  </td>
                 </tr>
                 <tr>
                   <th>Harga</th>

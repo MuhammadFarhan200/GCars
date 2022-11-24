@@ -16,71 +16,92 @@
         <div class="card-body">
           <form action="{{ route('mobil.store') }}" method="post">
             @csrf
-            <div class="form-group">
-              <label for="">Merek</label>
-              <select name="id_merek" id="select-search" class="@error('id_merek') is-invalid @enderror" required>
-                {{-- <option value="">Pilih Merek</option> --}}
-                @foreach ($mereks as $merek)
-                  <option value="{{ $merek->id }}" {{ old('id_merek') == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
-                @endforeach
-              </select>
-              @error('id_merek')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Tipe</label>
+                  <input type="text" name="tipe" id="tipe" class="form-control @error('tipe') is-invalid @enderror" value="{{ old('tipe') }}" placeholder="Masukkkan tipe mobil" required>
+                  @error('tipe')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Slug</label>
+                  <input type="text" name="tipe" id="slug" class="form-control" value="" disabled>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="">Tipe</label>
-              <input type="text" name="tipe" id="tipe" class="form-control @error('tipe') is-invalid @enderror" value="{{ old('tipe') }}" placeholder="Masukkkan tipe mobil" required>
-              @error('tipe')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-            </div>
-            <div class="form-group">
-              <label for="">Slug</label>
-              <input type="text" name="tipe" id="slug" class="form-control" value="" disabled>
-            </div>
-            <div class="form-group">
-              <label for="">Tahun Keluar</label>
-              <select name="tahun_keluar" id="tahun_keluar" class="form-control @error('tahun_keluar') is-invalid @enderror" required>
-                <option {{ old('tahun_keluar') ? '' : 'selected' }} hidden>Pilih tahun keluar</option>
-                @php for($i = 1990;$i <= 2022; $i++) : @endphp
-                <option value="{{ $i }}" {{ old('tahun_keluar') == $i ? 'selected' : '' }}>{{ $i }}</option>
-                @php endfor; @endphp
-              </select>
-              @error('tahun_keluar')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="">Merek</label>
+                  <select name="id_merek" id="select-search" class="@error('id_merek') is-invalid @enderror" required>
+                    {{-- <option value="">Pilih Merek</option> --}}
+                    @foreach ($mereks as $merek)
+                      <option value="{{ $merek->id }}" {{ old('id_merek') == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
+                    @endforeach
+                  </select>
+                  @error('id_merek')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="">Tahun Keluar</label>
+                  <select name="tahun_keluar" id="tahun_keluar" class="form-select @error('tahun_keluar') is-invalid @enderror" required>
+                    <option {{ old('tahun_keluar') ? '' : 'selected' }} hidden>Pilih tahun keluar</option>
+                    @php for($i = 1990;$i <= 2022; $i++) : @endphp
+                    <option value="{{ $i }}" {{ old('tahun_keluar') == $i ? 'selected' : '' }}>{{ $i }}</option>
+                    @php endfor; @endphp
+                  </select>
+                  @error('tahun_keluar')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <label for="">Warna</label>
-              <input type="text" name="warna" id="warna" class="form-control @error('warna') is-invalid @enderror" value="{{ old('warna') }}" placeholder="Masukkkan warna mobil" required>
+              <input type="color" name="warna" id="warna" class="form-control form-control-color @error('warna') is-invalid @enderror" value="{{ old('warna') }}" placeholder="Masukkkan warna mobil" required>
               @error('warna')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
               @enderror
             </div>
-            <div class="form-group">
-              <label for="">Harga</label>
-              <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}" placeholder="Masukkkan harga mobil" required>
-              @error('harga')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-            </div>
-            <div class="form-group">
-              <label for="">Status</label>
-              <select name="status" id="" class="form-select" required>
-                <option value="tersedia" {{ old('status') == 'tersedia' ? 'selected' : '' }}>Tersedia</option>
-                <option value="sold out" {{ old('status') == 'sold out' ? 'selected' : '' }}>Sold out</option>
-              </select>
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Harga</label>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Rp</span>
+                      <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}" placeholder="Masukkkan harga mobil" required>
+                    </div>
+                    @error('harga')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Status</label>
+                    <select name="status" id="" class="form-select" required>
+                      <option value="tersedia" {{ old('status') == 'tersedia' ? 'selected' : '' }}>Tersedia</option>
+                      <option value="sold out" {{ old('status') == 'sold out' ? 'selected' : '' }}>Sold out</option>
+                    </select>
+                  </div>
+              </div>
             </div>
             <div class="form-group">
               <label for="">Deskripsi</label>

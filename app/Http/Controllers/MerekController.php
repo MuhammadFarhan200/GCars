@@ -58,7 +58,7 @@ class MerekController extends Controller
     public function show($id)
     {
         $merek = Merek::findOrFail($id);
-        $listMobil = Mobil::with('merek')->where('id', $id)->get();
+        $listMobil = $merek->mobil;
         return view('admin.pages.merek.show', compact('merek', 'listMobil'));
     }
 

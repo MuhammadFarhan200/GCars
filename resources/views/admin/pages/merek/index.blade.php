@@ -66,15 +66,7 @@
 @section('myScript')
   <script>
     function confirmDelete(id) {
-      const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: true
-      })
-
-      swalWithBootstrapButtons.fire({
+      Swal.fire({
         title: 'Anda Yakin Akan Menghapus Data Ini?',
         icon: 'warning',
         showCancelButton: true,

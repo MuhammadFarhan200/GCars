@@ -9,7 +9,7 @@
 @section('page-content')
     <h3 class="text-center">Selamat Datang Di Halaman Profile!</h3>
     <div class="col-md-10 mx-auto">
-        <div class="card shadow mt-4">
+        <div class="card mt-4">
             <div class="row align-items-center">
                 <div class="col-md-5 col-lg-4">
                     <img src="{{ $user->image() }}" alt="" class="card-img img-fluid shadow-sm" style="height: 300px; object-fit: cover; object-position: center">

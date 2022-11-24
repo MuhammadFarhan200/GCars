@@ -27,8 +27,12 @@ option:hover {
     background: rgb(240, 240, 240) !important;
 }
 
-.stats-icon.grey {
-    background-color: rgb(175, 175, 175) !important;
+.stats-icon.primary {
+    background-color: #435ebe !important;
+}
+
+.test-color {
+    background: #242529cc;
 }
 
 .tox-menubar button:nth-child(6), .tox-menubar button:nth-child(3) {
