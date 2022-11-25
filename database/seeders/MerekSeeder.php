@@ -44,5 +44,30 @@ class MerekSeeder extends Seeder
             'nama' => 'Ford',
             'slug' => 'ford',
         ]);
+
+        Merek::create([
+            'nama' => 'Hyundai',
+            'slug' => 'hyundai',
+        ]);
+
+        Merek::create([
+            'nama' => 'Mitsubishi',
+            'slug' => 'mitsubishi',
+        ]);
+
+        Merek::create([
+            'nama' => 'Lexus',
+            'slug' => 'lexus',
+        ]);
+
+        Merek::create([
+            'nama' => 'Isuzu',
+            'slug' => 'isuzu',
+        ]);
+
+        Merek::create([
+            'nama' => 'Suzuki',
+            'slug' => 'suzuki',
+        ]);
     }
 }

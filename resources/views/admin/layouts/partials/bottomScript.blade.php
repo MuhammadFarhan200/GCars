@@ -59,3 +59,12 @@
     height: 300
   });
 </script>
+<script src="{{ asset('owlcarousel/dist/owl.carousel.min.js') }}"></script>
+<script>
+  $(document).ready(function() {
+    $(".owl-carousel").owlCarousel({
+      items: 1,
+      margin: 10,
+    });
+  });
+</script>

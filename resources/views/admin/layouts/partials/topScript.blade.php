@@ -14,4 +14,6 @@
 <link rel="stylesheet" href="{{ asset('backend/extensions/quill/quill.snow.css') }}">
 <script src="{{ asset('backend/extensions/quill/quill.min.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('backend/dropzone/dist/min/dropzone.min.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.theme.default.min.css') }}">
 

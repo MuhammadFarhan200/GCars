@@ -37,7 +37,7 @@
                 <tr>
                   <th>Warna</th>
                   <td>
-                    <input type="color" name="warna" id="" class="form-control form-control-color" value="{{ $mobil->warna }}" disabled>
+                    {{ $mobil->warna }}
                   </td>
                 </tr>
                 <tr>
@@ -59,27 +59,6 @@
                 <tr>
                   <td colspan="2" class="ps-4">{!! $mobil->deskripsi !!}</td>
                 </tr>
-                <tr>
-                  <td colspan="2">
-                    {{-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false">
-                      <div class="carousel-inner">
-                        @foreach ($gambar as $listGambar)
-                          <div class="carousel-item active">
-                            <img src="{{ url('images/mobil/' . $listGambar->gambar) }}" alt="" srcset="" class="d-block w-100">
-                          </div>
-                        @endforeach
-                      </div>
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
-                    </div> --}}
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -95,14 +74,10 @@
           <h3>Gambar Mobil</h3>
         </div>
         <div class="card-body">
-          <div class="scroll-horizontal">
-            @if ($gambar->count() < 1)
-              <p class="text-center">Gambar belum ditambahkan!</p>
-            @else
-              @foreach ($gambar as $listGambar)
-                <img src="{{ url('images/mobil/' . $listGambar->gambar) }}" alt="" srcset="" class="d-inline-block w-75 mx-2">
-              @endforeach
-            @endif
+          <div class="owl-carousel owl-theme">
+            @foreach ($gambar as $listGambar)
+              <img src="{{ $listGambar->image() }}" alt="" srcset="" class="owl-img">
+            @endforeach
           </div>
           <div class="d-flex justify-content-end align-items-center mt-4">
             <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-primary">

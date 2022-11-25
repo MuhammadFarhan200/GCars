@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('page-title', 'Home')
+@section('page-title', 'Temukan Mobil yang Cocok Untukmu Disini!')
 
 @section('hero-area')
   <!-- ***** Main Banner Area Start ***** -->
@@ -41,7 +41,7 @@
 
           <div class="trainer-item">
             <div class="image-thumb">
-              <img src="{{ asset('images/mobil/' . $mobil->gambar->first()->gambar) }}" alt="">
+              <img src="{{ $mobil->gambar->count() > 0 ? asset('images/mobil/' . $mobil->gambar->first()->gambar) : asset('images/mobil/not-avaliable.jpg') }}" alt="">
             </div>
             <div class="down-content">
               <span>
@@ -74,27 +74,7 @@
     <br>
 
     <div class="main-button text-center">
-      <a href="#">Lihat Lainnya <i class="fa fa-arrow-right ml-1"></i></a>
+      <a href="/mobil">Lihat Mobil Lainnya <i class="fa fa-arrow-right ml-1"></i></a>
     </div>
   </div>
-@endsection
-
-@section('additional-content')
-  <!-- ***** Call to Action Start ***** -->
-  <section class="section section-bg" id="call-to-action" style="background-image: url({{ asset('frontend/images/banner-image-1-1920x500.jpg') }}">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
-          <div class="cta-content">
-            <h2>Kirim <em>pesan</em> pada kami</h2>
-            <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
-            <div class="main-button">
-              <a href="#">Hubungi kami <i class="fa fa-arrow-right ml-1"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ***** Call to Action End ***** -->
 @endsection

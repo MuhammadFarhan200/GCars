@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             MerekSeeder::class,
             MobilSeeder::class,
-            PemesanSeeder::class,
-            PesananSeeder::class,
+            // PemesanSeeder::class,
+            // PesananSeeder::class,
         ]);
     }
 }

@@ -28,6 +28,8 @@ Route::get('/errors', function () {
 
 Route::get('/', [PenggunaController::class, 'index']);
 
+Route::get('/merek', [PenggunaController::class, 'merek']);
+
 Route::get('/mobil', [PenggunaController::class, 'mobil']);
 
 Route::get('/mobil/{mobil:slug}', [PenggunaController::class, 'detailMobil']);
@@ -35,6 +37,16 @@ Route::get('/mobil/{mobil:slug}', [PenggunaController::class, 'detailMobil']);
 Route::get('/mobil/{mobil:slug}/pesan', [PenggunaController::class, 'order']);
 
 Route::post('/pesan', [PenggunaController::class, 'createOrder'])->middleware('auth');
+
+Route::get('/pesanan', [PenggunaController::class, 'orders'])->middleware('auth');
+
+Route::get('/user/{user:username}', [PenggunaController::class, 'profile'])->middleware('auth');
+
+Route::get('/user/{user:username}/edit', [PenggunaController::class, 'editProfile'])->middleware('auth');
+
+Route::put('/user/{user:username}/edit', [PenggunaController::class, 'updateProfile'])->middleware('auth');
+
+Route::get('/pesanan/{pesanan}', [PenggunaController::class, 'orderDetail'])->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], function () {
 

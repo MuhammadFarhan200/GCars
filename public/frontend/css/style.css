@@ -684,7 +684,7 @@ subscribe
 
 .cta-content h2 {
   font-size: 36px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 800;
   color: #fff;
   letter-spacing: 1px;
@@ -1271,10 +1271,19 @@ responsive
 .pagination-lg .page-link {
   color: #ed563b;
 }
+.btn-danger:focus {
+    color: white;
+}
 
 .btn-primary {
-  border-color: #ed563b;
-  background-color: #ed563b;
+  border-color: #ed563b !important;
+  background-color: #ed563b !important;
+}
+
+.btn-primary:focus,
+.btn-primary:active
+{
+    box-shadow:0 0 0 .2rem rgba(249, 115, 91, 0.6) !important
 }
 
 .btn-primary:not(:disabled):not(.disabled).active,
@@ -1286,6 +1295,7 @@ responsive
 .btn-primary:hover {
   background-color: #f9735b;
   border-color: #f9735b;
+  color: white !important;
   outline: none;
 }
 

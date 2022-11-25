@@ -82,3 +82,22 @@ option:hover {
     bottom: 0;
     display: block;
 }
+
+.owl-img {
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: .5rem;
+}
+
+@media (min-width: 576px) {
+    .owl-img {
+        height: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    .owl-img {
+        height: 450px;
+    }
+}

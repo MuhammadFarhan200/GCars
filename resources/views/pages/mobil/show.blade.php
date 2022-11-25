@@ -3,7 +3,7 @@
 @section('page-title', $title)
 
 @section('hero-area')
-  <section class="section section-bg" id="call-to-action" style="background-image: url({{ asset('frontend/images/banner-image-1-1920x500.jpg') }})">
+  <section class="section section-bg" id="call-to-action" style="background-image: url({{ asset('frontend/images/blog-image-fullscren-1-1920x700.jpg') }})">
     <div class="container">
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
@@ -18,14 +18,18 @@
 
 @section('main-content')
   <section class="section" id="trainers">
-    <div class="container">
-      <div class="owl-carousel owl-theme mt-4 mt-lg-5">
-        @foreach ($gambar as $listGambar)
-          <img src="{{ $listGambar->image() }}" alt="" srcset="" class="owl-img">
-        @endforeach
-      </div>
+    <div class="container col-10">
+      @if ($gambar->count() < 1)
+      <h4 class="text-center mt-5">Gambar belum ditambahkan pada mobil ini!</h4>
+      @else
+        <div class="owl-carousel owl-theme mt-4 mt-lg-5">
+          @foreach ($gambar as $listGambar)
+            <img src="{{ $listGambar->image() }}" alt="" srcset="" class="owl-img">
+          @endforeach
+        </div>
+      @endif
       <h3 class="text-center mt-5">{{ $mobil->merek->nama . ' ' . $mobil->tipe }}</h3>
-      <div class="row col-10 mt-5 mx-auto">
+      <div class="row mt-5 col-md-10 mx-auto">
         <div class="col-md-4">
           <h6>Merek</h6>
           <p class="mb-3">{{ $mobil->merek->nama }}</p>
@@ -42,18 +46,16 @@
           <h6>Deskripsi</h6>
           <p>{!! $mobil->deskripsi !!}</p>
         </div>
-      </div>
-      <div class="d-flex justify-content-end align-items-center">
-        @if ($isBooked)
-          <div class="text-danger mr-3">
-            Sudah ada yang memesan mobil ini ;_;
+        <div class="d-flex flex-column flex-md-row justify-content-{{ $isBooked ? 'between' : 'end' }} align-items-center mx-auto mt-4">
+          @if ($isBooked)
+            <div class="text-danger">
+              Sudah ada yang memesan mobil ini ;_;
+            </div>
+          @endif
+          <div class="d-flex justify-content-end align-items-center">
+            <button onclick="history.back()" class="btn btn-secondary me-2">Kembali</button>
+            <a href="{{ $isBooked ? '#!' : '/mobil/' . $mobil->slug . '/pesan' }}" class="btn btn-primary">Pesan</a>
           </div>
-        @endif
-        <div class="second-button mr-3">
-          <button onclick="history.back()">Kembali</button>
-        </div>
-        <div class="main-button">
-          <a href="{{ $isBooked ? '#!' : '/mobil/'. $mobil->slug. '/pesan' }}">Pesan</a>
         </div>
       </div>
     </div>
