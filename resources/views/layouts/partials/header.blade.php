@@ -10,7 +10,7 @@
           <ul class="nav">
             <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
             <li><a href="#">Merek</a></li>
-            <li><a href="#" class="{{ request()->is('mobil*') ? 'active' : '' }}">Cars</a></li>
+            <li><a href="#" class="{{ request()->is('mobil*') ? 'active' : '' }}">Mobil</a></li>
             {{-- <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
 
@@ -23,8 +23,24 @@
                   <a class="dropdown-item" href="terms.html">Terms</a>
                 </div>
               </li> --}}
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Profile</a></li>
+            @auth
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }}</a>
+
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="#">Pesanan</a>
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault();logout()" class="dropdown-item">
+                    Logout
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                  </form>
+                </div>
+              </li>
+            @else
+              <li><a href="{{ route('login') }}">Login/Daftar</a></li>
+            @endauth
           </ul>
           <a class='menu-trigger'>
             <span>Menu</span>
@@ -35,3 +51,25 @@
     </div>
   </div>
 </header>
+
+<script>
+    function logout() {
+      const swalWithBootstrapButtons = Swal.mixin({
+        buttonsStyling: true
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Anda Yakin Akan Logout?',
+        icon: 'warning',
+        showCancelButton: true,
+        // allowOutsideClick: false,
+        confirmButtonText: 'Logout',
+        cancelButtonText: 'Batal',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('logout-form').submit();
+        }
+      })
+    }
+  </script>

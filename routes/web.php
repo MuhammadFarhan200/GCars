@@ -32,6 +32,10 @@ Route::get('/mobil', [PenggunaController::class, 'mobil']);
 
 Route::get('/mobil/{mobil:slug}', [PenggunaController::class, 'detailMobil']);
 
+Route::get('/mobil/{mobil:slug}/pesan', [PenggunaController::class, 'order']);
+
+Route::post('/pesan', [PenggunaController::class, 'createOrder'])->middleware('auth');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], function () {
 
     Route::get('/', [AdminController::class, 'index'])->name('admin');

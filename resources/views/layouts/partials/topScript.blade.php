@@ -3,3 +3,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/font-awesome.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/extensions/bootstrap-icons/font/bootstrap-icons.css') }}">
+<link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/css/myCss/style.css') }}">

@@ -11,9 +11,9 @@
 
     <div class="video-overlay header-text">
       <div class="caption">
-        <h6 class="d-none d-md-block">Cari Mobil Impianmu Disini!</h6>
-        <h2 class="d-none d-md-block">Temukan <em>Mobil</em> yang Cocok Untukmu <em>Disini!</em></h2>
-        <h3 class="d-block d-md-none">Temukan <em>Mobil</em> yang Cocok Untukmu <em>Disini!</em></h3>
+        <h6 class="d-none d-lg-block">Cari Mobil Impianmu Disini!</h6>
+        <h2 class="d-none d-lg-block">Temukan <em>Mobil</em> yang Cocok Untukmu <em>Disini!</em></h2>
+        <h3 class="d-block d-lg-none">Temukan <em>Mobil</em> yang Cocok Untukmu <em>Disini!</em></h3>
         <div class="main-button">
           <a href="#recommend">Lihat Mobil <i class="fa fa-arrow-down ml-1"></i></a>
         </div>
