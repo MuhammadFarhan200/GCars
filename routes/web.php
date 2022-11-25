@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GambarMobilController;
 use App\Http\Controllers\MerekController;
 use App\Http\Controllers\MobilController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PesananContoller;
 use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\GambarMobilController;
-use App\Http\Controllers\PenggunaController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +18,19 @@ use App\Http\Controllers\PenggunaController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-
-Route::get('/', [PenggunaController::class, 'index']);
+ */
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/errors', function () {
     return view('errors.403');
 });
+
+Route::get('/', [PenggunaController::class, 'index']);
+
+Route::get('/mobil', [PenggunaController::class, 'mobil']);
+
+Route::get('/mobil/{mobil:slug}', [PenggunaController::class, 'detailMobil']);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], function () {
 
@@ -54,3 +56,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
 
     Route::post('gambar/{id}/hapus', [GambarMobilController::class, 'destroy'])->name('tambahGambar.destroy');
 });
+
+Route::get('test-front-template', function () {
+    return view('layouts.main');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -30,14 +30,6 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="">Slug</label>
-                  <input type="text" name="tipe" id="slug" class="form-control" value="" disabled>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-6">
-                <div class="form-group">
                   <label for="">Merek</label>
                   <select name="id_merek" id="select-search" class="@error('id_merek') is-invalid @enderror" required>
                     {{-- <option value="">Pilih Merek</option> --}}
@@ -46,6 +38,19 @@
                     @endforeach
                   </select>
                   @error('id_merek')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="">Warna</label>
+                  <input type="text" name="warna" id="warna" class="form-control @error('warna') is-invalid @enderror" value="{{ old('warna') }}" placeholder="Masukkkan warna mobil" required>
+                  @error('warna')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -69,38 +74,29 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <label for="">Warna</label>
-              <input type="color" name="warna" id="warna" class="form-control form-control-color @error('warna') is-invalid @enderror" value="{{ old('warna') }}" placeholder="Masukkkan warna mobil" required>
-              @error('warna')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-            </div>
             <div class="row justify-content-center">
               <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Harga</label>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Rp</span>
-                      <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}" placeholder="Masukkkan harga mobil" required>
-                    </div>
-                    @error('harga')
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
+                <div class="form-group">
+                  <label for="">Harga</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                    <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}" placeholder="Masukkkan harga mobil" required>
                   </div>
+                  @error('harga')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
               </div>
               <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Status</label>
-                    <select name="status" id="" class="form-select" required>
-                      <option value="tersedia" {{ old('status') == 'tersedia' ? 'selected' : '' }}>Tersedia</option>
-                      <option value="sold out" {{ old('status') == 'sold out' ? 'selected' : '' }}>Sold out</option>
-                    </select>
-                  </div>
+                <div class="form-group">
+                  <label for="">Status</label>
+                  <select name="status" id="" class="form-select" required>
+                    <option value="tersedia" {{ old('status') == 'tersedia' ? 'selected' : '' }}>Tersedia</option>
+                    <option value="sold out" {{ old('status') == 'sold out' ? 'selected' : '' }}>Sold out</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="form-group">
@@ -126,7 +122,7 @@
 @endsection
 
 @section('myScript')
-  <script>
+  {{-- <script>
     document.querySelector('#tipe').addEventListener('input', function() {
       document.querySelector('#slug').value = this.value.toLowerCase()
         .trim()
@@ -134,5 +130,5 @@
         .replace(/[\s_-]+/g, '-')
         .replace(/^-+|-+$/g, '');
     });
-  </script>
+  </script> --}}
 @endsection

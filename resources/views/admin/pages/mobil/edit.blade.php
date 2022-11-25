@@ -18,92 +18,88 @@
             @csrf
             @method('put')
             <div class="row justify-content-center">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Tipe</label>
-                    <input type="text" name="tipe" id="tipe" class="form-control @error('tipe') is-invalid @enderror" value="{{ $mobil->tipe }}" placeholder="Masukkkan tipe mobil" required>
-                    @error('tipe')
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="">Slug</label>
-                    <input type="text" name="tipe" id="slug" class="form-control" value="{{ $mobil->slug }}" disabled>
-                  </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Tipe</label>
+                  <input type="text" name="tipe" id="tipe" class="form-control @error('tipe') is-invalid @enderror" value="{{ $mobil->tipe }}" placeholder="Masukkkan tipe mobil" required>
+                  @error('tipe')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
               </div>
-              <div class="row justify-content-center">
-                <div class="col-6">
-                  <div class="form-group">
-                    <label for="">Merek</label>
-                    <select name="id_merek" id="select-search" class="@error('id_merek') is-invalid @enderror" required>
-                      {{-- <option value="">Pilih Merek</option> --}}
-                      @foreach ($mereks as $merek)
-                        <option value="{{ $merek->id }}" {{ $mobil->id_merek == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
-                      @endforeach
-                    </select>
-                    @error('id_merek')
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                  </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Merek</label>
+                  <select name="id_merek" id="select-search" class="@error('id_merek') is-invalid @enderror" required>
+                    {{-- <option value="">Pilih Merek</option> --}}
+                    @foreach ($mereks as $merek)
+                      <option value="{{ $merek->id }}" {{ $mobil->id_merek == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
+                    @endforeach
+                  </select>
+                  @error('id_merek')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
-                <div class="col-6">
-                  <div class="form-group">
-                    <label for="">Tahun Keluar</label>
-                    <select name="tahun_keluar" id="tahun_keluar" class="form-select @error('tahun_keluar') is-invalid @enderror" required>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="">Warna</label>
+                  <input type="text" name="warna" id="warna" class="form-control @error('warna') is-invalid @enderror" value="{{ $mobil->warna }}" placeholder="Masukkkan warna mobil" required>
+                  @error('warna')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="">Tahun Keluar</label>
+                  <select name="tahun_keluar" id="tahun_keluar" class="form-select @error('tahun_keluar') is-invalid @enderror" required>
                       <option {{ $mobil->tahun_keluar ? '' : 'selected' }} hidden>Pilih tahun keluar</option>
                       @php for($i = 1990;$i <= 2022; $i++) : @endphp
                       <option value="{{ $i }}" {{ $mobil->tahun_keluar == $i ? 'selected' : '' }}>{{ $i }}</option>
                       @php endfor; @endphp
                     </select>
-                    @error('tahun_keluar')
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
+                  @error('tahun_keluar')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Harga</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Rp</span>
+                    <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ $mobil->harga }}" placeholder="Masukkkan harga mobil" required>
                   </div>
+                  @error('harga')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
               </div>
-              <div class="form-group">
-                <label for="">Warna</label>
-                <input type="color" name="warna" id="warna" class="form-control form-control-color @error('warna') is-invalid @enderror" value="{{ $mobil->warna }}" placeholder="Masukkkan warna mobil" required>
-                @error('warna')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
-              </div>
-              <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Harga</label>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Rp</span>
-                        <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ $mobil->harga }}" placeholder="Masukkkan harga mobil" required>
-                      </div>
-                      @error('harga')
-                        <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                        </span>
-                      @enderror
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Status</label>
-                      <select name="status" id="" class="form-select" required>
-                        <option value="tersedia" {{ $mobil->status == 'tersedia' ? 'selected' : '' }}>Tersedia</option>
-                        <option value="sold out" {{ $mobil->status == 'sold out' ? 'selected' : '' }}>Sold out</option>
-                      </select>
-                    </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Status</label>
+                  <select name="status" id="" class="form-select" required>
+                    <option value="tersedia" {{ $mobil->status == 'tersedia' ? 'selected' : '' }}>Tersedia</option>
+                    <option value="sold out" {{ $mobil->status == 'sold out' ? 'selected' : '' }}>Sold out</option>
+                  </select>
                 </div>
               </div>
+            </div>
             <div class="form-group">
               <label for="">Deskripsi</label>
               @error('deskripsi')
