@@ -68,7 +68,7 @@
           </table>
           <div class="d-flex justify-content-between align-items-center">
             <div>
-                Punya pertanyaan mengenai pesanan dan lainnya? Tanyakan di <a href="https://wa.me/+6212345678910" target="_blank">012345678910</a>
+                Punya pertanyaan mengenai pesanan dan lainnya? Tanyakan di <a href="https://wa.me/+628123456789" target="_blank">08123456789</a>
             </div>
             <a href="/" class="btn btn-primary">Kembali</a>
           </div>

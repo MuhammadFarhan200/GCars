@@ -119,7 +119,7 @@ class PenggunaController extends Controller
 
     public function orders()
     {
-        if (auth()->user()->role->nama === 'admin') {
+        if (auth()->user()->role->role === 'admin') {
             return redirect('/admin');
         }
 

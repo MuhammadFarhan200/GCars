@@ -41,6 +41,8 @@
           <p class="mb-3">{{ $mobil->tahun_keluar }}</p>
           <h6>Harga</h6>
           <p class="mb-3">Rp{{ number_format($mobil->harga, 0, ',', '.') }}</p>
+          <h6>Status</h6>
+          <p class="mb-3">{{ $mobil->status }}</p>
         </div>
         <div class="col-md-8">
           <h6>Deskripsi</h6>

@@ -29,7 +29,7 @@ class MobilSeeder extends Seeder
         Mobil::create([
             'id_merek' => 3,
             'slug' => 'mazda-cx-9-2-5',
-            'tipe' => 'Mazda CX-9 2.5',
+            'tipe' => 'CX-9 2.5',
             'tahun_keluar' => 2018,
             'warna' => 'Black',
             'deskripsi' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa mollitia ullam voluptates tempora aliquam sed deleniti, commodi eaque optio laboriosam illo nam placeat a amet sunt rem! Provident, beatae dolorum.',

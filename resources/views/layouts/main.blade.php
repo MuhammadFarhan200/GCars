@@ -55,7 +55,12 @@
           <a href="/">Home</a>
           <a href="/mobil">Mobil</a>
           <a href="/merek">Merek</a>
-          <a href="/login">Login/Daftar</a>
+          @auth
+            <a href="/pesanan">Pesanan</a>
+            <a href="/user/{{ auth()->user()->username }}">Profil</a>
+          @else
+            <a href="/login">Login/Daftar</a>
+          @endauth
         </div>
         <div class="col-md-3 text-start">
           <p>
@@ -80,14 +85,14 @@
           </p>
           <div class="d-flex align-items-center">
             <a href="#" class="social">
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a href="#" class="social ">
-                <i class="bi bi-facebook"></i>
-              </a>
-              <a href="#" class="social ">
-                <i class="bi bi-twitter"></i>
-              </a>
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#" class="social ">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="social ">
+              <i class="bi bi-twitter"></i>
+            </a>
           </div>
         </div>
       </div>
