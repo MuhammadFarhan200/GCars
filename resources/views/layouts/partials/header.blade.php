@@ -12,8 +12,17 @@
             <li><a href="/merek" class="{{ request()->is('merek*') ? 'active' : '' }}">Merek</a></li>
             <li><a href="/mobil" class="{{ request()->is('mobil*') ? 'active' : '' }}">Mobil</a></li>
             @auth
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }}</a>
+              <li class="d-md-none">
+                <a href="{{ auth()->user()->role->role === 'admin' ? '/admin' : '/user/' . auth()->user()->username }}" class="{{ request()->is('user*') ? 'active' : '' }}">
+                  <img src="{{ asset('images/user/' . auth()->user()->foto_profil) }}" alt="{{ auth()->user()->name }}" srcset="" class="profil-img">
+                  <span class="d-md-none ms-1">{{ auth()->user()->name }}</span>
+                </a>
+              </li>
+              <li class="dropdown d-none d-md-block">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  <img src="{{ asset('images/user/' . auth()->user()->foto_profil) }}" alt="{{ auth()->user()->name }}" srcset="" class="profil-img">
+                  <span class="d-md-none ms-1">{{ auth()->user()->name }}</span>
+                </a>
 
                 <div class="dropdown-menu dropdown-menu-start">
                   @if (auth()->user()->role->role == 'admin')
@@ -31,7 +40,7 @@
                 </div>
               </li>
             @else
-              <li><a href="{{ route('login') }}">Login/Daftar</a></li>
+              <li><a href="{{ route('login') }}" class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}">Login/Daftar</a></li>
             @endauth
           </ul>
           <a class='menu-trigger'>

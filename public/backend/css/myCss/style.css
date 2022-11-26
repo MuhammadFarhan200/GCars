@@ -101,3 +101,8 @@ option:hover {
         height: 450px;
     }
 }
+
+.avatar img {
+    object-fit: cover !important;
+    object-position: center !important;
+}

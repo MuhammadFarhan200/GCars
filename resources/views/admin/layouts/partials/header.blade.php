@@ -7,7 +7,7 @@
         <div class="card-body py-3 px-4">
             <div class="d-flex align-items-center ms-auto">
                 <div class="avatar avatar-sm">
-                    <img src="{{ auth()->user()->image() }}" alt="{{ auth()->user()->foto_profil }}" style="object-fit: cover; object-position: center">
+                    <img src="{{ auth()->user()->image() }}" alt="{{ auth()->user()->foto_profil }}">
                 </div>
                 <div class="ms-3 name">
                     <h5 class="font-bold text-small mb-0">{{ auth()->user()->name }}</h5>
@@ -25,10 +25,10 @@
         <div class="card-body py-3 px-4">
             <div class="d-flex align-items-center ms-auto">
                 <div class="avatar avatar-md">
-                    <img src="{{ auth()->user()->image() }}" alt="Face 2">
+                    <img src="{{ auth()->user()->image() }}" alt="">
                 </div>
                 <div class="ms-3 name">
-                    <h5 class="font-bold mb-0">{{ Auth::user()->name }}</h5>
+                    <h5 class="font-bold mb-0">{{ auth()->user()->name }}</h5>
                 </div>
             </div>
         </div>

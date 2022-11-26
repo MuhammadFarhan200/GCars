@@ -47,7 +47,7 @@
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4">
                   <a href="/user/{{ auth()->user()->username }}" class="btn btn-danger px-3 me-2">Batal</a>
-                  <button type="submit" id="save" class="btn btn-primary px-3" disabled>Simpan</button>
+                  <button type="submit" id="save" class="btn btn-primary px-3">Simpan</button>
                 </div>
               </div>
             </div>
@@ -64,7 +64,6 @@
 
     $(function() {
       $(document).on('change', '.uploadFile', function() {
-        const getButton = document.querySelector('#save').removeAttribute('disabled');
         const uploadFile = $(this);
         const files = !!this.files ? this.files : [];
         if (!files.length || !window.FileReader) return;

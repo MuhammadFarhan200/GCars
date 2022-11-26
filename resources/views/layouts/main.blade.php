@@ -32,9 +32,7 @@
   @yield('hero-area')
 
   <!-- ***** Cars Starts ***** -->
-  <section class="section" id="trainers">
-    @yield('main-content')
-  </section>
+  @yield('main-content')
   <!-- ***** Cars Ends ***** -->
 
   @yield('additional-content')
@@ -48,7 +46,7 @@
             GC<em>ARS</em>
           </a>
         </div>
-        <div class="col-md-2 text-start">
+        <div class="col-md-2 text-start link">
           <p>
             Quick Links
           </p>
@@ -56,13 +54,17 @@
           <a href="/mobil">Mobil</a>
           <a href="/merek">Merek</a>
           @auth
-            <a href="/pesanan">Pesanan</a>
-            <a href="/user/{{ auth()->user()->username }}">Profil</a>
+            @if (auth()->user()->role->role === 'admin')
+              <a href="/admin">Dashboard</a>
+            @else
+              <a href="/pesanan">Pesanan</a>
+              <a href="/user/{{ auth()->user()->username }}">Profil</a>
+            @endif
           @else
             <a href="/login">Login/Daftar</a>
           @endauth
         </div>
-        <div class="col-md-3 text-start">
+        <div class="col-md-3 text-start link">
           <p>
             Info Kontak
           </p>

@@ -6,3 +6,4 @@
 <link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.theme.default.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/myCss/style.css') }}">
+<link rel="stylesheet" href="{{ asset('aos/dist/aos.css') }}">

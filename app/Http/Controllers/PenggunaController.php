@@ -46,7 +46,7 @@ class PenggunaController extends Controller
                 ->orWhereHas('merek', fn($query) => $query->where('nama', 'like', '%' . request('search') . '%'))->get();
         } else {
             $title = 'Daftar Seluruh Mobil';
-            $mobils = Mobil::all();
+            $mobils = Mobil::orderBy('tipe', 'asc')->get();
         }
         return view('pages.mobil.index', compact('mobils', 'title'));
     }
@@ -113,11 +113,12 @@ class PenggunaController extends Controller
         $pesanan->tanggal_pesan = date('Y-m-d');
         $pesanan->status_pesanan = 'tertunda';
         $pesanan->save();
-        Alert::success('Done', 'Pesanan Berhasil Dibuat!')->autoClose(4000);
 
         $mobil = Mobil::find($pesanan->id_mobil);
         $mobil->status = 'Sold Out';
         $mobil->save();
+
+        Alert::success('Done', 'Pesanan Berhasil Dibuat!')->autoClose(4000);
         return redirect('/pesanan/' . $pesanan->id);
     }
 
@@ -165,7 +166,7 @@ class PenggunaController extends Controller
 
     public function editProfile(User $user)
     {
-        if (auth()->user()->role->nama === 'admin') {
+        if (auth()->user()->role->role === 'admin') {
             return redirect('/admin');
         }
 

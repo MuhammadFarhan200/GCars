@@ -29,7 +29,7 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        $pesanan = Pesanan::all();
+        $pesanan = Pesanan::where('status_pesanan', 'berhasil')->get();
         return view('admin.pages.transaksi.create', compact('pesanan'));
     }
 

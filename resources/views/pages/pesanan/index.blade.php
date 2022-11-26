@@ -22,8 +22,9 @@
       <div class="card shadow border-0" style="margin-top: -50px">
         <div class="card-body">
           @if ($filterPesanan->count() < 1)
-            <div class="alert alert-info">
-              <strong>Kamu belum melakukan pesanan apapun!</strong>
+            <div class="text-center opacity-80">
+              <h5 class="mb-3">Kamu belum melakukan pesanan apapun!</h5>
+              <a href="/">Kembali Ke Beranda</a>
             </div>
           @else
             <table class="table table-hover text-center">
@@ -38,7 +39,7 @@
               </thead>
               <tbody>
                 @php
-                    $no = 1;
+                  $no = 1;
                 @endphp
                 @foreach ($filterPesanan as $index => $pesanan)
                   <tr>
@@ -53,6 +54,9 @@
                 @endforeach
               </tbody>
             </table>
+            <div class="d-flex justify-content-end">
+              <a href="/" class="me-3">Kembali Ke Beranda</a>
+            </div>
           @endif
         </div>
       </div>

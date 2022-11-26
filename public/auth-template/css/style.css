@@ -41,13 +41,13 @@
   box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Montserrat';
   src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
-}
+} */
 
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 html {

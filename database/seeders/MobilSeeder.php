@@ -50,7 +50,7 @@ class MobilSeeder extends Seeder
 
         Mobil::create([
             'id_merek' => 2,
-            'slug' => 'honda-mobilio-e--1-5',
+            'slug' => 'honda-mobilio-e-1-5',
             'tipe' => 'MOBILIO E 1.5',
             'tahun_keluar' => 2019,
             'warna' => 'Silver',

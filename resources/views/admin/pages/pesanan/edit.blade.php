@@ -53,7 +53,7 @@
                 @csrf
                 @method('put')
                 <input type="hidden" name="status_pesanan" value="tertunda">
-                <button class="btn btn-secondary me-2 mb-2" type="submit" onclick="event.preventDefault(); confirmChange()">Tandai Tertunda</button>
+                <button class="btn btn-secondary me-2 mb-2" type="submit">Tandai Tertunda</button>
               </form>
             @endif
             @if ($pesanan->status_pesanan !== 'diproses')
@@ -85,24 +85,4 @@
       </div>
     </div>
   </div>
-@endsection
-
-@section('myScript')
-  <script>
-    function confirmChange() {
-      Swal.fire({
-        title: 'Anda Yakin Akan Menghapus Data Ini?',
-        icon: 'warning',
-        showCancelButton: true,
-        allowOutsideClick: false,
-        confirmButtonText: 'Hapus',
-        cancelButtonText: 'Batal',
-        reverseButtons: true
-      }).then((wilDelete) => {
-        if (wilDelete.isConfirmed) {
-          submit();
-        }
-      })
-    }
-  </script>
 @endsection
