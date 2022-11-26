@@ -93,12 +93,12 @@
 }
 
 .translate-effect {
-    transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out !important;
 }
 
 .translate-effect:hover,
 .translate-effect:focus {
-    transform: translate(0, -5px);
+    transform: translate(0, -5px) !important;
 }
 
 .logo-2 {
