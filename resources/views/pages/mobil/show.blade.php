@@ -56,7 +56,7 @@
           @endif
           <div class="d-flex justify-content-end align-items-center">
             <button onclick="history.back()" class="btn btn-secondary me-2">Kembali</button>
-            <a href="{{ $isBooked ? '#!' : '/mobil/' . $mobil->slug . '/pesan' }}" class="btn btn-primary">Pesan</a>
+            <a href="/mobil/{{ $mobil->slug }}/pesan" class="btn btn-primary {{ $isBooked ? 'disabled' : '' }}">Pesan</a>
           </div>
         </div>
       </div>

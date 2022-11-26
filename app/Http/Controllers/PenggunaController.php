@@ -114,6 +114,10 @@ class PenggunaController extends Controller
         $pesanan->status_pesanan = 'tertunda';
         $pesanan->save();
         Alert::success('Done', 'Pesanan Berhasil Dibuat!')->autoClose(4000);
+
+        $mobil = Mobil::find($pesanan->id_mobil);
+        $mobil->status = 'Sold Out';
+        $mobil->save();
         return redirect('/pesanan/' . $pesanan->id);
     }
 
