@@ -22,7 +22,8 @@
     <div class="container">
       <div class="row justify-content-center mb-2 mt-5">
         <div class="col-lg-6 text-center">
-          <h4 class="mb-3">Cari Mobil</h4>
+          <h4 class="mb-2">Cari Mobil</h4>
+          <img src="{{ asset('frontend/images/line-dec.png') }}" alt="" class="mb-3">
           <form action="/mobil" method="GET">
             @if (request('merek'))
               <input type="hidden" name="merek" value="{{ request('merek') }}">

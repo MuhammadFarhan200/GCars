@@ -17,6 +17,10 @@
     }
 }
 
+.caption h3 {
+    font-size: 28px;
+}
+
 .second-button a,
 .second-button button {
     display: inline-block;

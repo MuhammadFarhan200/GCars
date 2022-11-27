@@ -18,9 +18,9 @@
 
 @section('main-content')
   <section class="section" id="trainers">
-    <div class="container col-10">
+    <div class="container col-lg-10">
       @if ($gambar->count() < 1)
-      <h4 class="text-center mt-5">Gambar belum ditambahkan pada mobil ini!</h4>
+        <h4 class="text-center mt-5">Gambar belum ditambahkan pada mobil ini!</h4>
       @else
         <div class="owl-carousel owl-theme mt-4 mt-lg-5" data-aos="fade-in">
           @foreach ($gambar as $listGambar)
@@ -28,8 +28,11 @@
           @endforeach
         </div>
       @endif
-      <h3 class="text-center mt-5" data-aos="fade-up">{{ $mobil->merek->nama . ' ' . $mobil->tipe }}</h3>
-      <div class="row mt-5 col-md-10 mx-auto">
+      <div class="mx-auto mt-4 text-center" data-aos="fade-up">
+        <h3 class="mb-2">{{ $mobil->merek->nama . ' ' . $mobil->tipe }}</h3>
+        <img src="{{ asset('frontend/images/line-dec.png') }}" alt="">
+      </div>
+      <div class="row mt-4 mt-lg-5 col-md-10 mx-auto">
         <div class="col-md-4" data-aos="fade-up">
           <h6>Merek</h6>
           <p class="mb-3">

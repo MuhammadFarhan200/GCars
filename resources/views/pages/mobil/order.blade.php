@@ -63,12 +63,14 @@
               <div class="col-md-12">
                 <div class="mb-3">
                   <label for="" class="d-block">Pesanan Untuk</label>
-                  <a href="/mobil/{{ $mobil->slug }}">{{ $mobil->merek->nama }} {{ $mobil->tipe }} tahun {{ $mobil->tahun_keluar }}</a>
-                  <img src="{{ $mobil->gambar->count() > 0 ? asset('images/mobil/' . $mobil->gambar->first()->gambar) : asset('images/mobil/not-avaliable.jpg') }}" alt="" srcset="" style="width: 400px; border-radius: .5rem" class="d-block">
+                  <div class="col-md-6">
+                    <a href="/mobil/{{ $mobil->slug }}">{{ $mobil->merek->nama }} {{ $mobil->tipe }} tahun {{ $mobil->tahun_keluar }}</a>
+                    <img src="{{ $mobil->gambar->count() > 0 ? asset('images/mobil/' . $mobil->gambar->first()->gambar) : asset('images/mobil/not-avaliable.jpg') }}" alt="" srcset="" style="border-radius: .5rem" class="w-100 d-block mt-1">
+                  </div>
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4">
-                    <button class="btn btn-secondary me-2" onclick="history.back()">Kembali</button>
-                    <button class="btn btn-primary" type="submit">Pesan Sekarang</button>
+                  <button class="btn btn-secondary me-2" onclick="history.back()">Kembali</button>
+                  <button class="btn btn-primary" type="submit">Pesan Sekarang</button>
                 </div>
               </div>
             </div>

@@ -27,33 +27,35 @@
               <a href="/">Kembali Ke Beranda</a>
             </div>
           @else
-            <table class="table table-hover text-center">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Id Pesanan</th>
-                  <th>Tanggal Pemesanan</th>
-                  <th>Status Pesanan</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                @php
-                  $no = 1;
-                @endphp
-                @foreach ($filterPesanan as $index => $pesanan)
+            <div class="table-responsive">
+              <table class="table table-hover text-center">
+                <thead>
                   <tr>
-                    <th>{{ $no++ }}</th>
-                    <td>{{ $pesanan->id }}</td>
-                    <td>{{ $pesanan->tanggal_pesan }}</td>
-                    <td>{{ $pesanan->status_pesanan }}</td>
-                    <td>
-                      <a href="/pesanan/{{ $pesanan->id }}" class="btn btn-sm btn-info text-light">Detail</a>
-                    </td>
+                    <th>#</th>
+                    <th>Id Pesanan</th>
+                    <th>Tanggal Pemesanan</th>
+                    <th>Status Pesanan</th>
+                    <th>Aksi</th>
                   </tr>
-                @endforeach
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  @php
+                    $no = 1;
+                  @endphp
+                  @foreach ($filterPesanan as $index => $pesanan)
+                    <tr>
+                      <th>{{ $no++ }}</th>
+                      <td>{{ $pesanan->id }}</td>
+                      <td>{{ $pesanan->tanggal_pesan }}</td>
+                      <td>{{ $pesanan->status_pesanan }}</td>
+                      <td>
+                        <a href="/pesanan/{{ $pesanan->id }}" class="btn btn-sm btn-info text-light">Detail</a>
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
             <div class="d-flex justify-content-end">
               <a href="/" class="me-3">Kembali Ke Beranda</a>
             </div>

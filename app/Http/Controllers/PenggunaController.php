@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
+use App\Models\GambarMobil;
+use App\Models\Merek;
+use App\Models\Mobil;
+use App\Models\Pemesan;
+use App\Models\Pesanan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Mobil;
-use App\Models\Merek;
-use App\Models\User;
-use App\Models\GambarMobil;
-use App\Models\Pesanan;
-use App\Models\Pemesan;
 use Validator;
-use Alert;
 
 class PenggunaController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $mobils = Mobil::limit(6)->get();
         return view('index', compact('mobils'));
     }
@@ -34,6 +35,8 @@ class PenggunaController extends Controller
                 $query->where('slug', request('search'));
             })->orWhere('tipe', 'like', '%' . request('search') . '%')
                 ->orWhere('tahun_keluar', 'like', '%' . request('search') . '%')
+                ->orWhere('warna', 'like', '%' . request('search') . '%')
+                ->orWhere('status', 'like', '%' . request('search') . '%')
                 ->orWhere('deskripsi', 'like', '%' . request('search') . '%')->get();
             $title = 'Hasil Pencarian Untuk ' . request('search') . ' Pada Merek ' . $merek->nama;
         } else if (request('merek')) {
@@ -43,8 +46,10 @@ class PenggunaController extends Controller
         } else if (request('search')) {
             $title = 'Hasil Pencarian Untuk ' . request('search');
             $mobils = Mobil::where('tipe', 'like', '%' . request('search') . '%')
-                ->orWhere('tahun_keluar', 'like', '%' . request('search') . '%')
                 ->orWhereHas('merek', fn($query) => $query->where('nama', 'like', '%' . request('search') . '%'))
+                ->orWhere('tahun_keluar', 'like', '%' . request('search') . '%')
+                ->orWhere('warna', 'like', '%' . request('search') . '%')
+                ->orWhere('status', 'like', '%' . request('search') . '%')
                 ->orWhere('deskripsi', 'like', '%' . request('search') . '%')->get();
         } else {
             $title = 'Daftar Seluruh Mobil';
@@ -68,6 +73,7 @@ class PenggunaController extends Controller
             return redirect('/login');
         }
         $title = 'Isi Detail Pesanan';
+        $gambar = GambarMobil::with('mobil')->where('id_mobil', $mobil->id)->get();
         $pesananAktif = Pesanan::where('id_mobil', $mobil->id)->get()->filter(fn($item) => $item->status_pesanan !== 'gagal');
         $isBooked = ($pesananAktif->count() > 0);
         if ($isBooked) {
@@ -76,7 +82,7 @@ class PenggunaController extends Controller
         if (auth()->user()->role->role === 'admin') {
             return redirect('/admin');
         }
-        return view('pages.mobil.order', compact('title', 'mobil'));
+        return view('pages.mobil.order', compact('title', 'mobil', 'gambar'));
     }
 
     public function createOrder(Request $request)
@@ -191,7 +197,6 @@ class PenggunaController extends Controller
             'username.max' => 'Username harus memiliki jumlah karakter maksimal 12',
             'foto_profil.image' => 'Foto profil harus berbentuk .jpg atau .png',
         ];
-
 
         $user = User::find(auth()->user()->id);
         if ($request->username !== auth()->user()->username) {

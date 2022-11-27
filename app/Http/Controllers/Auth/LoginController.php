@@ -23,12 +23,17 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public function showLoginForm()
+    {
+        session(['link' => url()->previous()]);
+        return view('auth.login');
+    }
+
     protected function authenticated() {
         if (Auth::user()->role->role === 'admin') {
             return redirect()->route('admin');
         }
-
-        return redirect('/');
+        return redirect(session('link'));
     }
 
     protected function loggedOut(Request $request) {

@@ -68,7 +68,7 @@
           </table>
           <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
             <div class="mb-3 mb-lg-0">
-                Punya pertanyaan mengenai pesanan dan lainnya? Tanyakan di <a href="https://wa.me/+628123456789" target="_blank">08123456789</a>
+                Untuk informasi lebih lanjut, silahkan untuk menghubungi <a href="https://wa.me/+628123456789" target="_blank">08123456789</a>
             </div>
             <a href="/pesanan" class="btn btn-primary ms-auto">Daftar Pesanan</a>
           </div>

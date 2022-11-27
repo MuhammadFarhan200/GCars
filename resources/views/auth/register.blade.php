@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('page-title', 'Register Page')
+@section('page-title', 'Daftarkan Akunmu Sekarang')
 
 @section('main-content')
   <section class="ftco-section">
@@ -11,10 +11,10 @@
               <div class="wrap d-lg-flex">
                 <div class="text-wrap register p-4 p-lg-5 text-center d-flex align-items-center">
                   <div class="text w-100">
-                    <h2>Welcome to Register</h2>
+                    <h2>Selamat Datang</h2>
                     <p class="mb-4 text-white">Sudah punya akun?</p>
                     <a href="{{ route('login') }}" class="btn-auth btn-white btn-outline-white px-5">Login</a>
-                    <a href="/" class="text-white d-block mt-4">Back to Home</a>
+                    <a href="/" class="text-white d-block mt-4">Kembali ke Beranda</a>
                   </div>
                 </div>
                 <div class="login-wrap register p-4 p-md-5">
@@ -66,7 +66,7 @@
                       <input type="password" name="password_confirmation" class="form-control form-control-auth" placeholder="Confirm Password" value="{{ old('password') }}" required autocomplete="off">
                     </div>
                     <div class="form-group mt-4">
-                      <button type="submit" class="btn-auth btn-custom register w-100 px-3">Register</button>
+                      <button type="submit" class="btn-auth btn-custom register w-100 px-3">Daftar</button>
                     </div>
                     <div class="form-group d-md-flex">
                       <div class="w-50 text-left">
