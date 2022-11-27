@@ -25,7 +25,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        session(['link' => url()->previous()]);
+        // session(['link' => url()->previous()]);
         return view('auth.login');
     }
 
@@ -33,7 +33,8 @@ class LoginController extends Controller
         if (Auth::user()->role->role === 'admin') {
             return redirect()->route('admin');
         }
-        return redirect(session('link'));
+        // return redirect(session('link'));
+        return redirect('/');
     }
 
     protected function loggedOut(Request $request) {
