@@ -33,20 +33,22 @@ class PenggunaController extends Controller
             $mobils = Mobil::whereHas('merek', function ($query) {
                 $query->where('slug', request('search'));
             })->orWhere('tipe', 'like', '%' . request('search') . '%')
-                ->orWhere('tahun_keluar', 'like', '%' . request('search') . '%')->get();
+                ->orWhere('tahun_keluar', 'like', '%' . request('search') . '%')
+                ->orWhere('deskripsi', 'like', '%' . request('search') . '%')->get();
             $title = 'Hasil Pencarian Untuk ' . request('search') . ' Pada Merek ' . $merek->nama;
         } else if (request('merek')) {
             $merek = Merek::firstWhere('slug', request('merek'));
             $mobils = $merek->mobil;
-            $title = 'Daftar Mobil Dengan Merek ' . $merek->nama;
+            $title = 'Daftar Mobil dengan Merek ' . $merek->nama;
         } else if (request('search')) {
             $title = 'Hasil Pencarian Untuk ' . request('search');
             $mobils = Mobil::where('tipe', 'like', '%' . request('search') . '%')
                 ->orWhere('tahun_keluar', 'like', '%' . request('search') . '%')
-                ->orWhereHas('merek', fn($query) => $query->where('nama', 'like', '%' . request('search') . '%'))->get();
+                ->orWhereHas('merek', fn($query) => $query->where('nama', 'like', '%' . request('search') . '%'))
+                ->orWhere('deskripsi', 'like', '%' . request('search') . '%')->get();
         } else {
             $title = 'Daftar Seluruh Mobil';
-            $mobils = Mobil::orderBy('tipe', 'asc')->get();
+            $mobils = Mobil::orderBy('tahun_keluar', 'desc')->get();
         }
         return view('pages.mobil.index', compact('mobils', 'title'));
     }
@@ -202,7 +204,7 @@ class PenggunaController extends Controller
 
         if ($request->hasFile('foto_profil')) {
             $image = $request->file('foto_profil');
-            $imageName = rand(1000, 9999) . $image->getClientOriginalName();
+            $imageName = rand(1000, 9999) . strtolower(preg_replace('/[^A-Za-z0-9-\.]+/', '-', $image->getClientOriginalName()));
             $image->move('images/user/', $imageName);
             $user->foto_profil = $imageName;
         }

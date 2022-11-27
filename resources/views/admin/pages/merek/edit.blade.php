@@ -11,7 +11,7 @@
     <div class="col-lg-8 mx-auto">
       <div class="card">
         <div class="card-header">
-          <h3>Edit Data Merek</h3>
+          <h3>Edit Merek</h3>
         </div>
         <div class="card-body">
           <form action="{{ route('merek.update', $merek->id) }}" method="post">

@@ -11,7 +11,7 @@
     <div class="col-lg-8 mx-auto">
       <div class="card">
         <div class="card-header">
-          <h3>Show Data Merek</h3>
+          <h3>Detail Merek</h3>
         </div>
         <div class="card-body">
           <table cellpadding="10px">
@@ -38,7 +38,9 @@
                   @else
                     <ol>
                       @foreach ($listMobil as $mobil)
-                        <li>{{ $mobil->tipe }}</li>
+                        <li>
+                            <a href="{{ route('mobil.show', $mobil->id) }}" class="text-body">{{ $mobil->tipe }}</a>
+                        </li>
                       @endforeach
                     </ol>
                   @endif

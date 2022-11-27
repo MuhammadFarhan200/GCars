@@ -29,7 +29,7 @@
                 <div class="imagePreview card-img">
                   <div class="file-input">
                     <input type="file" name="foto_profil" class="uploadFile" id="" value="{{ auth()->user()->image() }}">
-                    <label for="" class="btn btn-primary fs-5 w-100 py-2 mb-0">Upload</label>
+                    <label for="" class="btn btn-primary w-100 py-2 mb-0">Upload</label>
                   </div>
                 </div>
               </div>
@@ -46,8 +46,8 @@
                   <input type="text" name="username" id="username" value="{{ auth()->user()->username }}" class="form-control">
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4">
-                  <a href="/user/{{ auth()->user()->username }}" class="btn btn-danger px-3 me-2">Batal</a>
-                  <button type="submit" id="save" class="btn btn-primary px-3">Simpan</button>
+                  <a href="/user/{{ auth()->user()->username }}" class="btn btn-sm btn-danger px-3 me-2">Batal</a>
+                  <button type="submit" id="save" class="btn btn-sm btn-primary px-3">Simpan</button>
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@
   <section class="section" id="trainers">
     <div class="container">
       <div class="card shadow border-0" style="margin-top: -50px">
-        <div class="card-body px-5 pt-4">
+        <div class="card-body px-lg-5 pt-4">
           <table class="table table-borderless">
             <tbody>
               <tr>

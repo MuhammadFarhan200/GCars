@@ -34,7 +34,7 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between">
-            <h3 class="text-center">Gambar dari Mobil {{ $mobil->tipe }}:</h3>
+            <h3 class="text-center">Gambar Mobil {{ $mobil->tipe }}:</h3>
             <button onclick="window.location.reload()" class="btn btn-light rounded-circle py-2 px-2">
                 <img src="{{ asset('backend/images/refresh-button.png') }}" alt="" srcset="" width="25px">
             </button>

@@ -70,7 +70,9 @@
                 <tr>
                   <th>Mobil yang Dipesan</th>
                   <td>:</td>
-                  <td>{{ $pesanan->mobil->merek->nama . ' ' . $pesanan->mobil->tipe }}</td>
+                  <td>
+                    <a href="{{ route('mobil.show', $pesanan->mobil->id) }}" class="text-primary">{{ $pesanan->mobil->merek->nama . ' ' . $pesanan->mobil->tipe }}</a>
+                  </td>
                 </tr>
                 <tr>
                   <th>Harga Mobil</th>
@@ -99,7 +101,7 @@
             </table>
           </div>
           <div class="d-flex justify-content-end align-items-center mt-4">
-            <a href="{{ route('pemesanan.index') }}" class="btn btn-danger me-3">Kembali</a>
+            <a href="{{ route('pemesanan.index') }}" class="btn btn-secondary me-3">Kembali</a>
             <a href="{{ route('pemesanan.edit', $pesanan->id) }}" class="btn btn-primary">Ubah Status</a>
           </div>
         </div>

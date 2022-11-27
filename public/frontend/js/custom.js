@@ -1,5 +1,5 @@
 (function ($) {
-	
+
 	"use strict";
 
 	$(function() {
@@ -17,7 +17,7 @@
 	    $("header").removeClass("background-header");
 	  }
 	});
-	
+
 
 	$('.schedule-filter li').on('click', function() {
         var tsfilter = $(this).data('tsfilter');
@@ -44,11 +44,11 @@
 
 	// Scroll animation init
 	window.sr = new scrollReveal();
-	
+
 
 	// Menu Dropdown Toggle
 	if($('.menu-trigger').length){
-		$(".menu-trigger").on('click', function() {	
+		$(".menu-trigger").on('click', function() {
 			$(this).toggleClass('active');
 			$('.header-area .nav').slideToggle(200);
 		});

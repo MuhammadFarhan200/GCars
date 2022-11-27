@@ -32,14 +32,18 @@
               <label class="mb-2 d-block">Email: {{ auth()->user()->email }}</label>
               <p>Bergabung Pada {{ \Carbon\Carbon::parse(auth()->user()->created_at)->format('d M, Y') }}</p>
               <div class="d-flex justify-content-between align-items-center mt-4">
-                <a href="/user/{{ auth()->user()->username }}/edit" class="btn btn-primary">Edit Profil</a>
                 <div class="">
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                   </form>
-                  <a href="{{ route('logout') }}" class="btn btn-danger me-1" onclick="event.preventDefault();logout()">Logout</a>
-                  <a href="/" class="btn btn-secondary">Kembali</a>
+                  <a href="/user/{{ auth()->user()->username }}/edit" class="btn btn-sm btn-primary me-1">
+                    Edit <i class="fa fa-pencil"></i>
+                  </a>
+                  <a href="{{ route('logout') }}" class="btn btn-sm btn-danger" onclick="event.preventDefault();logout()">
+                    Logout <i class="fa fa-sign-out"></i>
+                  </a>
                 </div>
+                <a href="/" class="btn btn-sm btn-secondary">Ke Beranda</a>
               </div>
             </div>
           </div>

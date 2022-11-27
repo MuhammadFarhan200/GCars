@@ -19,7 +19,9 @@
               <tbody>
                 <tr>
                   <th>Merek</th>
-                  <td>{{ $mobil->merek->nama }}</td>
+                  <td>
+                    <a href="{{ route('merek.show', $mobil->merek->id) }}" class="text-primary">{{ $mobil->merek->nama }}</a>
+                  </td>
                 </tr>
                 <tr>
                   <th>Tipe</th>

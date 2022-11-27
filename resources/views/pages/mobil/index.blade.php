@@ -52,7 +52,11 @@
           Data mobil masih kosong ;_;
         </div>
       @else
-        <div class="row justify-content-start align-items-center mt-5">
+        @if (request('merek') || request('search'))
+          <h5 class="text-center mt-4">{{ $title }}:</h5>
+        @else
+        @endif
+        <div class="row justify-content-start align-items-center mt-4">
           @foreach ($mobils as $mobil)
             <div class="col-lg-4">
               <a href="/mobil/{{ $mobil->slug }}">

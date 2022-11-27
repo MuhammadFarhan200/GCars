@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Transaksi;
 use App\Models\Pesanan;
-use Validator;
+use App\Models\Transaksi;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Validator;
 
 class TransaksiController extends Controller
 {
+    public function generateRandomString($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -66,7 +76,7 @@ class TransaksiController extends Controller
         $transaksi->tanggal_bayar = $request->tanggal_bayar;
         $transaksi->total_bayar = $request->total_bayar;
         $transaksi->status_transaksi = $request->status_transaksi;
-        $transaksi->kode_transaksi = Str::ulid();
+        $transaksi->kode_transaksi = $this->generateRandomString(16);
         $transaksi->save();
         Alert::success('Done!', 'Data Transaksi berhasil dibuat.');
         return redirect()->route('transaksi.index');
@@ -125,12 +135,16 @@ class TransaksiController extends Controller
             return back()->withErrors($validation)->withInput();
         }
 
+        date_default_timezone_set('Asia/Jakarta');
+
+        $kode =
+
         $transaksi = Transaksi::findOrFail($id);
         $transaksi->id_pesanan = $request->id_pesanan;
         $transaksi->tanggal_bayar = $request->tanggal_bayar;
         $transaksi->total_bayar = $request->total_bayar;
         $transaksi->status_transaksi = $request->status_transaksi;
-        $transaksi->kode_transaksi = Str::ulid();
+        $transaksi->kode_transaksi = $this->generateRandomString(16);
         $transaksi->save();
         Alert::success('Done!', 'Data Transaksi berhasil diedit.');
         return redirect()->route('transaksi.index');

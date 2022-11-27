@@ -100,9 +100,9 @@
                 <div class="text-wrap login p-4 p-lg-5 text-center d-flex align-items-center">
                   <div class="text w-100">
                     <h2>Welcome to login</h2>
-                    <p class="mb-4 text-white">Don't have an account?</p>
+                    <p class="mb-4 text-white">Belum punya akun?</p>
                     <a href="{{ route('register') }}" class="btn-auth btn-white btn-outline-white px-5">Register</a>
-                    <a href="/" class="btn text-white d-block mt-4">Back to Home</a>
+                    <a href="/" class="text-white d-block mt-4">Back to Home</a>
                   </div>
                 </div>
                 <div class="login-wrap login p-4 p-lg-5">
@@ -115,7 +115,7 @@
                     @csrf
                     <div class="form-group mb-3">
                       <label class="label" for="name">Email</label>
-                      <input type="text" name="email" class="form-control-auth @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
+                      <input type="text" name="email" class="form-control form-control-auth @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
                       @error('email')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -124,7 +124,7 @@
                     </div>
                     <div class="form-group mb-3">
                       <label class="label" for="password">Password</label>
-                      <input type="password" name="password" class="form-control-auth @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}" required autocomplete="off">
+                      <input type="password" name="password" class="form-control form-control-auth @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}" required autocomplete="off">
                       @error('password')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="form-group d-md-flex">
                       <div class="w-50 text-left">
-                        <label class="checkbox-wrap checkbox-custom mb-0">Remember Me
+                        <label class="checkbox-wrap checkbox-custom mb-0">Ingat Saya
                           <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                           <span class="checkmark"></span>
                         </label>

@@ -32,7 +32,9 @@
       <div class="row mt-5 col-md-10 mx-auto">
         <div class="col-md-4" data-aos="fade-up">
           <h6>Merek</h6>
-          <p class="mb-3">{{ $mobil->merek->nama }}</p>
+          <p class="mb-3">
+            <a href="/mobil?merek={{ $mobil->merek->slug }}">{{ $mobil->merek->nama }}</a>
+          </p>
           <h6>Tipe</h6>
           <p class="mb-3">{{ $mobil->tipe }}</p>
           <h6>Warna</h6>
@@ -56,7 +58,7 @@
           @endif
           <div class="d-flex justify-content-end align-items-center mt-3 mt-md-0">
             <button onclick="history.back()" class="btn btn-secondary me-2">Kembali</button>
-            <a href="/mobil/{{ $mobil->slug }}/pesan" class="btn btn-primary {{ $isBooked ? 'disabled' : '' }}">Pesan</a>
+            <a href="/mobil/{{ $mobil->slug }}/pesan" @class(['btn', 'btn-primary', 'disabled' => $isBooked])>Pesan</a>
           </div>
         </div>
       </div>
