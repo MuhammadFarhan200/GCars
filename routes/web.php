@@ -72,9 +72,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
 
     Route::post('gambar/{id}/hapus', [GambarMobilController::class, 'destroy'])->name('tambahGambar.destroy');
 
-    Route::get('/report', [AdminController::class, 'report'])->name('report');
+    Route::get('report', [AdminController::class, 'report'])->name('report');
 
-    Route::post('/report', [AdminController::class, 'report'])->name('getReport');
+    Route::post('report', [AdminController::class, 'report'])->name('getReport');
+
+    Route::get('report/print', [AdminController::class, 'pdfReport'])->name('pdfReport');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

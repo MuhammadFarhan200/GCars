@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\User;
 use App\Models\Merek;
 use App\Models\Mobil;
@@ -12,6 +11,7 @@ use App\Models\Pesanan;
 use App\Models\Transaksi;
 use Validator;
 use Alert;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -84,12 +84,27 @@ class AdminController extends Controller
     {
         $tanggal_awal = $request->tanggal_awal;
         $tanggal_akhir = $request->tanggal_akhir;
-        $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
-        return view('admin.pages.report.index', compact('data_report'));
+        if ($tanggal_awal <= $tanggal_akhir) {
+            $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
+            return view('admin.pages.report.index', compact('data_report'));
+        } else {
+            Alert::error('Oops!', 'Tanggal yang anda input tidak valid!')->autoClose(false);
+            return redirect()->back();
+        }
     }
 
-    public function reportPdf()
+    public function pdfReport()
     {
-
+        $tanggal_awal = $request->tanggal_awal;
+        $tanggal_akhir = $request->tanggal_akhir;
+        if ($tanggal_awal != null && $tanggal_akhir != null) {
+            $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
+            $pdf = PDF::loadview('admin.pages.report.print', ['data_report' => $data_report])->setPaper('a4', 'landscape');
+            return $pdf->stream('report.pdf');
+        }
+        else {
+            Alert::error('Oops!', 'Data tidak dapat di print!')->autoClose(false);
+            return redirect()->back();
+        }
     }
 }
