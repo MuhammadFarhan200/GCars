@@ -76,11 +76,15 @@
           <h3>Gambar Mobil</h3>
         </div>
         <div class="card-body">
-          <div class="owl-carousel owl-theme">
-            @foreach ($gambar as $listGambar)
-              <img src="{{ $listGambar->image() }}" alt="" srcset="" class="owl-img">
-            @endforeach
-          </div>
+          @if ($gambar->count() < 1)
+            <p class="text-center fs-5">Gambar belum ditambahkan</p>
+          @else
+            <div class="owl-carousel owl-theme">
+              @foreach ($gambar as $listGambar)
+                <img src="{{ $listGambar->image() }}" alt="" srcset="" class="owl-img">
+              @endforeach
+            </div>
+          @endif
           <div class="d-flex justify-content-end align-items-center mt-4">
             <a href="{{ route('tambahGambar.index', $mobil->id) }}" class="btn btn-primary">
               <i class="bi bi-plus-lg"></i> <i class="bi bi-images me-2"></i>

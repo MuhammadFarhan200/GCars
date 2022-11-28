@@ -18,6 +18,22 @@
             @csrf
             @method('put')
             <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Merek</label>
+                    <select name="id_merek" id="select-search" class="@error('id_merek') is-invalid @enderror" required>
+                      {{-- <option value="">Pilih Merek</option> --}}
+                      @foreach ($mereks as $merek)
+                        <option value="{{ $merek->id }}" {{ $mobil->id_merek == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
+                      @endforeach
+                    </select>
+                    @error('id_merek')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
+                  </div>
+                </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="">Tipe</label>
@@ -29,23 +45,15 @@
                   @enderror
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">Merek</label>
-                  <select name="id_merek" id="select-search" class="@error('id_merek') is-invalid @enderror" required>
-                    {{-- <option value="">Pilih Merek</option> --}}
-                    @foreach ($mereks as $merek)
-                      <option value="{{ $merek->id }}" {{ $mobil->id_merek == $merek->id ? 'selected' : '' }}>{{ $merek->nama }}</option>
-                    @endforeach
-                  </select>
-                  @error('id_merek')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Slug</label>
+                    <input type="text" name="slug" id="slug" class="form-control" value="{{ $mobil->slug }}" disabled>
+                  </div>
                 </div>
               </div>
-            </div>
             <div class="row justify-content-center">
               <div class="col-6">
                 <div class="form-group">
@@ -125,7 +133,12 @@
 @section('myScript')
   <script>
     document.querySelector('#tipe').addEventListener('input', function() {
-      document.querySelector('#slug').value = this.value.toLowerCase()
+      var e = document.getElementById("select-search");
+      var text = e.options[e.selectedIndex].text.toLowerCase().trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+      document.querySelector('#slug').value = text + '-' + this.value.toLowerCase()
         .trim()
         .replace(/[^\w\s-]/g, '')
         .replace(/[\s_-]+/g, '-')

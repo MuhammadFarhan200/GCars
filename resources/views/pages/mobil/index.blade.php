@@ -59,7 +59,7 @@
         @endif
         <div class="row justify-content-start align-items-center mt-4">
           @foreach ($mobils as $mobil)
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
               <a href="/mobil/{{ $mobil->slug }}">
                 <div class="trainer-item zoom-effect" data-aos="fade-up">
                   <div class="image-thumb">

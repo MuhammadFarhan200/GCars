@@ -24,6 +24,9 @@
         @foreach ($mereks as $merek)
           <a href="/mobil?merek={{ $merek->slug }}" class="translate-effect">
             <div class="trainer-item mx-2 px-4 mb-3">
+              {{-- <div class="image-thumb text-center">
+                <img src="https://www.freeiconspng.com/uploads/honda-logo-png-picture-20.png" alt="" class="mb-3" style="width: 50px; height: 45px; object-fit: contain">
+              </div> --}}
               <div class="down-content">
                 {{ $merek->nama }}
               </div>

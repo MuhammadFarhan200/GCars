@@ -24,7 +24,7 @@ option:hover {
 .dropzone {
     border: none !important;
     border-radius: .5rem !important;
-    background: rgb(240, 240, 240) !important;
+    background: rgba(245, 244, 244, 0.877) !important;
 }
 
 .stats-icon.primary {

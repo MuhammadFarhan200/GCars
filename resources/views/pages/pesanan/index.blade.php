@@ -22,9 +22,11 @@
       <div class="card shadow border-0" style="margin-top: -50px">
         <div class="card-body">
           @if ($filterPesanan->count() < 1)
-            <div class="text-center opacity-80">
-              <h5 class="mb-3">Kamu belum melakukan pesanan apapun!</h5>
-              <a href="/">Kembali Ke Beranda</a>
+            <div class="alert alert-info text-center opacity-80">
+              <h5>Kamu belum melakukan pesanan apapun!</h5>
+            </div>
+            <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+              <a href="/" class="me-sm-2">Kembali Ke Beranda </a> atau <a href="/mobil" class="ms-sm-2"> Pesan Mobil Sekarang!</a>
             </div>
           @else
             <div class="table-responsive">

@@ -57,6 +57,13 @@
             </a>
           </li>
 
+          <li class="sidebar-item {{ request()->is('admin/report') ? 'active' : '' }}">
+            <a href="{{ route('report') }}" class='sidebar-link'>
+              <i class="bi bi-file-earmark-bar-graph"></i>
+              <span>Report</span>
+            </a>
+          </li>
+
           <li class="sidebar-title">Table</li>
 
           <li class="sidebar-item {{ request()->is('admin/merek*') ? 'active' : '' }}">

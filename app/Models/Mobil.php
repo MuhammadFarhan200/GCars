@@ -38,4 +38,13 @@ class Mobil extends Model
             $mobil->gambar()->delete();
         });
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['merek'] ?? false, function ($query, $merek) {
+            return $query->whereHas('merek', function ($query) use ($merek) {
+                $query->where('slug', $merek);
+            });
+        });
+    }
 }

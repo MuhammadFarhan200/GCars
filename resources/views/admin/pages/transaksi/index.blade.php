@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title-page', 'Data Transaksi')
+@section('title-page', 'Daftar Transaksi')
 
 @section('page-heading')
   <h2>Transaksi</h2>

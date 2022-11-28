@@ -71,6 +71,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::post('mobil/{id}/gambar', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
 
     Route::post('gambar/{id}/hapus', [GambarMobilController::class, 'destroy'])->name('tambahGambar.destroy');
+
+    Route::get('/report', [AdminController::class, 'report'])->name('report');
+
+    Route::post('/report', [AdminController::class, 'report'])->name('getReport');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

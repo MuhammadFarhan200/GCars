@@ -23,7 +23,7 @@
             <b>Note: </b>agar gambar muncul setelah diupload, mohon untuk klik icon atau tombol refresh!
           </p>
           <div class="d-flex justify-content-end mt-4">
-            <a href="{{ route('mobil.index') }}" class="btn btn-danger me-3">Kembali</a>
+            <a href="{{ route('mobil.index') }}" class="btn btn-secondary me-3">Kembali</a>
             <a href="{{ route('mobil.show', $mobil->id) }}" class="btn btn-primary">Detail Mobil</a>
           </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="card-body">
           <div class="row g-3">
             @if ($gambar->count() < 1 )
-              <p class="text-center">Gambar belum ditambahkan.</p>
+              <p class="text-center fs-5">Gambar belum ditambahkan.</p>
             @endif
             @foreach ($gambar as $listGambar)
               <div class="col-lg-3 text-center">

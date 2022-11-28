@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title-page', 'Data Merek')
+@section('title-page', 'Daftar Merek')
 
 @section('page-heading')
   <h2>Merek</h2>
@@ -11,7 +11,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3 class="font-bold text-center m-0">Data Merek</h3>
+          <h3 class="font-bold text-center m-0">Daftar Merek</h3>
           <a href="{{ route('merek.create') }}" class="btn btn-primary">
             <i class="bi bi-plus-circle me-1"></i>
             Tambah

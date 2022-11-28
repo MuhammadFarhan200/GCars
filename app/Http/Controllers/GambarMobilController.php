@@ -39,13 +39,13 @@ class GambarMobilController extends Controller
 
         if ($request->hasFile('gambar')) {
             $image = $request->file('gambar');
-            $imageName = rand(1000, 9999) . $image->getClientOriginalName();
+            $imageName = rand(1000, 9999) . strtolower(preg_replace('/[^A-Za-z0-9-\.]+/', '-', $image->getClientOriginalName()));
             $image->move('images/mobil/', $imageName);
             $gambar->gambar = $imageName;
         }
         $gambar->save();
 
-        return response()->json(['status' => true, 'mesaage' => 'image(s) uploaded!']);
+        return response()->json(['status' => true, 'message' => 'image(s) uploaded!']);
         // return $request->all();
     }
 
@@ -55,10 +55,10 @@ class GambarMobilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -66,10 +66,10 @@ class GambarMobilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    // public function edit($id)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -78,10 +78,10 @@ class GambarMobilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.

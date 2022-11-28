@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\User;
 use App\Models\Merek;
 use App\Models\Mobil;
@@ -77,5 +78,18 @@ class AdminController extends Controller
         $user->save();
         Alert::success('Done!', 'Data Profilmu berhasil diedit.');
         return redirect()->route('admin.profile.index', $user->username);
+    }
+
+    public function report(Request $request)
+    {
+        $tanggal_awal = $request->tanggal_awal;
+        $tanggal_akhir = $request->tanggal_akhir;
+        $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
+        return view('admin.pages.report.index', compact('data_report'));
+    }
+
+    public function reportPdf()
+    {
+
     }
 }

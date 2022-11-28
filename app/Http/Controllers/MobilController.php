@@ -58,9 +58,9 @@ class MobilController extends Controller
             'tipe.required' => 'Tipe harus diisi!',
             'tahun_keluar.required' => 'Tahun keluar harus diisi!',
             'warna.required' => 'Warna harus diisi!',
-            'deskripsi.required' => 'deskripsi harus diisi!',
-            'harga.required' => 'harga harus diisi!',
-            'status.required' => 'status harus diisi!',
+            'deskripsi.required' => 'Deskripsi harus diisi!',
+            'harga.required' => 'Harga harus diisi!',
+            'status.required' => 'Status harus diisi!',
         ];
 
         $validation = Validator::make($request->all(), $rules, $messages);
@@ -136,9 +136,9 @@ class MobilController extends Controller
             'tipe.required' => 'Tipe harus diisi!',
             'tahun_keluar.required' => 'Tahun keluar harus diisi!',
             'warna.required' => 'Warna harus diisi!',
-            'deskripsi.required' => 'deskripsi harus diisi!',
-            'harga.required' => 'harga harus diisi!',
-            'status.required' => 'status harus diisi!',
+            'deskripsi.required' => 'Deskripsi harus diisi!',
+            'harga.required' => 'Harga harus diisi!',
+            'status.required' => 'Status harus diisi!',
         ];
 
         $validation = Validator::make($request->all(), $rules, $messages);
