@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use Alert;
 use App\Models\Merek;
 use App\Models\Mobil;
 use App\Models\Pesanan;
 use App\Models\Transaksi;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
-use Alert;
 use PDF;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        if (!Auth::user() || (Auth::user()->role->role !== 'admin')) return redirect('/login');
+        if (!Auth::user() || (Auth::user()->role->role !== 'admin')) {
+            return redirect('/login');
+        }
 
         $title = 'Dashboard';
         $jumlahMerek = Merek::all()->count();
@@ -58,7 +60,6 @@ class AdminController extends Controller
             'foto_profil.image' => 'Foto profil harus berbentuk .jpg atau .png',
         ];
 
-
         $user = User::find(auth()->user()->id);
         if ($request->username !== auth()->user()->username) {
             $validation = Validator::make($request->all(), $rules, $messages);
@@ -84,26 +85,31 @@ class AdminController extends Controller
     {
         $tanggal_awal = $request->tanggal_awal;
         $tanggal_akhir = $request->tanggal_akhir;
-        if ($tanggal_awal <= $tanggal_akhir) {
-            $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
-            return view('admin.pages.report.index', compact('data_report'));
-        } else {
-            Alert::error('Oops!', 'Tanggal yang anda input tidak valid!')->autoClose(false);
-            return redirect()->back();
-        }
+            if ($tanggal_awal <= $tanggal_akhir) {
+                $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
+                return view('admin.pages.report.index', compact('data_report'));
+            } else {
+                Alert::error('Oops!', 'Tanggal yang anda input tidak valid!')->autoClose(false);
+                return redirect()->back();
+            }
+        return view('admin.pages.report.index');
     }
 
-    public function pdfReport()
+    public function printReport(Request $request)
     {
         $tanggal_awal = $request->tanggal_awal;
         $tanggal_akhir = $request->tanggal_akhir;
-        if ($tanggal_awal != null && $tanggal_akhir != null) {
-            $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
-            $pdf = PDF::loadview('admin.pages.report.print', ['data_report' => $data_report])->setPaper('a4', 'landscape');
-            return $pdf->stream('report.pdf');
-        }
-        else {
-            Alert::error('Oops!', 'Data tidak dapat di print!')->autoClose(false);
+        if ($tanggal_akhir != null && $tanggal_akhir != null) {
+            if ($tanggal_awal <= $tanggal_akhir) {
+                $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
+                $pdf = PDF::loadview('admin.pages.report.print', ['data_report' => $data_report])->setPaper('a4', 'landscape');
+                return $pdf->stream('report.pdf');
+            } else {
+                Alert::error('Oops!', 'Tanggal yang anda input tidak valid!')->autoClose(false);
+                return redirect()->back();
+            }
+        } else {
+            Alert::error('Oops!', 'Data tidak dapat di print! Mohon untuk meniputkan tanggal terlebih dahulu.')->autoClose(false);
             return redirect()->back();
         }
     }

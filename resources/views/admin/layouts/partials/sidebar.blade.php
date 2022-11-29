@@ -57,10 +57,10 @@
             </a>
           </li>
 
-          <li class="sidebar-item {{ request()->is('admin/report') ? 'active' : '' }}">
+          <li class="sidebar-item {{ request()->is('admin/laporan') ? 'active' : '' }}">
             <a href="{{ route('report') }}" class='sidebar-link'>
               <i class="bi bi-file-earmark-bar-graph"></i>
-              <span>Report</span>
+              <span>Laporan</span>
             </a>
           </li>
 
