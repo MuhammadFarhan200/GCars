@@ -41,15 +41,15 @@
         </div>
       </div>
       @if ($mobils->count() < 1 && request('merek'))
-        <div class="alert  alert-info col-6 mx-auto" role="alert">
+        <div class="alert  alert-info col-md-6 mx-auto" role="alert">
           Mobil dengan merek {{ request('merek') }}, masih kosong ;_;
         </div>
       @elseif ($mobils->count() < 1 && request('search'))
-        <div class="alert  alert-info col-6 mx-auto" role="alert">
+        <div class="alert  alert-info col-md-6 mx-auto" role="alert">
           Tidak Ditemukan Apapun Untuk Kata Kunci {{ request('search') }} ;_;
         </div>
       @elseif ($mobils->count() < 1)
-        <div class="alert  alert-info col-6 mx-auto" role="alert">
+        <div class="alert  alert-info col-md-6 mx-auto" role="alert">
           Data mobil masih kosong ;_;
         </div>
       @else

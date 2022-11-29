@@ -54,7 +54,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th>#</th>
+          <th>No</th>
           <th>Kode Transaksi</th>
           <th>Mobil yang Dipesan</th>
           <th>Dipesan Oleh</th>
