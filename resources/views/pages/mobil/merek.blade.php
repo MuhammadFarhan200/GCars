@@ -9,7 +9,7 @@
         <div class="col-lg-10 offset-lg-1">
           <div class="cta-content pt-5">
             <h2 class="text-white">Pilih Merek</h2>
-            <p>Pilih salah satu merek dibawah ini untuk menemukan mobil yang anda cari.</p>
+            <p>Cari mobil yang anda inginkan berdasarkan merek dibawah ini.</p>
           </div>
         </div>
       </div>

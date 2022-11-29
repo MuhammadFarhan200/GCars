@@ -29,7 +29,6 @@
               <h4>Tentang Anda:</h4>
               <label class="mt-3 mb-2 d-block">Name: {{ auth()->user()->name }}</label>
               <label class="mb-2 d-block">Username: {{ auth()->user()->username }}</label>
-              <label class="mb-2 d-block">Email: {{ auth()->user()->email }}</label>
               <p>Bergabung Pada {{ \Carbon\Carbon::parse(auth()->user()->created_at)->format('d M, Y') }}</p>
               <div class="d-flex justify-content-between align-items-center mt-4">
                 <div class="">

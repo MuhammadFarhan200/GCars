@@ -19,11 +19,11 @@
             <div class="row px-2 align-items-end mb-4">
               <div class="col-md-4">
                 <label for="">Tanggal Awal</label>
-                <input type="date" name="tanggal_awal" id="" class="form-control mb-3 mb-md-0" value="{{ old('tanggal_awal') ? old('tanggal_awal') : request('tanggal_awal') }}" required>
+                <input type="date" name="tanggal_awal" id="" class="form-control mb-3 mb-md-0" value="{{ request('tanggal_awal') }}" required>
               </div>
               <div class="col-md-4">
                 <label for="">Tanggal Akhir</label>
-                <input type="date" name="tanggal_akhir" id="" class="form-control mb-3 mb-md-0" value="{{ old('tanggal_akhir') ? old('tanggal_akhir') : request('tanggal_akhir') }}" required>
+                <input type="date" name="tanggal_akhir" id="" class="form-control mb-3 mb-md-0" value="{{ request('tanggal_akhir') }}" required>
               </div>
               <div class="col-md-3">
                 <button type="submit" class="btn btn-primary px-3">

@@ -19,7 +19,6 @@
                         <h4>Tentang Anda:</h4>
                         <p class="fs-5 mt-3 mb-2">Name: {{ auth()->user()->name }}</p>
                         <p class="fs-5 mb-2">Username: {{ auth()->user()->username }}</p>
-                        <p class="fs-5 mb-2">Email: {{ auth()->user()->email }}</p>
                         <p>Bergabung Pada {{ \Carbon\Carbon::parse(auth()->user()->created_at)->format('d M, Y') }}</p>
                         <div class="d-flex justify-content-end align-items-center mt-4">
                             <a href="{{ route('admin') }}" class="btn btn-secondary px-3 me-3">Kembali</a>
