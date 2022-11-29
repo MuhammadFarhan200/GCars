@@ -3,7 +3,7 @@
 
 @section('page-heading')
   <h2>Laporan</h2>
-  <p>Tampilkan laporan data berdasarkan tanggal yang anda inginkan</p>
+  <p>Tampilkan laporan transaksi berdasarkan tanggal yang anda inginkan</p>
 @endsection
 
 @section('page-content')
@@ -11,7 +11,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3>Laporan Data Transaksi</h3>
+          <h3>Laporan Transaksi</h3>
         </div>
         <div class="card-body">
           <form action="{{ route('report') }}" method="post">
@@ -19,11 +19,11 @@
             <div class="row px-2 align-items-end mb-4">
               <div class="col-md-4">
                 <label for="">Tanggal Awal</label>
-                <input type="date" name="tanggal_awal" id="" class="form-control mb-3 mb-md-0" required>
+                <input type="date" name="tanggal_awal" id="" class="form-control mb-3 mb-md-0" value="{{ old('tanggal_awal') ? old('tanggal_awal') : request('tanggal_awal') }}" required>
               </div>
               <div class="col-md-4">
                 <label for="">Tanggal Akhir</label>
-                <input type="date" name="tanggal_akhir" id="" class="form-control mb-3 mb-md-0" required>
+                <input type="date" name="tanggal_akhir" id="" class="form-control mb-3 mb-md-0" value="{{ old('tanggal_akhir') ? old('tanggal_akhir') : request('tanggal_akhir') }}" required>
               </div>
               <div class="col-md-3">
                 <button type="submit" class="btn btn-primary px-3">
@@ -33,6 +33,7 @@
             </div>
           </form>
           @if ($data_report->count() < 1)
+            <p class="text-center">Tidak ada data transaksi</p>
           @else
             <div class="table-responsive p-2">
               <table class="table table-hover table-bordered text-center">

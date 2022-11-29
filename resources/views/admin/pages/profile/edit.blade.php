@@ -14,7 +14,7 @@
         @csrf
         @method('put')
         <div class="row align-items-center">
-          <div class="col-md-5 col-lg-4">
+          <div class="col-md-5 col-xxl-4">
             <div class="imgUp position-relative">
               <div class="imagePreview card-img">
                 <div class="file-input">
@@ -22,12 +22,9 @@
                     <label for="" class="btn btn-primary fs-5 w-100 py-2">Upload</label>
                 </div>
               </div>
-              {{-- <label for="" class="btn btn-primary w-100">
-                Ubah<input type="file" name="foto_profil" class="uploadFile" id="" value="{{ auth()->user()->image() }}">
-              </label> --}}
             </div>
           </div>
-          <div class="col-md-7 col-lg-8 mx-auto">
+          <div class="col-md-7 col-xxl-8 mx-auto">
             <div class="card-body">
               <h4>Tentang Anda:</h4>
               <p class="fs-5 mt-3 mb-2">Name: {{ auth()->user()->name }}</p>

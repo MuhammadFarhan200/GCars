@@ -11,10 +11,10 @@
     <div class="col-md-10 mx-auto">
         <div class="card mt-4">
             <div class="row align-items-center">
-                <div class="col-md-5 col-lg-4">
+                <div class="col-md-5 col-xxl-4">
                     <img src="{{ $user->image() }}" alt="" class="card-img img-fluid shadow-sm" style="height: 300px; object-fit: cover; object-position: center">
                 </div>
-                <div class="col-md-7 col-lg-8 mx-auto">
+                <div class="col-md-7 col-xxl-8 mx-auto">
                     <div class="card-body">
                         <h4>Tentang Anda:</h4>
                         <p class="fs-5 mt-3 mb-2">Name: {{ auth()->user()->name }}</p>
