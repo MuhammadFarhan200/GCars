@@ -31,7 +31,7 @@
 
 @include('sweetalert::alert')
 
-<script src="{{ asset('login-template/js/popper.js') }}"></script>
+<script src="{{ asset('auth-template/js/popper.js') }}"></script>
 
 <script src="{{ asset('aos/dist/aos.js') }}"></script>
 <script>

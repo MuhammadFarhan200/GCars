@@ -18,7 +18,7 @@
           </a>
         </div>
         <div class="card-body m-0">
-          <div class="table-responsive p-2">
+          <div class="table-responsive p-2 pb-4">
             <table class="table table-bordered table-hover text-center" id="dataTable">
               <thead>
                 <tr>

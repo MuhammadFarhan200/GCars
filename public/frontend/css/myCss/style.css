@@ -209,6 +209,10 @@
   object-position: center;
 }
 
+.mt-min-20 {
+  margin-top: -20px !important;
+}
+
 /* ================================= */
 /* ========== LOGIN STYLE ========== */
 /* ================================= */
@@ -259,6 +263,9 @@
 @media (min-width: 769px) {
   .text-wrap.login {
     border-radius: .5rem 0 0 .5rem;
+  }
+  .text-wrap h2 {
+    font-size: 34px;
   }
 }
 

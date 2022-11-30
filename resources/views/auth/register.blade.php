@@ -7,20 +7,20 @@
     <div class="soft-bg">
         <div class="container mt-5">
           <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-11">
+            <div class="col-md-12 col-xxl-11">
               <div class="wrap d-lg-flex">
-                <div class="text-wrap register p-4 p-lg-5 text-center d-flex align-items-center">
+                <div class="text-wrap register px-4 px-lg-5 py-5 text-center d-flex align-items-center">
                   <div class="text w-100">
-                    <h2>Selamat Datang</h2>
+                    <h2>Daftarkan Akunmu Sekarang</h2>
                     <p class="mb-4 text-white">Sudah punya akun?</p>
-                    <a href="{{ route('login') }}" class="btn-auth btn-white btn-outline-white px-5">Login</a>
-                    <a href="/" class="text-white d-block mt-4">Kembali ke Beranda</a>
+                    <a href="{{ route('login') }}" class="btn-auth btn-white btn-outline-white px-5">Login di sini</a>
+                    {{-- <a href="/" class="text-white d-block mt-4">Kembali ke Beranda</a> --}}
                   </div>
                 </div>
                 <div class="login-wrap register p-4 p-md-5">
                   <div class="d-flex">
                     <div class="w-100">
-                      <h3 class="mb-4">Register</h3>
+                      <h3 class="mb-4">Daftar</h3>
                     </div>
                   </div>
                   <form action="{{ route('register') }}" method="POST" class="signin-form">

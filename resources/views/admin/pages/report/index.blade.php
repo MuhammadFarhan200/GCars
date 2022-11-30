@@ -36,7 +36,7 @@
             @if ($data_report->count() < 1)
               <p class="text-center">Riwayat transaksi tidak ditemukan.</p>
             @else
-              <div class="table-responsive p-2">
+              <div class="table-responsive">
                 <table class="table table-hover table-bordered text-center">
                   <thead>
                     <tr>
@@ -75,12 +75,12 @@
                   </tfoot>
                 </table>
               </div>
-              <div class="d-flex justify-content-start align-items-center">
+              <div class="d-flex justify-content-start align-items-center mt-4">
                 <form action="{{ route('printReport') }}" method="post">
                   @csrf
                   <input type="hidden" name="tanggal_awal" value="{{ request('tanggal_awal') }}">
                   <input type="hidden" name="tanggal_akhir" value="{{ request('tanggal_akhir') }}">
-                  <button type="submit" class="btn btn-primary ms-2">Cetak Laporan <i class="bi bi-printer-fill ms-1"></i></button>
+                  <button type="submit" class="btn btn-primary">Cetak Laporan <i class="bi bi-printer-fill ms-1"></i></button>
                 </form>
               </div>
             @endif

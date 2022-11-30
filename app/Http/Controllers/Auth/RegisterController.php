@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
+use Alert;
 
 class RegisterController extends Controller
 {
@@ -82,6 +83,7 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        return redirect('/login')->with('success', 'Akun berhasil didaftarkan! Mohon login sekarang');
+        Alert::success('Daftar Berhasil!', 'Akun berhasil didaftarkan! Mohon login sekarang')->autoClose(false);
+        return redirect('/login');
     }
 }
