@@ -69,7 +69,7 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4">
-                  <button class="btn btn-secondary me-2" onclick="history.back()">Kembali</button>
+                  <button class="btn btn-secondary me-2" type="button" onclick="history.back()">Kembali</button>
                   <button class="btn btn-primary" type="submit">Pesan Sekarang</button>
                 </div>
               </div>

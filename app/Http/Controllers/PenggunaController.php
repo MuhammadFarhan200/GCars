@@ -144,7 +144,7 @@ class PenggunaController extends Controller
             return view('pages.pesanan.index', compact('title', 'filterPesanan'));
         }
 
-        $pesanans = Pesanan::with('pemesan')->get();
+        $pesanans = Pesanan::with('pemesan')->latest()->get();
         $filterPesanan = $pesanans->filter(function ($value) {
             return $value->pemesan->id_user == auth()->user()->id;
         });

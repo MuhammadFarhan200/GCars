@@ -21,7 +21,7 @@
               <select name="id_pesanan" id="select-search" class="@error('id_pesanan') is-invalid @enderror" {{ $pesanan->count() < 1 ? 'disabled' : '' }} required>
                 @foreach ($pesanan as $listPesanan)
                   <option value="{{ $listPesanan->id }}" {{ old('id_pesanan') == $listPesanan->id ? 'selected' : '' }}>
-                    {{ $listPesanan->mobil->merek->nama . ' ' . $listPesanan->mobil->tipe . ' - ' . $listPesanan->pemesan->nama_lengkap }}
+                    {{ $listPesanan->mobil->merek->nama . ' ' . $listPesanan->mobil->tipe . ' (Dipesan Oleh ' . $listPesanan->pemesan->nama_lengkap . ')' }}
                   </option>
                 @endforeach
               </select>

@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Print Report</title>
+  <title>GCars | Print Laporan</title>
   <style type="text/css">
     .container {
       width: 100%;
+      font-size: 12px
     }
 
     .container h2,
@@ -25,6 +26,10 @@
       margin-bottom: 30px
     }
 
+    .container p {
+      text-align: center
+    }
+
     .table {
       margin-left: auto;
       margin-right: auto;
@@ -38,10 +43,14 @@
       border: 1px solid black;
     }
 
-    .table th,
-    .table td {
+    .table thead,
+    .table tfoot {
       text-align: center;
-      padding: 10px;
+    }
+
+    .table td,
+    .table th {
+      padding: 7px
     }
   </style>
 </head>
@@ -57,8 +66,9 @@
           <th>No</th>
           <th>Kode Transaksi</th>
           <th>Mobil yang Dipesan</th>
-          <th>Dipesan Oleh</th>
+          <th>Pemesan</th>
           <th>Tanggal Bayar</th>
+          <th>Total Bayar</th>
           <th>Status Transaksi</th>
         </tr>
       </thead>
@@ -75,10 +85,17 @@
             </td>
             <td>{{ $list_report->pesanan->pemesan->nama_lengkap }}</td>
             <td>{{ date('d-m-Y', strtotime($list_report->tanggal_bayar)) }}</td>
+            <td>Rp{{ number_format($list_report->total_bayar, 0, ',', '.') }}</td>
             <td>{{ $list_report->status_transaksi }}</td>
           </tr>
         @endforeach
       </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="6">Jumlah Transaksi</th>
+          <th>{{ $data_report->count() }}</td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 

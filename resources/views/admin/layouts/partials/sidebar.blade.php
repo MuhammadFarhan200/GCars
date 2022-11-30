@@ -83,7 +83,7 @@
           <li class="sidebar-item {{ request()->is('admin/pemesanan*') ? 'active' : '' }}">
             <a href="{{ route('pemesanan.index') }}" class='sidebar-link'>
               <i class="bi bi-list-ul"></i>
-              <span>Pemesanan</span>
+              <span>Pesanan</span>
             </a>
           </li>
 

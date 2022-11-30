@@ -74,7 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
 
     Route::get('laporan', [AdminController::class, 'report'])->name('report');
 
-    Route::post('laporan', [AdminController::class, 'report'])->name('report');
+    Route::post('laporan', [AdminController::class, 'report'])->name('getReport');
 
     Route::post('laporan/print', [AdminController::class, 'printReport'])->name('printReport');
 });

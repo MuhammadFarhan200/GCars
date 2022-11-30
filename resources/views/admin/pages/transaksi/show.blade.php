@@ -27,7 +27,7 @@
                 <td>{{ $transaksi->pesanan->pemesan->nama_lengkap }}</td>
               </tr>
               <tr>
-                <th>Mobil</th>
+                <th>Mobil yang Dipesan</th>
                 <td>:</td>
                 <td>
                   {{ $transaksi->pesanan->mobil->merek->nama . ' ' . $transaksi->pesanan->mobil->tipe . ' ' . $transaksi->pesanan->mobil->tahun_keluar . ', ' . $transaksi->pesanan->mobil->warna }}

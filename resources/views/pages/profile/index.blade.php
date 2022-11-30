@@ -38,7 +38,7 @@
                   <a href="/user/{{ auth()->user()->username }}/edit" class="btn btn-sm btn-primary me-1">
                     Edit <i class="fa fa-pencil"></i>
                   </a>
-                  <a href="{{ route('logout') }}" class="btn btn-sm btn-danger" onclick="event.preventDefault();logout()">
+                  <a href="{{ route('logout') }}" class="btn btn-sm btn-danger" onclick="event.preventDefault();logoutConfirm()">
                     Logout <i class="fa fa-sign-out"></i>
                   </a>
                 </div>
@@ -54,9 +54,13 @@
 
 @section('myScript')
   <script>
-    function logout() {
+    function logoutConfirm() {
       const swalWithBootstrapButtons = Swal.mixin({
-        buttonsStyling: true
+        customClass: {
+          confirmButton: 'btn btn-danger',
+          cancelButton: 'btn btn-secondary',
+        },
+        buttonsStyling: false,
       })
 
       swalWithBootstrapButtons.fire({

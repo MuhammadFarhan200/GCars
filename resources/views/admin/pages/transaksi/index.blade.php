@@ -22,12 +22,13 @@
             <table class="table table-bordered table-hover text-center" id="dataTable">
               <thead>
                 <tr>
-                  <th class="text-center">No</th>
-                  <th class="text-center">Kode Transaksi</th>
-                  <th class="text-center">Pesanan</th>
-                  <th class="text-center">Tanggal Bayar</th>
-                  <th class="text-center">Status Transaksi</th>
-                  <th class="text-center">Action</th>
+                  <th class="text-center text-nowrap">No</th>
+                  <th class="text-center text-nowrap">Kode Transaksi</th>
+                  <th class="text-center text-nowrap">Mobil yang Dipesan</th>
+                  <th class="text-center text-nowrap">Pemesan</th>
+                  <th class="text-center text-nowrap">Tanggal Bayar</th>
+                  <th class="text-center text-nowrap">Status Transaksi</th>
+                  <th class="text-center text-nowrap">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -39,8 +40,9 @@
                     <td>{{ $no++ }}</td>
                     <td>{{ $transaksi->kode_transaksi }}</td>
                     <td>
-                      {{ $transaksi->pesanan->mobil->merek->nama . '  ' . $transaksi->pesanan->mobil->tipe . ' - ' . $transaksi->pesanan->pemesan->nama_lengkap }}
+                      {{ $transaksi->pesanan->mobil->merek->nama . '  ' . $transaksi->pesanan->mobil->tipe }}
                     </td>
+                    <td>{{ $transaksi->pesanan->pemesan->nama_lengkap }}</td>
                     <td>{{ date('d M, Y', strtotime($transaksi->tanggal_bayar)) }}</td>
                     <td class="badges">
                       <span

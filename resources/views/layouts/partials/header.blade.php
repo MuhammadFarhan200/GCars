@@ -57,7 +57,11 @@
 <script>
   function logout() {
     const swalWithBootstrapButtons = Swal.mixin({
-      buttonsStyling: true
+      customClass: {
+        confirmButton: 'btn btn-danger',
+        cancelButton: 'btn btn-secondary',
+      },
+      buttonsStyling: false,
     })
 
     swalWithBootstrapButtons.fire({

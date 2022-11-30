@@ -10,8 +10,8 @@ use App\Models\Transaksi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Validator;
 use PDF;
+use Validator;
 
 class AdminController extends Controller
 {
@@ -85,13 +85,13 @@ class AdminController extends Controller
     {
         $tanggal_awal = $request->tanggal_awal;
         $tanggal_akhir = $request->tanggal_akhir;
-            if ($tanggal_awal <= $tanggal_akhir) {
-                $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
-                return view('admin.pages.report.index', compact('data_report'));
-            } else {
-                Alert::error('Oops!', 'Tanggal yang anda input tidak valid!')->autoClose(false);
-                return redirect()->back();
-            }
+        if ($tanggal_awal <= $tanggal_akhir) {
+            $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
+            return view('admin.pages.report.index', compact('data_report'));
+        } else {
+            Alert::error('Oops!', 'Tanggal yang anda input tidak valid!')->autoClose(false);
+            return redirect()->back();
+        }
         return view('admin.pages.report.index');
     }
 
@@ -102,8 +102,8 @@ class AdminController extends Controller
         if ($tanggal_akhir != null && $tanggal_akhir != null) {
             if ($tanggal_awal <= $tanggal_akhir) {
                 $data_report = Transaksi::whereBetween('tanggal_bayar', [$tanggal_awal, $tanggal_akhir])->get();
-                $pdf = PDF::loadview('admin.pages.report.print', ['data_report' => $data_report])->setPaper('a4', 'landscape');
-                return $pdf->stream('report.pdf');
+                $pdf = PDF::loadview('admin.pages.report.print', ['data_report' => $data_report])->setPaper('a4', 'portret');
+                return $pdf->stream('laporan-transaksi.pdf');
             } else {
                 Alert::error('Oops!', 'Tanggal yang anda input tidak valid!')->autoClose(false);
                 return redirect()->back();

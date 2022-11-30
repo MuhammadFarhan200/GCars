@@ -14,7 +14,7 @@
           <h3>Tambah Gambar Mobil</h3>
         </div>
         <div class="card-body">
-          <p>Mobil yang akan ditambahkan gambar: <b>{{ $mobil->merek->nama . ', ' . $mobil->tipe }}</b></p>
+          <p>Mobil yang akan ditambahkan gambar: <b>{{ $mobil->merek->nama . ' ' . $mobil->tipe }}</b></p>
           <form action="{{ route('tambahGambar.store', $mobil->id) }}" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone">
             @csrf
             <input type="hidden" name="id_mobil" value="{{ $mobil->id }}">

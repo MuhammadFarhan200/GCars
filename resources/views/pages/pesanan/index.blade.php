@@ -35,6 +35,7 @@
                   <tr>
                     <th>#</th>
                     <th>Id Pesanan</th>
+                    <th>Mobil yang Dipesan</th>
                     <th>Tanggal Pemesanan</th>
                     <th>Status Pesanan</th>
                     <th>Aksi</th>
@@ -48,6 +49,7 @@
                     <tr>
                       <th>{{ $no++ }}</th>
                       <td>{{ $pesanan->id }}</td>
+                      <td>{{ $pesanan->mobil->merek->nama . ' ' . $pesanan->mobil->tipe }}</td>
                       <td>{{ $pesanan->tanggal_pesan }}</td>
                       <td>{{ $pesanan->status_pesanan }}</td>
                       <td>
