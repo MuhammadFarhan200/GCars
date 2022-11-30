@@ -123,7 +123,7 @@ class PenggunaController extends Controller
         $pesanan->save();
 
         $mobil = Mobil::find($pesanan->id_mobil);
-        $mobil->status = 'Sold Out';
+        $mobil->status = 'sold out';
         $mobil->save();
 
         Alert::success('Done', 'Pesanan Berhasil Dibuat!')->autoClose(4000);
