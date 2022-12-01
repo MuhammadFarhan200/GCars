@@ -213,6 +213,13 @@
   margin-top: -20px !important;
 }
 
+.trainer-item .down-content .judul {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-lines: 1;
+}
+
 /* ================================= */
 /* ========== LOGIN STYLE ========== */
 /* ================================= */

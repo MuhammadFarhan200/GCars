@@ -64,7 +64,8 @@ class PenggunaController extends Controller
         $title = $mobil->merek->nama . ' ' . $mobil->tipe . ' ' . $mobil->tahun_keluar;
         $pesananAktif = Pesanan::where('id_mobil', $mobil->id)->get()->filter(fn($item) => $item->status_pesanan !== 'gagal');
         $isBooked = ($pesananAktif->count() > 0);
-        return view('pages.mobil.show', compact('title', 'mobil', 'gambar', 'isBooked'));
+        $isAdmin = Auth::user()->role->role === 'admin';
+        return view('pages.mobil.show', compact('title', 'mobil', 'gambar', 'isBooked', 'isAdmin'));
     }
 
     public function order(Mobil $mobil)

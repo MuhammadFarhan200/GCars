@@ -69,7 +69,7 @@
                     <span>
                       Rp{{ number_format($mobil->harga, 0, ',', '.') }}
                     </span>
-                    <h4>{{ $mobil->merek->nama . ' ' . $mobil->tipe }}</h4>
+                    <h4 class="judul">{{ $mobil->merek->nama . ' ' . $mobil->tipe }}</h4>
                     <p>
                       <i class="fa fa-calendar"></i> {{ $mobil->tahun_keluar }} &nbsp;&nbsp;&nbsp;
                       <i class="bi bi-palette-fill"></i> {{ $mobil->warna }} &nbsp;&nbsp;&nbsp;

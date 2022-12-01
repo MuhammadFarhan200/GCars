@@ -53,15 +53,19 @@
           <h6>Deskripsi</h6>
           <p>{!! $mobil->deskripsi !!}</p>
         </div>
-        <div class="d-flex flex-column flex-md-row justify-content-md-{{ $isBooked ? 'between' : 'end' }} align-items-md-center mx-auto mt-4">
+        <div class="d-flex flex-column flex-md-row justify-content-md-{{ $isBooked || $isAdmin ? 'between' : 'end' }} align-items-md-center mx-auto mt-4">
           @if ($isBooked)
             <div class="text-danger">
               Sudah ada yang memesan mobil ini ;_;
             </div>
+          @elseif ($isAdmin)
+            <div class="text-danger">
+              <b>Note:</b> Akun yang terdaftar sebagai staff atau admin tidak dapat melakukan pemesanan mobil ;_;
+            </div>
           @endif
           <div class="d-flex justify-content-end align-items-center mt-3 mt-md-0">
             <button onclick="history.back()" class="btn btn-secondary me-2">Kembali</button>
-            <a href="/mobil/{{ $mobil->slug }}/pesan" @class(['btn', 'btn-primary', 'disabled' => $isBooked])>Pesan</a>
+            <a href="/mobil/{{ $mobil->slug }}/pesan" @class(['btn', 'btn-primary', 'disabled' => $isBooked || $isAdmin])>Pesan</a>
           </div>
         </div>
       </div>
