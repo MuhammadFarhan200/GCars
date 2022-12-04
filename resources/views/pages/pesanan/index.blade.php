@@ -31,7 +31,7 @@
           @else
             <div class="table-responsive">
               <table class="table table-hover text-center">
-                <thead>
+                <thead class="text-nowrap">
                   <tr>
                     <th>#</th>
                     <th>Id Pesanan</th>

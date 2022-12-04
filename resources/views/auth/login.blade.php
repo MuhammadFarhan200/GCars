@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-12 col-lg-10">
+          <div class="col-md-12 col-lg-10 col-xxl-9">
             <div class="wrap d-md-flex">
               <div class="text-wrap login p-5 text-center d-flex align-items-center">
                 <div class="text w-100">

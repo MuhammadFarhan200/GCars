@@ -22,7 +22,7 @@
       <div class="card shadow border-0" style="margin-top: -50px">
         <div class="card-body p-4">
           <h3 class="mb-4">Isi Detail Pesanan Dibawah Ini</h3>
-          <form action="/pesan" method="post">
+          <form action="/pesan" method="post" id="order-form">
             @csrf
             <input type="hidden" name="id_mobil" value="{{ $mobil->id }}">
             <div class="row justify-content-center align-items-center">
@@ -64,13 +64,14 @@
                 <div class="mb-3">
                   <label for="" class="d-block">Pesanan Untuk</label>
                   <div class="col-md-6">
-                    <a href="/mobil/{{ $mobil->slug }}">{{ $mobil->merek->nama }} {{ $mobil->tipe }} tahun {{ $mobil->tahun_keluar }}</a>
-                    <img src="{{ $mobil->gambar->count() > 0 ? asset('images/mobil/' . $mobil->gambar->first()->gambar) : asset('images/mobil/not-avaliable.jpg') }}" alt="" srcset="" style="border-radius: .5rem" class="w-100 d-block mt-1">
+                    <a href="/mobil/{{ $mobil->slug }}">{{ $mobil->merek->nama . ' ' . $mobil->tipe . ' ' . $mobil->tahun_keluar }}</a>
+                    <img src="{{ $mobil->gambar->count() > 0 ? asset('images/mobil/' . $mobil->gambar->first()->gambar) : asset('images/mobil/not-avaliable.jpg') }}" alt="" srcset="" style="border-radius: .5rem"
+                      class="w-100 d-block mt-1">
                   </div>
                 </div>
                 <div class="d-flex justify-content-end align-items-center mt-4">
                   <button class="btn btn-secondary me-2" type="button" onclick="history.back()">Kembali</button>
-                  <button class="btn btn-primary" type="submit">Pesan Sekarang</button>
+                  <button class="btn btn-primary" type="submit" id="order" onclick="event.preventDefault();confirmOrder()">Pesan Sekarang</button>
                 </div>
               </div>
             </div>
@@ -79,4 +80,32 @@
       </div>
     </div>
   </section>
+@endsection
+
+@section('myScript')
+  <script>
+    function confirmOrder() {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-primary',
+          cancelButton: 'btn btn-secondary',
+        },
+        buttonsStyling: false,
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Anda Yakin?',
+        text: 'Anda akan memesan mobil {{ $mobil->merek->nama . ' ' . $mobil->tipe . ' ' . $mobil->tahun_keluar }}.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Pesan Sekarang',
+        cancelButtonText: 'Batal',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('order-form').submit();
+        }
+      })
+    }
+  </script>
 @endsection

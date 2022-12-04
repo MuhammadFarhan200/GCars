@@ -17,6 +17,12 @@
   }
 }
 
+@media (min-width: 1400px) {
+  .owl-img {
+    height: 600px;
+  }
+}
+
 .swal2-cancel.btn {
   margin-left: 10px !important;
   margin-right: 10px !important;
