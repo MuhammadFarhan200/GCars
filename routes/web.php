@@ -66,11 +66,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
 
     Route::resource('transaksi', TransaksiController::class);
 
-    Route::get('mobil/{id}/gambar', [GambarMobilController::class, 'index'])->name('tambahGambar.index');
+    Route::get('mobil/{mobil}/gambar', [GambarMobilController::class, 'index'])->name('tambahGambar.index');
 
-    Route::post('mobil/{id}/gambar', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
+    Route::post('mobil/{mobil}/gambar', [GambarMobilController::class, 'store'])->name('tambahGambar.store');
 
-    Route::post('gambar/{id}/hapus', [GambarMobilController::class, 'destroy'])->name('tambahGambar.destroy');
+    Route::post('gambar/{mobil}/hapus', [GambarMobilController::class, 'destroy'])->name('tambahGambar.destroy');
 
     Route::get('laporan', [AdminController::class, 'report'])->name('report');
 
