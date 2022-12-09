@@ -80,7 +80,7 @@
                   @csrf
                   <input type="hidden" name="tanggal_awal" value="{{ request('tanggal_awal') }}">
                   <input type="hidden" name="tanggal_akhir" value="{{ request('tanggal_akhir') }}">
-                  <button type="submit" class="btn btn-primary">Cetak Laporan <i class="bi bi-printer-fill ms-1"></i></button>
+                  <button type="submit" class="btn btn-primary">Cetak Semua <i class="bi bi-printer-fill ms-1"></i></button>
                 </form>
               </div>
             @endif
