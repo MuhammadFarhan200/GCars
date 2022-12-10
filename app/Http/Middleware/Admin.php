@@ -21,6 +21,8 @@ class Admin
             return $next($request);
         } elseif (Auth::user()->role->role === 'pengguna') {
             return redirect('errors');
-        } else {}
+        } else {
+            return redirect('errors');
+        }
     }
 }

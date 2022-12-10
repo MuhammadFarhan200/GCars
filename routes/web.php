@@ -77,6 +77,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], functio
     Route::post('laporan', [AdminController::class, 'report'])->name('getReport');
 
     Route::post('laporan/print', [AdminController::class, 'printReport'])->name('printReport');
+
+    Route::get('laporan/{transaksi}', [AdminController::class, 'singleReport'])->name('singleReport');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

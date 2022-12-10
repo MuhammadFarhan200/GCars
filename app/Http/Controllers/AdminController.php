@@ -113,4 +113,11 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
+
+    public function singleReport($id)
+    {
+        $data_report = Transaksi::find($id);
+        $pdf = PDF::loadview('admin.pages.report.single', compact('data_report'))->setPaper('a4', 'portret');
+        return $pdf->stream('laporan-transaksi.pdf');
+    }
 }

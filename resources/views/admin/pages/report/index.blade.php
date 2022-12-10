@@ -47,6 +47,7 @@
                       <th class="text-nowrap">Tanggal Bayar</th>
                       <th class="text-nowrap">Total Bayar</th>
                       <th class="text-nowrap">Status Transaksi</th>
+                      <th class="text-nowrap">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -64,6 +65,9 @@
                         <td>{{ date('d M, Y', strtotime($list_report->tanggal_bayar)) }}</td>
                         <td>Rp{{ number_format($list_report->total_bayar, 0, ',', '.') }}</td>
                         <td>{{ $list_report->status_transaksi }}</td>
+                        <td class="text-nowrap">
+                          <a href="{{ route('singleReport', $list_report->id) }}" class="btn btn-info">Cetak <i class="bi bi-printer-fill ms-1"></i></a>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>
