@@ -18,20 +18,20 @@
           </a>
         </div>
         <div class="card-body m-0">
-          <div class="table-responsive p-2 pb-4">
+          <div class="table-responsive p-2">
             <table class="table table-bordered table-hover text-center" id="dataTable">
-              <thead>
+              <thead class="text-center text-nowrap">
                 <tr>
-                  <th class="text-center text-nowrap">No</th>
-                  <th class="text-center text-nowrap">Kode Transaksi</th>
-                  <th class="text-center text-nowrap">Mobil yang Dipesan</th>
-                  <th class="text-center text-nowrap">Pemesan</th>
-                  <th class="text-center text-nowrap">Tanggal Bayar</th>
-                  <th class="text-center text-nowrap">Status Transaksi</th>
-                  <th class="text-center text-nowrap">Action</th>
+                  <th>No</th>
+                  <th>Kode Transaksi</th>
+                  <th>Mobil yang Dipesan</th>
+                  <th class="text-center">Pemesan</th>
+                  <th>Tanggal Bayar</th>
+                  <th class="text-center">Status Transaksi</th>
+                  <th class="text-center">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="text-nowrap">
                 @php
                   $no = 1;
                 @endphp
@@ -71,6 +71,12 @@
                 @endforeach
               </tbody>
             </table>
+          </div>
+          <div class="badges mt-4">
+            <h5>Keterangan:</h5>
+            <p class="mb-2"><span class="badge py-2 me-1 bg-warning"><i class="bi bi-pencil-square"></i></span> Tombol untuk pindah ke halaman edit</p>
+            <p class="mb-2"><span class="badge py-2 me-1 bg-info"><i class="bi bi-eye-fill"></i></span> Tombol untuk pindah ke halaman detail</p>
+            <p class="mb-2"><span class="badge py-2 me-1 bg-danger"><i class="bi bi-trash-fill"></i></span> Tombol untuk menghapus data</p>
           </div>
         </div>
       </div>

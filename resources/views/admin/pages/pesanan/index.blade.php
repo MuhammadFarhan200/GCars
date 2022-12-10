@@ -57,6 +57,11 @@
               </tbody>
             </table>
           </div>
+          <div class="badges mt-4">
+            <h5>Keterangan:</h5>
+            <p class="mb-2"><span class="badge py-2 me-1 bg-warning"><i class="bi bi-pencil-square"></i></span> Tombol untuk pindah ke halaman edit</p>
+            <p class="mb-2"><span class="badge py-2 me-1 bg-info"><i class="bi bi-eye-fill"></i></span> Tombol untuk pindah ke halaman detail</p>
+          </div>
         </div>
       </div>
     </div>

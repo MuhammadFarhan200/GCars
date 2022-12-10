@@ -2,7 +2,7 @@
 
 @section('title-page', 'Tambah Gambar Mobil')
 @section('page-heading')
-  <h2>Mobil</h2>
+  <h2>Gambar Mobil</h2>
   <p>Tambahkan <b>gambar mobil</b> dengan menguoload gambar pada forum dibawah</p>
 @endsection
 

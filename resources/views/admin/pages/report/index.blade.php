@@ -38,19 +38,19 @@
             @else
               <div class="table-responsive">
                 <table class="table table-hover table-bordered text-center">
-                  <thead>
+                  <thead class="text-nowrap">
                     <tr>
                       <th>No</th>
-                      <th class="text-nowrap">Kode Transaksi</th>
-                      <th class="text-nowrap">Mobil yang Dipesan</th>
-                      <th class="text-nowrap">Pemesan</th>
-                      <th class="text-nowrap">Tanggal Bayar</th>
-                      <th class="text-nowrap">Total Bayar</th>
-                      <th class="text-nowrap">Status Transaksi</th>
-                      <th class="text-nowrap">Aksi</th>
+                      <th>Kode Transaksi</th>
+                      <th>Mobil yang Dipesan</th>
+                      <th>Pemesan</th>
+                      <th>Tanggal Bayar</th>
+                      <th>Total Bayar</th>
+                      <th>Status Transaksi</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="text-nowrap">
                     @php
                       $no = 1;
                     @endphp
@@ -58,14 +58,14 @@
                       <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $list_report->kode_transaksi }}</td>
-                        <td class="text-nowrap">
+                        <td>
                           {{ $list_report->pesanan->mobil->merek->nama . '  ' . $list_report->pesanan->mobil->tipe }}
                         </td>
                         <td>{{ $list_report->pesanan->pemesan->nama_lengkap }}</td>
                         <td>{{ date('d M, Y', strtotime($list_report->tanggal_bayar)) }}</td>
                         <td>Rp{{ number_format($list_report->total_bayar, 0, ',', '.') }}</td>
                         <td>{{ $list_report->status_transaksi }}</td>
-                        <td class="text-nowrap">
+                        <td>
                           <a href="{{ route('singleReport', $list_report->id) }}" class="btn btn-info">Cetak <i class="bi bi-printer-fill ms-1"></i></a>
                         </td>
                       </tr>
