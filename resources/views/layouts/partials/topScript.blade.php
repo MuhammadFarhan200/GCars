@@ -7,3 +7,5 @@
 <link rel="stylesheet" href="{{ asset('owlcarousel/dist/assets/owl.theme.default.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/myCss/style.css') }}">
 <link rel="stylesheet" href="{{ asset('aos/dist/aos.css') }}">
+<link rel="shortcut icon" href="{{ asset('frontend/images/logo/gcars-logo.svg') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('frontend/images/logo/gcars-logo.png') }}" type="image/png">
