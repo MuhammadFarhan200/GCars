@@ -65,6 +65,7 @@
 }
 
 .uploadFile {
+  cursor: pointer;
   position: absolute;
   opacity: 0;
 }
@@ -546,3 +547,10 @@
 /* ================================= */
 /* ======== END LOGIN STYLE ======== */
 /* ================================= */
+
+
+.cursor-nodrop {
+  cursor: no-drop !important;
+  opacity: 0.65;
+  
+}

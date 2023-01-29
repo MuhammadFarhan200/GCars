@@ -71,7 +71,7 @@
                   <label for="">Tahun Keluar</label>
                   <select name="tahun_keluar" id="tahun_keluar" class="form-select @error('tahun_keluar') is-invalid @enderror" required>
                       <option {{ $mobil->tahun_keluar ? '' : 'selected' }} hidden>Pilih tahun keluar</option>
-                      @php for($i = 1990;$i <= 2022; $i++) : @endphp
+                      @php for($i = 1990;$i <= date('Y') $i++) : @endphp
                       <option value="{{ $i }}" {{ $mobil->tahun_keluar == $i ? 'selected' : '' }}>{{ $i }}</option>
                       @php endfor; @endphp
                     </select>

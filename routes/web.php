@@ -1,13 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\GambarMobilController;
 use App\Http\Controllers\MerekController;
 use App\Http\Controllers\MobilController;
-use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PesananContoller;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\TransaksiController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GambarMobilController;
 
 /*
 |--------------------------------------------------------------------------

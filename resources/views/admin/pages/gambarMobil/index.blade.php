@@ -20,7 +20,7 @@
             <input type="hidden" name="id_mobil" value="{{ $mobil->id }}">
           </form>
           <p class="mt-2">
-            <b>Note: </b>agar gambar muncul setelah diupload, mohon untuk klik icon atau tombol refresh!
+            <b>Note: </b>agar gambar muncul setelah diupload, mohon untuk klik icon atau tombol refresh dibawah!
           </p>
           <div class="d-flex justify-content-end mt-4">
             <a href="{{ route('mobil.index') }}" class="btn btn-secondary me-3">Kembali</a>

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Alert;
+use App\Models\User;
 use App\Models\Merek;
 use App\Models\Mobil;
 use App\Models\Pesanan;
+use PDF;
 use App\Models\Transaksi;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PDF;
-use Validator;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {

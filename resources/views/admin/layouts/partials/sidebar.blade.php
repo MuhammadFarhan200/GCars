@@ -40,7 +40,7 @@
     </div>
     <div class="sidebar-menu">
       <ul class="menu">
-        <li class="sidebar-title">Menu</li>
+        <li class="sidebar-title">General</li>
 
         @if (Auth::user()->role->role === 'admin')
           <li class="sidebar-item {{ request()->is('admin') || request()->is('home') ? 'active' : '' }}">

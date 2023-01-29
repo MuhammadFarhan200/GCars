@@ -74,7 +74,7 @@
                   <tfoot>
                     <tr>
                       <th colspan="6">Jumlah Transaksi</th>
-                      <th>{{ $data_report->count() }}</th>
+                      <th colspan="2">{{ $data_report->count() }}</th>
                     </tr>
                   </tfoot>
                 </table>

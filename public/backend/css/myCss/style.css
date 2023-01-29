@@ -41,6 +41,7 @@ option:hover {
 }
 
 .uploadFile {
+  cursor: pointer;
   position: absolute;
   opacity: 0;
 }
