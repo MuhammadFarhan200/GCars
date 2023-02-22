@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Merek;
 use App\Models\Mobil;
 use App\Models\Pesanan;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -105,7 +105,7 @@ class AdminController extends Controller
                 $pdf = PDF::loadview('admin.pages.report.print', ['data_report' => $data_report])->setPaper('a4', 'portret');
                 return $pdf->stream('laporan-transaksi.pdf');
             } else {
-                Alert::error('Oops!', 'Tanggal yang anda input tidak valid!')->autoClose(false);
+                Alert::error('Oops!', 'Tangga l yang anda input tidak valid!')->autoClose(false);
                 return redirect()->back();
             }
         } else {
